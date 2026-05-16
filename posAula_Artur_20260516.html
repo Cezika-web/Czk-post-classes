@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Artur — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{ height:100%; margin:0; padding:0; background:var(--page-bg); font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif; }
+
+    .wrap{ min-height:100%; display:flex; align-items:flex-start; justify-content:center; padding:48px 20px; }
+
+    .card{ width:100%; max-width:var(--card-width); background:var(--card-bg); border-radius:18px; padding:28px; box-shadow:0 6px 22px rgba(33,47,60,0.06); border:1px solid rgba(15,33,64,0.03); }
+
+    header{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px; }
+
+    .badge{ background:linear-gradient(180deg,#fff,#f2fbff); border:1px solid var(--border); padding:8px 12px; border-radius:999px; color:var(--accent); font-weight:700; font-size:0.85rem; }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:none; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; cursor:pointer; box-shadow:0 6px 14px rgba(47,134,230,0.12); }
+    .btn.secondary{ background:#fff; color:var(--accent); border:1px solid var(--border); box-shadow:none; }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{ background:#fbfdff; border-radius:12px; padding:16px; border:1px solid var(--border); }
+    .outline-card{ border-radius:10px; border:1px solid var(--border); padding:16px; background:#fff; }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+    .vocab{ flex:1; min-width:220px; border-radius:10px; padding:14px; border:2px solid #dfeefe; background:#fff; }
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+    .media-btn{ background:#fff; border:1px solid var(--border); padding:12px 16px; border-radius:10px; font-weight:700; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:10px; min-width:200px; justify-content:center; }
+
+    .homework{ background:#f3fff6; border:1px solid #d7f5df; border-radius:10px; padding:14px; margin-top:10px; }
+
+    .speaking{ margin-top:18px; padding:16px; border-radius:12px; background:linear-gradient(180deg,#ffffff,#fbfdff); border:1px solid var(--border); max-width:640px; }
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{ width:100%; border-collapse:collapse; border-radius:10px; overflow:hidden; background:#fff; border:1px solid #e1e9f5; font-size:0.9rem; }
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Verbos no Passado, Preposições de Tempo &amp; Tecnologia</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Artur &nbsp;•&nbsp;
+            <strong>Data:</strong> 16/05/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula focada no uso correto de verbos no passado simples, conjugação na terceira pessoa do singular no presente, e introdução às preposições de tempo <em>in / on / at</em> — com vocabulário temático de tecnologia e robótica.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma conversa sobre o final de semana de Artur. Ele contou que dormiu pouco (apenas 3 horas de manhã e 2 horas à tarde) e que não foi a São Paulo porque sua mãe não o deixou. O professor aproveitou esse contexto real para trabalhar os verbos no passado: <em>woke up, slept, didn't go, didn't let</em>. Um ponto importante reforçado foi o uso do auxiliar <strong>did/didn't</strong> — quando se usa o auxiliar, o verbo principal permanece no presente; quando não se usa, o verbo precisa estar conjugado no passado.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Em seguida, Artur compartilhou sobre seu projeto universitário de robótica: criar um mini robô com inteligência artificial que reconhece gestos humanos. Ele explicou a diferença entre <strong>Arduino</strong> (usado para programar e automatizar robôs) e <strong>Raspberry Pi</strong> (um mini computador completo). O professor usou esse contexto para reforçar a conjugação na terceira pessoa do singular no presente — quando o sujeito é <em>he, she</em> ou <em>it</em>, os verbos recebem <em>-s</em> ou <em>-es</em>: <em>Arduino does, has, costs; Raspberry Pi does</em>.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O professor também assistiu com Artur a um vídeo sobre as <strong>10 coisas que mais envelhecem as pessoas</strong>, trabalhando vocabulário como <em>smoking, junk food, chronic stress, sleep deprivation, dehydration, obesity, sunburn, air pollution, loneliness</em>. Artur praticou a compreensão auditiva e tentou adivinhar os itens da lista antes de assistir.
+            </p>
+            <p style="margin:0;">
+              A última parte da aula foi dedicada às <strong>preposições de tempo</strong> — <em>in, on, at</em> — com a lógica do triângulo de especificidade: <em>in</em> para períodos longos (meses, anos), <em>on</em> para dias da semana e datas específicas, e <em>at</em> para horários exatos. O professor também abordou exceções: <em>at night</em> (à noite), <em>in the morning / afternoon</em>, e <em>on the weekend</em>.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul style="margin:0;padding-left:18px;font-size:0.95rem;line-height:1.9;">
+              <li>Yesterday I woke up and slept three hours. — Ontem eu acordei e dormi três horas.</li>
+              <li>I didn't go to São Paulo. — Eu não fui para São Paulo.</li>
+              <li>She didn't let me go. — Ela não me deixou ir.</li>
+              <li>I was studying a lot. — Eu estava estudando muito.</li>
+              <li>We will have exams on Wednesday and Friday. — Teremos provas na quarta e na sexta.</li>
+              <li>Arduino does, Arduino has, Arduino costs. — Arduino faz, Arduino tem, Arduino custa.</li>
+              <li>Raspberry Pi is a mini computer. — O Raspberry Pi é um mini computador.</li>
+              <li>I will smile for the robot. — Eu vou sorrir para o robô.</li>
+              <li>The robot walks and recognizes gestures. — O robô anda e reconhece gestos.</li>
+              <li>It costs around three thousand reais. — Custa em torno de três mil reais.</li>
+              <li>I took a project at my university. — Eu peguei um projeto na minha universidade.</li>
+              <li>I found this piece online. — Eu encontrei essa peça online.</li>
+              <li>Anatel donated the equipment. — A Anatel doou o equipamento.</li>
+              <li>I have six months to finish. — Eu tenho seis meses para terminar.</li>
+              <li>I will do all the questions and send my answers to you. — Vou fazer todas as questões e te mandar as respostas.</li>
+              <li>At 7:30, at noon, at midnight. — Às 7h30, ao meio-dia, à meia-noite.</li>
+              <li>In the morning, in the afternoon, at night. — De manhã, à tarde, à noite.</li>
+              <li>On Sunday, on the weekend. — No domingo, no final de semana.</li>
+              <li>In five minutes, in half an hour. — Em cinco minutos, em meia hora.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Sleep deprivation</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) privação de sono</em><br>
+                <small>Sleep deprivation is one of the things that ages you the fastest.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Gestures</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) gestos, gesticulações</em><br>
+                <small>The robot recognizes human gestures and responds to them.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+
+            <h3 style="margin-top:0;">Tecnologia e robótica</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0 0 12px 0;padding-left:18px;">
+              <li><strong>Arduino</strong> – placa programável usada para controlar robôs e automatizar tarefas</li>
+              <li><strong>Raspberry Pi</strong> – mini computador completo (com entradas USB, porta Ethernet, etc.)</li>
+              <li><strong>robot / robots</strong> – robô / robôs</li>
+              <li><strong>gestures</strong> – gestos</li>
+              <li><strong>artificial intelligence (AI)</strong> – inteligência artificial</li>
+              <li><strong>automate / automates</strong> – automatizar / automatiza</li>
+              <li><strong>peripheral</strong> – periférico (dispositivo externo conectado ao computador)</li>
+              <li><strong>Ethernet port</strong> – porta de rede (cabo de internet)</li>
+              <li><strong>micro SD</strong> – cartão de memória micro SD</li>
+              <li><strong>program</strong> – programar</li>
+              <li><strong>donate / donated</strong> – doar / doou</li>
+              <li><strong>earn / earns</strong> – ganhar dinheiro / ganha (diferente de <em>win</em>, que é para competições)</li>
+              <li><strong>cost / costs</strong> – custar / custa</li>
+              <li><strong>find / found</strong> – encontrar / encontrou</li>
+              <li><strong>take / took</strong> – pegar / pegou</li>
+            </ul>
+
+            <h3>Saúde e envelhecimento (vídeo)</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0 0 12px 0;padding-left:18px;">
+              <li><strong>age (verbo)</strong> – envelhecer</li>
+              <li><strong>age (substantivo)</strong> – idade</li>
+              <li><strong>old (adjetivo)</strong> – velho(a)</li>
+              <li><strong>smoking</strong> – fumar / tabagismo</li>
+              <li><strong>junk food</strong> – comida ultraprocessada / fast food</li>
+              <li><strong>chronic stress</strong> – estresse crônico</li>
+              <li><strong>sleep deprivation</strong> – privação de sono</li>
+              <li><strong>dehydration</strong> – desidratação</li>
+              <li><strong>obesity</strong> – obesidade</li>
+              <li><strong>sunburn</strong> – queimadura de sol</li>
+              <li><strong>air pollution</strong> – poluição do ar</li>
+              <li><strong>loneliness</strong> – solidão</li>
+              <li><strong>skin cancer</strong> – câncer de pele</li>
+              <li><strong>sunblock</strong> – protetor solar</li>
+              <li><strong>guess</strong> – adivinhar</li>
+              <li><strong>guest</strong> – convidado(a) (cuidado: som diferente de <em>guess</em>)</li>
+            </ul>
+
+            <h3>Preposições de tempo</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0;padding-left:18px;">
+              <li><strong>in</strong> – usado com meses, anos e períodos longos: <em>in April, in 2026, in five minutes</em></li>
+              <li><strong>on</strong> – usado com dias da semana, datas e fins de semana: <em>on Sunday, on May 12th, on the weekend</em></li>
+              <li><strong>at</strong> – usado com horários exatos e à noite: <em>at 7:30, at noon, at midnight, at night</em></li>
+              <li><strong>in the morning / afternoon</strong> – de manhã / à tarde</li>
+              <li><strong>at night</strong> – à noite (exceção: usa <em>at</em>, não <em>in</em>)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.9rem;">Pontos de atenção identificados durante a aula:</p>
+
+            <p style="margin:0 0 6px 0;"><strong>1. Verbo no passado: esquecer de conjugar</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>Yesterday I wake up / I sleep three hours</em><br>
+              ✅ <strong>Yesterday I woke up / I slept three hours</strong> — ao falar de eventos passados, o verbo precisa estar no passado. Os verbos <em>wake → woke</em> e <em>sleep → slept</em> são irregulares e precisam ser memorizados.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>2. Uso do did/didn't: verbo principal fica no presente</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>She didn't let me went / I didn't went</em><br>
+              ✅ <strong>She didn't let me go / I didn't go</strong> — quando se usa o auxiliar <em>did/didn't</em>, o verbo principal sempre fica no infinitivo (presente). O <em>did</em> já carrega o passado.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>3. Terceira pessoa do singular no presente: conjugar o verbo</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>Arduino have / Arduino do / Arduino cost</em><br>
+              ✅ <strong>Arduino has / Arduino does / Arduino costs</strong> — quando o sujeito é <em>he, she</em> ou <em>it</em> (terceira pessoa singular) no presente, o verbo recebe <em>-s</em> ou <em>-es</em>.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>4. "Earn" × "Win": ganhar dinheiro vs. ganhar competição</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>I win 3000 reais per month</em><br>
+              ✅ <strong>I earn 3000 reais per month</strong> — <em>earn</em> é usado para salário e rendimentos. <em>Win</em> é reservado para competições e prêmios: <em>Brazil won the championship.</em>
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>5. Verbo regular no passado: adicionar -ed (não usar did junto)</strong></p>
+            <p style="margin:0 0 0 0;font-size:0.94rem;">
+              ❌ <em>Anatel did donate / Anatel did donated</em><br>
+              ✅ <strong>Anatel donated</strong> — verbos regulares formam o passado com <em>-ed</em>. O auxiliar <em>did</em> só é usado em negativas (<em>didn't donate</em>) ou perguntas (<em>Did Anatel donate?</em>), nunca junto com o verbo já no passado.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/QXhEci4_UUo"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~30 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Artur</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~16 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0;padding-left:18px;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong> para fixar o vocabulário e as estruturas.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
