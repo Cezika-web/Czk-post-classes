@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Lucas — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{ padding:8px 10px; text-align:left; }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Body Image, Fitness Culture, Esteroides &amp; Ozempic</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Lucas &nbsp;•&nbsp;
+            <strong>Data:</strong> 15/05/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula conversacional em grupo com foco em vocabulário temático sobre corpo, saúde e cultura fitness — incluindo análise de vídeos sobre esteroides e Ozempic, além de correções de estrutura e pronúncia.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma conversa informal sobre o cotidiano dos alunos. Lucas mencionou estar com dor de cabeça por causa dos óculos quebrados e que estava de férias do trabalho — mas não da faculdade. O professor aproveitou para introduzir o termo <strong>staycation</strong>: férias em que se fica em casa, combinando <em>stay</em> (ficar) + <em>vacation</em> (férias). Lucas também comentou que iria a São Paulo no domingo para assistir a uma palestra sobre cibersegurança.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O tema central da aula foi <strong>body image</strong> (imagem corporal) e a cultura fitness no Brasil. O professor apresentou dados sobre o mercado de academias: o Brasil é o segundo maior do mundo em número de academias, atrás apenas dos Estados Unidos, com cerca de 34.500 unidades. A turma debateu os motivos para tantas academias no país, incluindo pressão estética, redes sociais e a cultura de "postar foto na academia".
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Em seguida, o professor apresentou um vídeo sobre os países que mais consomem <strong>esteroides</strong> por capita. O top 5 incluiu: EUA (1º), Brasil (2º), Arábia Saudita (3º), Noruega (4º) e Reino Unido (5º). A turma debateu os motivos — pressão estética, influência americana na cultura brasileira e o desejo por resultados rápidos.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Por fim, a aula abordou o <strong>Ozempic</strong> — o oposto dos esteroides. O professor reproduziu um vídeo explicando como o medicamento funciona: ele age no cérebro reduzindo o apetite, estabiliza o açúcar no sangue, retarda o esvaziamento do estômago e prolonga a sensação de saciedade. Os efeitos colaterais mencionados foram náusea e diarreia. A turma discutiu se o uso é justificável e em quais situações.
+            </p>
+            <p style="margin:0;">
+              Ao longo da aula, o professor corrigiu estruturas importantes como <em>I am on vacation</em> (não "I am with vacation"), o uso correto das preposições <em>in / on</em> com tempo, e a diferença entre <em>lose weight</em> (presente) e <em>lost weight</em> (passado).
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul style="margin:0;padding-left:18px;font-size:0.95rem;line-height:1.9;">
+              <li>I have a headache. — Estou com dor de cabeça.</li>
+              <li>I broke my glasses. — Eu quebrei meus óculos.</li>
+              <li>I am on vacation. — Estou de férias.</li>
+              <li>I will go to São Paulo on Sunday. — Vou para São Paulo no domingo.</li>
+              <li>I'm going to watch a talk about cybersecurity. — Vou assistir a uma palestra sobre cibersegurança.</li>
+              <li>Brazil has one of the biggest fitness markets in the world. — O Brasil tem um dos maiores mercados fitness do mundo.</li>
+              <li>More than 60% of Brazilians are overweight. — Mais de 60% dos brasileiros estão acima do peso.</li>
+              <li>They use steroids for faster results. — Eles usam esteroides para resultados mais rápidos.</li>
+              <li>Ozempic reduces your appetite. — O Ozempic reduz seu apetite.</li>
+              <li>It slows down how fast your stomach empties food. — Ele retarda o esvaziamento do estômago.</li>
+              <li>You lose weight as you eat less. — Você perde peso porque come menos.</li>
+              <li>I try to go to the gym at least 3 times a week. — Tento ir à academia pelo menos 3 vezes por semana.</li>
+              <li>If you stay home on vacation, it's a staycation. — Se você fica em casa nas férias, é uma "staycation".</li>
+              <li>It's profitable. — É lucrativo.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Staycation</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) férias em casa, sem viajar</em><br>
+                <small>I'm on a staycation this week — just relaxing at home.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Overweight</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) acima do peso</em><br>
+                <small>More than half of Brazil's population is overweight.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+
+            <h3 style="margin-top:0;">Corpo e saúde</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0 0 12px 0;padding-left:18px;">
+              <li><strong>headache</strong> – dor de cabeça</li>
+              <li><strong>earache</strong> – dor de ouvido</li>
+              <li><strong>glasses</strong> – óculos</li>
+              <li><strong>belly</strong> – barriga</li>
+              <li><strong>muscles</strong> – músculos</li>
+              <li><strong>overweight</strong> – acima do peso</li>
+              <li><strong>obese / obesity</strong> – obeso / obesidade</li>
+              <li><strong>lose weight</strong> – perder peso</li>
+              <li><strong>muscle loss</strong> – perda de massa muscular</li>
+              <li><strong>appetite</strong> – apetite</li>
+              <li><strong>blood sugar</strong> – açúcar no sangue</li>
+              <li><strong>cravings</strong> – vontade de comer algo específico, fissura</li>
+              <li><strong>diarrhea</strong> – diarreia</li>
+              <li><strong>nausea</strong> – náusea</li>
+            </ul>
+
+            <h3>Cultura fitness e sociedade</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0 0 12px 0;padding-left:18px;">
+              <li><strong>body image</strong> – imagem corporal</li>
+              <li><strong>body pressure</strong> – pressão estética / pressão corporal</li>
+              <li><strong>fitness culture</strong> – cultura fitness</li>
+              <li><strong>gym / gyms</strong> – academia / academias</li>
+              <li><strong>workout</strong> – treino</li>
+              <li><strong>in shape / look fit</strong> – em forma / aparência saudável</li>
+              <li><strong>steroids</strong> – esteroides</li>
+              <li><strong>per capita</strong> – por pessoa / por habitante</li>
+              <li><strong>profitable</strong> – lucrativo (não "lucrative")</li>
+              <li><strong>subscription</strong> – mensalidade / assinatura (de academia)</li>
+              <li><strong>treadmill</strong> – esteira</li>
+              <li><strong>staycation</strong> – férias em casa</li>
+              <li><strong>talk / workshop</strong> – palestra / workshop</li>
+              <li><strong>cybersecurity</strong> – cibersegurança</li>
+            </ul>
+
+            <h3>Ozempic — vocabulário do vídeo</h3>
+            <ul style="font-size:0.94rem;line-height:1.9;margin:0;padding-left:18px;">
+              <li><strong>bloodstream</strong> – corrente sanguínea</li>
+              <li><strong>feel full</strong> – sentir-se saciado(a)</li>
+              <li><strong>reducing your appetite</strong> – reduzindo seu apetite</li>
+              <li><strong>stabilizes your blood sugar</strong> – estabiliza o açúcar no sangue</li>
+              <li><strong>sudden cravings</strong> – vontades repentinas de comer</li>
+              <li><strong>stomach empties</strong> – esvaziamento do estômago</li>
+              <li><strong>feel sick</strong> – sentir-se mal / enjoado(a)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.9rem;">Pontos de atenção identificados durante a aula:</p>
+
+            <p style="margin:0 0 6px 0;"><strong>1. "I am with vacation" → I am on vacation</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>I am with vacation / I am in vacation</em><br>
+              ✅ <strong>I am on vacation</strong> — a preposição correta é <em>on</em>. Em inglês, usamos <em>on vacation</em>, nunca <em>with</em> ou <em>in</em>.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>2. Preposição de tempo: "in Sunday" → on Sunday</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>I will go to São Paulo in Sunday / to Sunday</em><br>
+              ✅ <strong>I will go to São Paulo on Sunday</strong> — dias da semana sempre usam <em>on</em>. Use <em>in</em> para meses, anos e períodos longos; <em>on</em> para dias específicos.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>3. "I don't fix yet" → I haven't fixed it yet</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>I don't fix yet</em><br>
+              ✅ <strong>I haven't fixed it yet</strong> — com <em>yet</em> (ainda), usa-se o Present Perfect. A estrutura é: <em>haven't/hasn't + past participle + yet</em>.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>4. "Lucrative" não existe em inglês → profitable</strong></p>
+            <p style="margin:0 0 16px 0;font-size:0.94rem;">
+              ❌ <em>It's lucrative</em> (falso cognato direto do português)<br>
+              ✅ <strong>It's profitable</strong> — a palavra correta em inglês é <em>profitable</em>. <em>Lucrative</em> até existe em inglês formal, mas <em>profitable</em> é muito mais natural no dia a dia.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>5. "Lost weight" × "lose weight"</strong></p>
+            <p style="margin:0 0 0 0;font-size:0.94rem;">
+              ❌ <em>They lost weight</em> (quando quer dizer no geral / presente)<br>
+              ✅ <strong>lose weight</strong> = perder peso (presente/geral) &nbsp;|&nbsp; <strong>lost weight</strong> = perdeu peso (passado)<br>
+              Exemplo: <em>Ozempic helps you lose weight.</em> / <em>She lost 10 kilos last year.</em>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/HkH_teP6gAg"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">50%</span></td>
+                <td class="talk-time">~23 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Lucas</span></td>
+                <td><span class="talk-percent">50%</span></td>
+                <td class="talk-time">~23 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0;padding-left:18px;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong> para fixar o vocabulário e as estruturas.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
