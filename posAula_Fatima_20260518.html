@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Fatima — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Convites, eventos e WH Questions</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Fatima &nbsp;•&nbsp;
+            <strong>Data:</strong> 05/18/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula sobre convites para eventos, respostas naturais, horários, lugares e revisão de WH Questions.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, revisamos como falar sobre o final de semana e retomamos a expressão <strong>Pretty good</strong>, com atenção à pronúncia mais natural. Também praticamos <strong>Same as always</strong> para responder “o mesmo de sempre”, trabalhando a ligação entre as palavras para a fala ficar mais fluida.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              A parte principal da aula foi a revisão de <strong>convites para eventos</strong>. A aluna praticou como aceitar, recusar e continuar uma conversa usando perguntas como <em>What time?</em>, <em>Where?</em>, <em>When?</em> e <em>Would you like to...?</em>. Trabalhamos exemplos com cinema, teatro, show, jogo de basquete e outros eventos.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também revisamos o uso de <strong>there is</strong> e <strong>there are</strong>, além da preposição <strong>at</strong> para indicar horário e local específico, como em <em>at 7:30</em> e <em>at the theater</em>. No final, ficou claro que o próximo foco precisa ser memorizar melhor as <strong>WH questions</strong>, principalmente <em>what, where, when, who</em> e <em>what time</em>.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Would you like to...?</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) Você gostaria de...?</em><br>
+                <small>Would you like to go to a movie?</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>What time?</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) Que horas?</em><br>
+                <small>What time do you want to meet?</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Convites e respostas</h3>
+            <ul>
+              <li><strong>Would you like to...?</strong> – Você gostaria de...?</li>
+              <li><strong>Would you like to go to a movie?</strong> – Você gostaria de ir ao cinema/ver um filme?</li>
+              <li><strong>Do you want to...?</strong> – Você quer...?</li>
+              <li><strong>That sounds good.</strong> – Parece bom / Boa ideia.</li>
+              <li><strong>That's not for me.</strong> – Isso não é para mim / Não faz meu estilo.</li>
+              <li><strong>That's more my style.</strong> – Isso faz mais meu estilo.</li>
+              <li><strong>I'm a big fan.</strong> – Eu sou muito fã.</li>
+              <li><strong>Let's meet...</strong> – Vamos nos encontrar...</li>
+              <li><strong>Before the movie</strong> – Antes do filme.</li>
+            </ul>
+
+            <h3>Eventos e lugares</h3>
+            <ul>
+              <li><strong>movie</strong> – filme</li>
+              <li><strong>theater</strong> – teatro</li>
+              <li><strong>concert</strong> – show / concerto</li>
+              <li><strong>basketball game</strong> – jogo de basquete</li>
+              <li><strong>talk</strong> – palestra / conversa</li>
+              <li><strong>stadium</strong> – estádio</li>
+              <li><strong>bookstore</strong> – livraria</li>
+              <li><strong>at the theater</strong> – no teatro</li>
+              <li><strong>at 7:30</strong> – às 7h30</li>
+            </ul>
+
+            <h3>WH Questions</h3>
+            <ul>
+              <li><strong>What?</strong> – O quê?</li>
+              <li><strong>Where?</strong> – Onde?</li>
+              <li><strong>When?</strong> – Quando?</li>
+              <li><strong>Who?</strong> – Quem?</li>
+              <li><strong>What time?</strong> – Que horas?</li>
+              <li><strong>Where do you want to meet?</strong> – Onde você quer se encontrar?</li>
+              <li><strong>What time do you want to meet?</strong> – Que horas você quer se encontrar?</li>
+            </ul>
+
+            <h3>Outras expressões da aula</h3>
+            <ul>
+              <li><strong>Pretty good.</strong> – Muito bem / bem até.</li>
+              <li><strong>Same as always.</strong> – O mesmo de sempre.</li>
+              <li><strong>There is</strong> – Há / existe / tem (singular).</li>
+              <li><strong>There are</strong> – Há / existem / tem (plural).</li>
+              <li><strong>Way past my bedtime.</strong> – Muito depois do meu horário de dormir.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Pretty good.</li>
+              <li>Same as always.</li>
+              <li>Would you like to go to a movie?</li>
+              <li>Would you like to go to a basketball game?</li>
+              <li>That sounds good.</li>
+              <li>That's not for me.</li>
+              <li>That's more my style.</li>
+              <li>What time do you want to meet?</li>
+              <li>Where do you want to meet?</li>
+              <li>Let's meet at 7:30.</li>
+              <li>Let's meet at the theater.</li>
+              <li>There is a movie at the theater.</li>
+              <li>There are many events this week.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Pretty good</strong>: atenção à pronúncia de <em>pretty</em>, evitando separar demais como “pri-de”. A ideia é soar mais conectado: <em>pretty good</em>.</li>
+              <li><strong>Same as always</strong>: não pronunciar palavra por palavra de forma travada. O professor trabalhou a ligação entre <em>same</em> + <em>as</em> + <em>always</em>.</li>
+              <li><strong>There is x There are</strong>: <em>there is</em> para singular e <em>there are</em> para plural. Ex.: <em>There is a movie</em> / <em>There are events</em>.</li>
+              <li><strong>Movie x theater</strong>: <em>movie</em> é o evento/filme; <em>theater</em> é o lugar. Então: <em>a movie at the theater</em>.</li>
+              <li><strong>At</strong>: usado para horário e lugar específico. Ex.: <em>at 7:30</em>, <em>at the theater</em>, <em>at the stadium</em>.</li>
+              <li><strong>When x What time</strong>: <em>when</em> combina melhor com dia/período; <em>what time</em> é melhor para perguntar horário específico.</li>
+              <li><strong>When x Where</strong>: <em>when</em> = quando; <em>where</em> = onde. Esse será um foco importante para fixação nas próximas atividades.</li>
+              <li><strong>When do you want to meet?</strong> estava compreensível, mas para “que horas você quer se encontrar?”, a melhor opção é <em>What time do you want to meet?</em>.</li>
+            </ul>
+          </div>
+        </section>
+        <!-- ✅ FIM DA NOVA SEÇÃO -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <!-- Transcrição sem link (apenas botão) -->
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <!-- Vídeo da aula com o link que você mandou -->
+            <a
+              class="media-btn"
+              href="https://youtu.be/8VDBJj7uB3s"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">70%</span></td>
+                <td class="talk-time">~35 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Fatima</span></td>
+                <td><span class="talk-percent">30%</span></td>
+                <td class="talk-time">~15 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- ===== FIM TABELA ===== -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
