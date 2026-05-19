@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Resumo Pós-Aula — Gu — CZK English</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NiVUG7--6AIzDr-ecBOwZL5C2WFAObAPST7NNyl330WCfoi0osO_yEJkaGy97Yj0fIBRGBLWaPsMmZWtvcPRlPkipOJAqej2O2odtyHSmmjfTT3ScBHCeW8RarMsPsyiDzd1C0mASPSs2liJKod1GW19XAsvkbqiREViI25p9I9qpAcFhFNYx1E0H_4ahcNopj1ZdZ1BRkYg9IgscUGAniDT5sNmOcr6EyctJcTPsxLg6p900XOPObZvAcYUk_bMXrCYIlrmyLMsE3IhiYPctg" charset="UTF-8"></script><style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<article class="card" role="main">
+<header>
+<div>
+<div style="display:flex;gap:10px;align-items:center;">
+<span class="badge">PÓS-AULA</span>
+<h1>AI, tecnologia e automação — Discussão guiada e vocabulário</h1>
+</div>
+<div class="meta" style="margin-top:8px;"><strong>Professor:</strong> César  •  <strong>Aluno:</strong> Gu  •  <strong>Data:</strong> 05/18/2026</div>
+</div>
+<div class="actions">
+<a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+</div>
+</header>
+<main>
+<section class="panel">
+<p style="margin:0;font-weight:600;color:#08325a;">Resumo da aula sobre uso de IA no trabalho, automação de documentos, consumo de conteúdo, vídeo com a Oprah sobre inteligência artificial e correções de vocabulário e estrutura.</p>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+<div class="outline-card">
+<p style="margin:0 0 8px 0;">Nesta aula, a conversa começou com um aquecimento sobre futebol, a possível ida do Neymar para a Copa e a ideia de <strong>stay healthy</strong>. Em seguida, Gu falou bastante sobre o uso de IA no trabalho, especialmente o Claude, para criar documentos técnicos, organizar informações, revisar arquivos e facilitar processos que antes seriam manuais.</p>
+<p style="margin:0 0 8px 0;">Também conversamos sobre automação no contexto das aulas: criação de pós-aulas, transcrições, links, GitHub Pages, Notion e possíveis formas de vender esse processo para outros professores. A aula teve bastante prática de fala espontânea, com foco em explicar ideias complexas em inglês mesmo quando faltava vocabulário.</p>
+<p style="margin:0 0 8px 0;">Na parte final, assistimos a um trecho de vídeo sobre IA e consumo de conteúdo. A discussão girou em torno de como a IA pode criar conteúdo personalizado, aprender preferências, aumentar o tempo de uso do celular e mudar a forma como as pessoas se relacionam com tecnologia.</p>
+<p style="margin:0;">Os principais pontos linguísticos foram: uso de <strong>make/made</strong>, diferença entre <strong>worse</strong> e <strong>worst</strong>, estruturas com <strong>because of</strong>, uso de <strong>stay healthy</strong>, além de vocabulário como <em>file, document, tailored to your preferences, weaponized, bottomless pool</em> e <em>at your disposal</em>.</p>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+<div class="vocab-grid">
+<div class="vocab">
+<h3>Tailored to your preferences</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) personalizado de acordo com suas preferências</em><br/>
+<small>AI can make content tailored to your preferences.</small>
+</p>
+</div>
+<div class="vocab green">
+<h3>Weaponized</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) usado como arma / explorado de forma perigosa</em><br/>
+<small>Technology can be weaponized to keep people consuming content.</small>
+</p>
+</div>
+</div>
+</section>
+<!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+<section>
+<h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+<div class="outline-card">
+<h3 style="margin-top:0;">Tecnologia, IA e documentos</h3>
+<ul>
+<li><strong>AI / Artificial Intelligence</strong> – inteligência artificial</li>
+<li><strong>Claude</strong> – ferramenta de IA discutida na aula</li>
+<li><strong>file</strong> – arquivo</li>
+<li><strong>document</strong> – documento</li>
+<li><strong>technical document</strong> – documento técnico</li>
+<li><strong>spreadsheet</strong> – planilha</li>
+<li><strong>software</strong> – programa / software</li>
+<li><strong>connection</strong> – conexão</li>
+<li><strong>to connect accounts</strong> – conectar contas</li>
+<li><strong>to upload a file</strong> – subir / enviar um arquivo</li>
+<li><strong>to create a link</strong> – criar um link</li>
+<li><strong>repository</strong> – repositório</li>
+<li><strong>automation</strong> – automação</li>
+<li><strong>automatically</strong> – automaticamente</li>
+</ul>
+<h3>Trabalho e produtividade</h3>
+<ul>
+<li><strong>co-worker</strong> – colega de trabalho</li>
+<li><strong>engineer</strong> – engenheiro(a)</li>
+<li><strong>department</strong> – departamento</li>
+<li><strong>enterprise / company</strong> – empresa</li>
+<li><strong>standard document</strong> – documento padrão</li>
+<li><strong>custom document</strong> – documento personalizado</li>
+<li><strong>to review</strong> – revisar</li>
+<li><strong>dashboard</strong> – painel com dados / gráficos</li>
+<li><strong>graphics / charts</strong> – gráficos</li>
+<li><strong>line by line</strong> – linha por linha</li>
+</ul>
+<h3>Vídeo e discussão sobre IA</h3>
+<ul>
+<li><strong>bottomless pool</strong> – fonte sem fim / poço sem fundo</li>
+<li><strong>at your disposal</strong> – à sua disposição</li>
+<li><strong>available</strong> – disponível</li>
+<li><strong>tailored to your preferences</strong> – personalizado para suas preferências</li>
+<li><strong>weaponized</strong> – usado de forma estratégica/perigosa</li>
+<li><strong>concern</strong> – preocupação</li>
+<li><strong>to fall in love with</strong> – se apaixonar por</li>
+<li><strong>to get worse</strong> – piorar</li>
+<li><strong>worse</strong> – pior (comparativo)</li>
+<li><strong>worst</strong> – o pior / a pior forma</li>
+</ul>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+<div class="outline-card">
+<ul>
+<li>We will be champions.</li>
+<li>He just needs to stay healthy.</li>
+<li>Claude made a document for me.</li>
+<li>I shared one file with the AI.</li>
+<li>It created a technical document for me.</li>
+<li>My job is easier because of AI.</li>
+<li>AI can make content tailored to your preferences.</li>
+<li>People are going to fall in love with their AI.</li>
+<li>It is already bad, and it is going to get worse.</li>
+<li>You can use it for good reasons.</li>
+<li>I think AI helps people consume more content.</li>
+</ul>
+</div>
+</section>
+<!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+<section>
+<h2 style="margin-bottom:8px;">Correções importantes</h2>
+<div class="outline-card">
+<ul>
+<li><strong>We will champion</strong> ❌ → <strong>We will be champions.</strong> ✅<br/><span style="color:var(--muted);">Use <em>be</em> + noun/adjective: <em>be champions</em>.</span></li>
+<li><strong>Only healthy</strong> ❌ → <strong>Only stay healthy.</strong> ✅<br/><span style="color:var(--muted);">Para dizer “só ficar saudável”, use <em>stay healthy</em>.</span></li>
+<li><strong>Cloud makes a document for me</strong> / <strong>Cloud made a document for me</strong><br/><span style="color:var(--muted);">Use <em>makes</em> para rotina/presente e <em>made</em> para algo que já aconteceu.</span></li>
+<li><strong>archivu</strong> ❌ → <strong>file</strong> ✅<br/><span style="color:var(--muted);">“Arquivo” em inglês, nesse contexto, é <em>file</em>.</span></li>
+<li><strong>padron document</strong> ❌ → <strong>standard document</strong> ✅<br/><span style="color:var(--muted);">Para “documento padrão”, use <em>standard document</em>.</span></li>
+<li><strong>because AI</strong> ❌ → <strong>because of AI</strong> ✅<br/><span style="color:var(--muted);">Quando vem um substantivo depois, use <em>because of</em>.</span></li>
+<li><strong>worse</strong> x <strong>worst</strong><br/><span style="color:var(--muted);"><em>Worse</em> = pior / mais ruim que antes. <em>Worst</em> = o pior de todos.</span></li>
+<li><strong>to do bad things</strong> / <strong>for good reasons</strong><br/><span style="color:var(--muted);">A aula contrastou usos bons e ruins da IA: <em>use it for good reasons</em>, <em>use it to do bad things</em>.</span></li>
+</ul>
+</div>
+</section>
+<!-- ✅ FIM DA NOVA SEÇÃO -->
+<section>
+<h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+<div class="media-row">
+<!-- Transcrição sem link (apenas botão) -->
+<a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+<!-- Vídeo da aula com o link que você mandou -->
+<a class="media-btn" href="https://youtu.be/JvaADlJ50LE" rel="noopener noreferrer" role="button" style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;" target="_blank">
+              🎥 Assistir gravação (acesso privado)
+            </a>
+</div>
+</section>
+<!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+<section aria-label="Distribuição de fala" class="speaking">
+<h2>Tempo de Fala (Talk Time)</h2>
+<table class="talk-table">
+<thead>
+<tr>
+<th>Quem falou</th>
+<th>Porcentagem</th>
+<th>Duração aproximada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-teacher">
+<td><span class="talk-label">César (Professor)</span></td>
+<td><span class="talk-percent">48%</span></td>
+<td class="talk-time">~29 minutos</td>
+</tr>
+<tr class="row-student">
+<td><span class="talk-label">Gu</span></td>
+<td><span class="talk-percent">52%</span></td>
+<td class="talk-time">~31 minutos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- ===== FIM TABELA ===== -->
+<section>
+<h2 style="margin-bottom:8px;">Homework</h2>
+<div class="homework">
+<p style="margin:0 0 8px 0;">📌 <strong>Lição de casa:</strong></p>
+<ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+<li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+<li>Revisar principalmente as correções com <strong>because of</strong>, <strong>make/made</strong>, <strong>file</strong>, <strong>standard document</strong>, <strong>worse</strong> e <strong>worst</strong>.</li>
+</ul>
+</div>
+<div style="margin-top:14px;">
+<a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+</div>
+</section>
+</main>
+<footer>
+<p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+</footer>
+</article>
+</div>
+</body>
+</html>
