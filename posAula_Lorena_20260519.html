@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Resumo Pós-Aula — Lorena — CZK English</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iXjtDZtEIa8bq-TXOJeC0OeXpymqBEPHw08ipfdj3xkgwksELI8Gy1g9P1uZ2Hp8RSHI2T1Lb2bjmo_pg-qcyPRsjwE0x7VCQ_wLClc3KDta51OFucxlgEFp800Lp6G3_s_2cu-H-7R6EM8nRdmdn16ADmETMpUwbeK8ZgYkG5auC0Jjf4a2AuMdk5GnNdvk3CxkEwqHdfm0KGoL9DWg3snaSf4GAzXsyra6nTaHpaIV__j3P93tNvaIwhoi5V5Avb0j-15b3SDelcPsVFo0YQ" charset="UTF-8"></script><style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<article class="card" role="main">
+<header>
+<div>
+<div style="display:flex;gap:10px;align-items:center;">
+<span class="badge">PÓS-AULA</span>
+<h1>Would You Rather, ailments e listening sobre habilidades</h1>
+</div>
+<div class="meta" style="margin-top:8px;"><strong>Professor:</strong> César  •  <strong>Aluno:</strong> Lorena  •  <strong>Data:</strong> 05/19/2026</div>
+</div>
+<div class="actions">
+<a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+</div>
+</header>
+<main>
+<section class="panel">
+<p style="margin:0;font-weight:600;color:#08325a;">Resumo da aula com revisão de ailments, prática de Would You Rather, vocabulário de escolhas hipotéticas e listening sobre aprendizagem de novas habilidades.</p>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+<div class="outline-card">
+<p style="margin:0 0 8px 0;">
+  Nesta aula, começamos com uma revisão rápida do pós-aula anterior e de vocabulário relacionado a <strong>ailments</strong>, ou seja, problemas físicos simples, como <em>runny nose</em>, <em>fever</em>, <em>backache</em>, <em>sore throat</em>, <em>toothache</em>, <em>earache</em> e <em>neck pain</em>. A ideia foi recuperar palavras que já tinham aparecido antes e verificar quais ainda precisavam de reforço.
+</p>
+<p style="margin:0 0 8px 0;">
+  Depois, usamos perguntas do tipo <strong>Would you rather...?</strong> como aquecimento de speaking. A aluna precisou escolher entre duas opções e justificar ou reagir às escolhas, praticando estruturas como <em>I would rather...</em>, <em>be allergic to...</em>, <em>be invisible</em>, <em>read minds</em> e <em>be able to speak all human languages</em>. Também surgiram explicações importantes sobre <strong>smartphone</strong> x <strong>cell phone</strong>, <strong>endangered</strong> x <strong>dangerous</strong> e a expressão <strong>get away with lying</strong>.
+</p>
+<p style="margin:0 0 8px 0;">
+  Na segunda parte da aula, retomamos um exercício de listening sobre a possibilidade de desenvolver novas habilidades depois de certa idade. O áudio trouxe uma entrevista com uma psicóloga brasileira sobre fatores que ajudam no aprendizado de línguas: <strong>motivation</strong>, <strong>practice</strong> e <strong>natural ability</strong>. Trabalhamos compreensão geral, respostas de <em>true/false</em> e trechos específicos como <em>You can't teach an old dog new tricks</em> e <em>such as a new language</em>.
+</p>
+<p style="margin:0;">
+  O foco principal foi conectar vocabulário, interpretação de áudio e produção oral. A aula também reforçou que entender uma frase em inglês nem sempre depende de traduzir palavra por palavra, mas de perceber a função de estruturas como <strong>can</strong>, <strong>should</strong>, <strong>would rather</strong> e expressões usadas antes de exemplos, como <strong>such as</strong>.
+</p>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+<div class="vocab-grid">
+<div class="vocab">
+<h3>Would rather</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) preferiria / escolheria uma opção em vez de outra</em><br/>
+<small>I would rather be allergic to chocolate.</small>
+</p>
+</div>
+<div class="vocab green">
+<h3>Endangered species</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) espécie ameaçada de extinção</em><br/>
+<small>I would rather save an endangered species.</small>
+</p>
+</div>
+</div>
+</section>
+<!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+<section>
+<h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+<div class="outline-card">
+<h3 style="margin-top:0;">Would You Rather e escolhas hipotéticas</h3>
+<ul>
+<li><strong>would rather</strong> – preferiria / escolheria</li>
+<li><strong>be allergic to</strong> – ser alérgico(a) a</li>
+<li><strong>chocolate</strong> – chocolate</li>
+<li><strong>smartphone</strong> – celular com internet e funções inteligentes</li>
+<li><strong>cell phone</strong> – celular; pode ser usado de forma mais geral</li>
+<li><strong>be invisible</strong> – ser invisível</li>
+<li><strong>read minds</strong> – ler pensamentos</li>
+<li><strong>always know</strong> – sempre saber</li>
+<li><strong>get away with lying</strong> – se safar mentindo / escapar de uma situação com mentira</li>
+<li><strong>lucky</strong> – sortudo(a)</li>
+<li><strong>dumb</strong> – burro(a), sem inteligência; informal e forte dependendo do contexto</li>
+</ul>
+<h3>Ailments / problemas físicos</h3>
+<ul>
+<li><strong>ailment</strong> – problema físico simples / mal-estar</li>
+<li><strong>runny nose</strong> – nariz escorrendo</li>
+<li><strong>fever</strong> – febre</li>
+<li><strong>headache</strong> – dor de cabeça</li>
+<li><strong>backache</strong> – dor nas costas</li>
+<li><strong>sore throat</strong> – dor de garganta</li>
+<li><strong>toothache</strong> – dor de dente</li>
+<li><strong>earache</strong> – dor de ouvido</li>
+<li><strong>neck pain</strong> – dor no pescoço</li>
+</ul>
+<h3>Listening: habilidades e aprendizagem</h3>
+<ul>
+<li><strong>ability</strong> – habilidade</li>
+<li><strong>develop new abilities</strong> – desenvolver novas habilidades</li>
+<li><strong>after a certain age</strong> – depois de certa idade</li>
+<li><strong>too old to learn</strong> – velho demais para aprender</li>
+<li><strong>You can't teach an old dog new tricks</strong> – expressão equivalente à ideia de que é difícil ensinar algo novo a alguém acostumado de outro jeito</li>
+<li><strong>such as</strong> – como / por exemplo</li>
+<li><strong>motivation</strong> – motivação</li>
+<li><strong>practice</strong> – prática</li>
+<li><strong>natural ability</strong> – habilidade natural</li>
+<li><strong>pay attention</strong> – prestar atenção</li>
+<li><strong>fluent</strong> – fluente</li>
+<li><strong>native speaker</strong> – falante nativo</li>
+<li><strong>accent</strong> – sotaque</li>
+<li><strong>make errors</strong> – cometer erros</li>
+<li><strong>without practice</strong> – sem prática</li>
+</ul>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+<div class="outline-card">
+<ul>
+<li>I would rather be allergic to chocolate.</li>
+<li>I would rather save an endangered species from extinction.</li>
+<li>I would rather always know when someone is lying.</li>
+<li>I would rather be invisible.</li>
+<li>I would rather be able to speak all human languages.</li>
+<li>People can develop new abilities after a certain age.</li>
+<li>You can't teach an old dog new tricks.</li>
+<li>It's not true that there is an age when we can't learn new things.</li>
+<li>We can learn new things, such as a new language.</li>
+<li>Without practice, people can't develop those abilities well.</li>
+<li>Motivation, practice, and natural ability can help people learn a language.</li>
+</ul>
+</div>
+</section>
+<!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+<section>
+<h2 style="margin-bottom:8px;">Correções importantes</h2>
+<div class="outline-card">
+<ul>
+<li><strong>Ailments ≠ humans</strong><br/>
+<span style="color:var(--muted);">A palavra correta era <strong>ailments</strong>, usada para problemas físicos simples. A confusão veio porque a pronúncia soou parecida com outra palavra.</span>
+</li>
+<li><strong>Fever x headache</strong><br/>
+    ❌ <em>When your head is hot, it's headache.</em><br/>
+    ✅ <em>When your head is hot, it can be a fever.</em><br/>
+<span style="color:var(--muted);"><strong>Headache</strong> é dor de cabeça. <strong>Fever</strong> é febre.</span>
+</li>
+<li><strong>Sore throat x neck pain</strong><br/>
+    ✅ <em>sore throat</em> = dor de garganta<br/>
+    ✅ <em>neck pain</em> = dor no pescoço
+  </li>
+<li><strong>Smartphone x cell phone</strong><br/>
+<span style="color:var(--muted);"><strong>Cell phone</strong> é celular de forma geral. <strong>Smartphone</strong> é o celular moderno com internet, apps e funções inteligentes.</span>
+</li>
+<li><strong>Endangered não é dangerous</strong><br/>
+    ❌ <em>dangerous species</em> = espécie perigosa<br/>
+    ✅ <em>endangered species</em> = espécie ameaçada de extinção
+  </li>
+<li><strong>Extinction</strong><br/>
+<span style="color:var(--muted);">A palavra foi praticada dentro da frase <em>save an endangered species from extinction</em>. O sentido é <strong>extinção</strong>.</span>
+</li>
+<li><strong>Get away with lying</strong><br/>
+<span style="color:var(--muted);">A expressão não significa simplesmente “sair”. Ela passa a ideia de <strong>se safar de uma situação mentindo</strong>.</span>
+</li>
+<li><strong>Can x should</strong><br/>
+    ✅ <em>can</em> = habilidade / possibilidade<br/>
+    ✅ <em>should</em> = conselho<br/>
+<span style="color:var(--muted);">Exemplo: <em>People can develop new abilities.</em> = pessoas conseguem/podem desenvolver novas habilidades.</span>
+</li>
+<li><strong>Such as</strong><br/>
+<span style="color:var(--muted);">Usamos <strong>such as</strong> antes de exemplos.</span><br/>
+    ✅ <em>We can learn new things, such as a new language.</em>
+</li>
+<li><strong>I would rather...</strong><br/>
+<span style="color:var(--muted);">Para responder às perguntas do jogo, a estrutura mais completa é:</span><br/>
+    ✅ <em>I would rather + verb/base expression.</em>
+</li>
+</ul>
+</div>
+</section>
+<!-- ✅ FIM DA NOVA SEÇÃO -->
+<section>
+<h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+<div class="media-row">
+<!-- Transcrição sem link (apenas botão) -->
+<a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+<!-- Vídeo da aula com o link que você mandou -->
+<a class="media-btn" href="https://youtu.be/xMiRyrvsZjk" rel="noopener noreferrer" role="button" style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;" target="_blank">🎥 Assistir gravação (acesso privado)</a>
+</div>
+</section>
+<!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+<section aria-label="Distribuição de fala" class="speaking">
+<h2>Tempo de Fala (Talk Time)</h2>
+<table class="talk-table">
+<thead>
+<tr>
+<th>Quem falou</th>
+<th>Porcentagem</th>
+<th>Duração aproximada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-teacher">
+<td><span class="talk-label">César (Professor)</span></td>
+<td><span class="talk-percent">68%</span></td>
+<td class="talk-time">~27 minutos</td>
+</tr>
+<tr class="row-student">
+<td><span class="talk-label">Lorena</span></td>
+<td><span class="talk-percent">32%</span></td>
+<td class="talk-time">~13 minutos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- ===== FIM TABELA ===== -->
+<section>
+<h2 style="margin-bottom:8px;">Homework</h2>
+<div class="homework">
+<p style="margin:0 0 8px 0;">
+  📌 <strong>Lição de casa:</strong>
+</p>
+<ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+<li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+</ul>
+</div>
+<div style="margin-top:14px;">
+<a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+</div>
+</section>
+</main>
+<footer>
+<p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+</footer>
+</article>
+</div>
+</body>
+</html>
