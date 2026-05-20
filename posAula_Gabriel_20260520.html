@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Gabriel — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Body Positivity, Ozempic e Linguagem de Opinião</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Gabriel &nbsp;•&nbsp;
+            <strong>Data:</strong> 05/20/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula de conversação sobre body positivity, Ozempic, vocabulário de opinião e estruturas úteis para debate.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, trabalhamos uma conversa mais avançada a partir de um vídeo curto sobre <strong>body positivity</strong>, Ozempic e a ideia de que o discurso sobre aceitar o próprio corpo mudou quando emagrecer ficou mais acessível para algumas pessoas. O foco principal foi entender o contexto do vídeo, não apenas traduzir palavra por palavra.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Revisamos expressões importantes como <em>Have you realized...?</em>, <em>become mainstream</em>, <em>all of a sudden</em>, <em>get thin</em>, <em>get in shape</em>, <em>easy way out</em> e <em>drive me crazy</em>. Também apareceu uma explicação importante sobre <strong>I was going to + verb</strong>, usado para falar algo que a pessoa ia dizer ou fazer, mas mudou no meio do caminho.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              A conversa evoluiu para um debate sobre honestidade, celebridades, uso de medicamentos, comparação com padrões irreais e o quanto as pessoas deveriam ou não julgar quem usa esse tipo de recurso. O objetivo foi praticar opinião em inglês com frases mais naturais, tentando organizar melhor as ideias e corrigindo vocabulário no caminho.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Body positivity</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) movimento/ideia de aceitar e respeitar o próprio corpo</em><br>
+                <small>Body positivity became part of the debate.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Easy way out</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) saída fácil; caminho mais fácil para evitar esforço</em><br>
+                <small>Some people see Ozempic as an easy way out.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Vocabulário e expressões da aula</h3>
+            <ul>
+              <li><strong>body positivity</strong> – movimento/ideia de aceitação corporal</li>
+              <li><strong>Ozempic</strong> – medicamento citado no vídeo e usado como tema de debate</li>
+              <li><strong>mainstream</strong> – popular, presente na mídia, falado por muita gente</li>
+              <li><strong>become</strong> – tornar-se / virar</li>
+              <li><strong>became</strong> – tornou-se / virou (passado de <em>become</em>)</li>
+              <li><strong>all of a sudden</strong> – de repente</li>
+              <li><strong>suddenly</strong> – de repente (mais neutro/formal)</li>
+              <li><strong>thin</strong> – magro(a)</li>
+              <li><strong>get thin</strong> – ficar magro(a) / emagrecer</li>
+              <li><strong>in shape</strong> – em forma</li>
+              <li><strong>get in shape</strong> – entrar em forma</li>
+              <li><strong>easy way out</strong> – saída fácil</li>
+              <li><strong>drive someone crazy</strong> – deixar alguém irritado, incomodado ou “louco”</li>
+              <li><strong>lazy message</strong> – mensagem preguiçosa / ideia que incentiva pouco esforço</li>
+              <li><strong>judge</strong> – julgar</li>
+              <li><strong>be judged</strong> – ser julgado(a)</li>
+              <li><strong>honest</strong> – honesto(a)</li>
+              <li><strong>celebrity</strong> – celebridade</li>
+              <li><strong>sponsor</strong> – patrocinador</li>
+              <li><strong>surgery</strong> – cirurgia</li>
+              <li><strong>image</strong> – imagem</li>
+              <li><strong>effort</strong> – esforço</li>
+              <li><strong>scientists</strong> – cientistas</li>
+              <li><strong>side effects</strong> – efeitos colaterais</li>
+              <li><strong>trust</strong> – confiar</li>
+            </ul>
+
+            <h3>Estruturas importantes</h3>
+            <ul>
+              <li><span style="font-family:monospace;">Have you realized...?</span> → Você percebeu...?<br>
+                Ex.: <em>Have you realized that the conversation changed?</em>
+              </li>
+              <li><span style="font-family:monospace;">I was going to + verb</span> → Eu ia + verbo / Eu estava prestes a...<br>
+                Ex.: <em>I was going to say “in shape”, but it is not the same thing.</em>
+              </li>
+              <li><span style="font-family:monospace;">get + adjective</span> → ficar/tornar-se algo<br>
+                Ex.: <em>get thin, get angry, get hungry, get lost</em>
+              </li>
+              <li><span style="font-family:monospace;">should be + past participle</span> → deveria ser...<br>
+                Ex.: <em>People should not be judged so quickly.</em>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Have you realized the body positivity movement is dead?</li>
+              <li>Ozempic became mainstream.</li>
+              <li>It is easy to get thin.</li>
+              <li>I was going to say “in shape”, but it is not in shape.</li>
+              <li>All of a sudden, body positivity is not cool anymore.</li>
+              <li>They have an easy way out.</li>
+              <li>You know what drives me crazy?</li>
+              <li>Do you think people should be judged?</li>
+              <li>I think people should be honest.</li>
+              <li>I trust scientists, but I think we need time.</li>
+              <li>Celebrities should say if they used something.</li>
+              <li>People compare themselves to unrealistic results.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Realize</strong> não é “realizar” no sentido de fazer. Nesta aula, <em>Have you realized...?</em> significa <strong>Você percebeu...?</strong></li>
+              <li><strong>Mainstream</strong> não é “streaming”. Significa algo que ficou popular, comum ou muito falado.</li>
+              <li><strong>Become</strong> = tornar-se / virar. Passado: <strong>became</strong>. Ex.: <em>Ozempic became mainstream.</em></li>
+              <li><strong>All of a sudden</strong> = de repente. É parecido com <em>suddenly</em>, mas mais conversacional.</li>
+              <li><strong>Get thin</strong> = ficar magro(a) / emagrecer. <strong>Get in shape</strong> = entrar em forma. Não são exatamente iguais.</li>
+              <li><strong>I was going to say...</strong> = “Eu ia dizer...”. Não é apenas “eu estava indo para”, porque depois de <em>going to</em> veio um verbo.</li>
+              <li><strong>I’m going to the beach tomorrow</strong> = Eu vou para a praia amanhã. Aqui <em>going to</em> indica plano/futuro.</li>
+              <li><strong>People should be judged</strong> = As pessoas deveriam ser julgadas. Cuidado para não confundir <em>judged</em> com <em>jailed</em>.</li>
+              <li><strong>Celebrity</strong> tem pronúncia diferente de “celebridade” em português. A ideia é “celebridade / famoso(a)”.</li>
+              <li><strong>Surgery</strong> = cirurgia. Não usar uma pronúncia muito próxima de “surrogier”.</li>
+              <li><strong>Image</strong> = imagem. <em>Imagine</em> é verbo: imaginar.</li>
+              <li><strong>I trust scientists</strong> = Eu confio nos cientistas. <em>Trust</em> é confiar, não “vestir”.</li>
+            </ul>
+          </div>
+        </section>
+        <!-- ✅ FIM DA NOVA SEÇÃO -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <!-- Transcrição sem link (apenas botão) -->
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <!-- Vídeo da aula com o link que você mandou -->
+            <a
+              class="media-btn"
+              href="https://youtu.be/zWtiESFy2do"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">52%</span></td>
+                <td class="talk-time">~27 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Gabriel e Gabriel</span></td>
+                <td><span class="talk-percent">48%</span></td>
+                <td class="talk-time">~25 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- ===== FIM TABELA ===== -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+              <li>Revisar principalmente as expressões: <strong>Have you realized...?</strong>, <strong>mainstream</strong>, <strong>all of a sudden</strong>, <strong>get thin</strong>, <strong>get in shape</strong> e <strong>easy way out</strong>.</li>
+              <li>Na próxima aula, tentar usar pelo menos <strong>3 frases</strong> desta revisão durante a conversa.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
