@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Davi — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Revisão — From, nacionalidades e possessivo</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Davi &nbsp;•&nbsp;
+            <strong>Data:</strong> 05/19/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Revisão de perguntas e respostas com <strong>from</strong>, países, nacionalidades, leitura guiada e introdução ao uso de <strong>'s</strong> para posse.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, o Davi revisou estruturas com <strong>from</strong> para falar de origem e nacionalidade. Primeiro, praticamos frases como <em>Are you from Brazil?</em>, <em>He is from São Paulo</em>, <em>They are from Italy</em> e <em>I am from Canada</em>, reforçando a diferença entre pergunta e afirmação.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também corrigimos e praticamos a lição de casa, passando frases do inglês para o português e do português para o inglês. O foco principal foi manter a ordem correta das palavras com <strong>is / are + from</strong>, além de perceber quando usamos <strong>is</strong> para uma pessoa/coisa e <strong>are</strong> para plural.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois, trabalhamos leitura sobre pessoas famosas, países e nacionalidades. O Davi leu pequenos textos com perguntas como <em>Where is she from?</em>, <em>What is his nationality?</em> e <em>What is her occupation?</em>. Nessa parte, revisamos palavras como <strong>Brazilian, Canadian, Japanese, Mexican, British, American, South Korean</strong> e a diferença entre país e nacionalidade.
+            </p>
+            <p style="margin:0;">
+              No final, começamos a observar estruturas de posse com <strong>'s</strong>, como em <em>Felipe's car</em> ou <em>Davi's teacher</em>. Esse ponto será importante para entender a diferença entre o <strong>'s</strong> de posse e o <strong>s</strong> comum de plural ou terceira pessoa.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Nationality</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) nacionalidade</em><br>
+                <small>What is his nationality? He is Canadian.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Meet</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) conhecer / encontrar</em><br>
+                <small>Meet the Brazilian-American actor.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Países e nacionalidades</h3>
+            <ul>
+              <li><strong>Brazil</strong> – Brasil</li>
+              <li><strong>Brazilian</strong> – brasileiro(a)</li>
+              <li><strong>Canada</strong> – Canadá</li>
+              <li><strong>Canadian</strong> – canadense</li>
+              <li><strong>China</strong> – China</li>
+              <li><strong>Chinese</strong> – chinês/chinesa</li>
+              <li><strong>Japan</strong> – Japão</li>
+              <li><strong>Japanese</strong> – japonês/japonesa</li>
+              <li><strong>Mexico</strong> – México</li>
+              <li><strong>Mexican</strong> – mexicano(a)</li>
+              <li><strong>The United Kingdom / the UK</strong> – Reino Unido</li>
+              <li><strong>British</strong> – britânico(a)</li>
+              <li><strong>The United States / the US</strong> – Estados Unidos</li>
+              <li><strong>American</strong> – americano(a)</li>
+              <li><strong>South Korea</strong> – Coreia do Sul</li>
+              <li><strong>South Korean</strong> – sul-coreano(a)</li>
+            </ul>
+
+            <h3>Palavras e expressões importantes</h3>
+            <ul>
+              <li><strong>from</strong> – de / vindo de</li>
+              <li><strong>same</strong> – mesmo(a), igual</li>
+              <li><strong>nationality</strong> – nacionalidade</li>
+              <li><strong>occupation</strong> – ocupação / profissão</li>
+              <li><strong>athlete</strong> – atleta</li>
+              <li><strong>actor</strong> – ator / atriz</li>
+              <li><strong>chef</strong> – chefe de cozinha</li>
+              <li><strong>boss</strong> – chefe no trabalho</li>
+              <li><strong>writer</strong> – escritor(a)</li>
+              <li><strong>singer</strong> – cantor(a)</li>
+              <li><strong>to sing</strong> – cantar</li>
+              <li><strong>meet</strong> – conhecer / encontrar</li>
+              <li><strong>originally from</strong> – originalmente de</li>
+            </ul>
+
+            <h3>Estruturas revisadas</h3>
+            <ul>
+              <li><span style="font-family:monospace;">Where are they from?</span> – De onde eles são?</li>
+              <li><span style="font-family:monospace;">He is from Canada.</span> – Ele é do Canadá.</li>
+              <li><span style="font-family:monospace;">She is Canadian.</span> – Ela é canadense.</li>
+              <li><span style="font-family:monospace;">What is his nationality?</span> – Qual é a nacionalidade dele?</li>
+              <li><span style="font-family:monospace;">What is her occupation?</span> – Qual é a ocupação dela?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Are you from Brazil?</li>
+              <li>She is from Canada.</li>
+              <li>They are from the United States.</li>
+              <li>We are from the same city.</li>
+              <li>Is your teacher from England?</li>
+              <li>Are your friends from Argentina?</li>
+              <li>Is your mother from Portugal?</li>
+              <li>This actor is from Australia.</li>
+              <li>Where are they from?</li>
+              <li>What is his nationality?</li>
+              <li>He is British.</li>
+              <li>She is Brazilian-American.</li>
+              <li>Meet the famous K-pop band BTS.</li>
+              <li>The singers in BTS are from Seoul.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Canada</strong>: atenção à pronúncia. Em português falamos “Canadá”, mas em inglês a pronúncia é diferente: <em>Canada</em>.</li>
+              <li><strong>England x English</strong>: <em>England</em> é o país/território; <em>English</em> é a língua ou nacionalidade/adjetivo.</li>
+              <li><strong>Chef x boss</strong>: <em>chef</em> em inglês normalmente é <strong>chefe de cozinha</strong>. Para chefe no trabalho, usamos <strong>boss</strong>.</li>
+              <li><strong>Sing x singer</strong>: <em>to sing</em> é o verbo “cantar”; <em>singer</em> é “cantor(a)”.</li>
+              <li><strong>South Korea x South Korean</strong>: <em>South Korea</em> é o país; <em>South Korean</em> é a nacionalidade/adjetivo.</li>
+              <li><strong>Is x are</strong>: <em>is</em> aparece com singular; <em>are</em> aparece com plural. Isso vale para pessoas e também para coisas.</li>
+              <li><strong>From</strong>: para dizer origem, usamos <em>from</em>. Ex.: <em>He is from Canada.</em></li>
+              <li><strong>'s de posse</strong>: em frases como <em>Davi's teacher</em>, o <strong>'s</strong> indica posse: “o professor do Davi”.</li>
+            </ul>
+          </div>
+        </section>
+        <!-- ✅ FIM DA NOVA SEÇÃO -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <!-- Transcrição sem link (apenas botão) -->
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <!-- Vídeo da aula com o link que você mandou -->
+            <a
+              class="media-btn"
+              href="https://youtu.be/G4SXlHDwGEM"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">58%</span></td>
+                <td class="talk-time">~29 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Davi</span></td>
+                <td><span class="talk-percent">42%</span></td>
+                <td class="talk-time">~21 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- ===== FIM TABELA ===== -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong> traduza as frases abaixo para o inglês usando <strong>'s</strong> ou <strong>s</strong> corretamente.
+            </p>
+            <p style="margin:0 0 8px 0;color:var(--muted);font-size:0.94rem;">
+              Lembre-se: <strong>'s</strong> pode mostrar posse, como “o carro do Lucas” = <em>Lucas's car</em>. Já o <strong>s</strong> sem apóstrofo pode aparecer no plural, como “amigos” = <em>friends</em>.
+            </p>
+            <h3 style="margin:10px 0 6px 0;">Exemplos</h3>
+            <ol style="margin:0 0 12px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>O carro do Felipe é azul. → <strong>Felipe's car is blue.</strong></li>
+              <li>Meus amigos são do Brasil. → <strong>My friends are from Brazil.</strong></li>
+            </ol>
+            <h3 style="margin:10px 0 6px 0;">Agora traduza para o inglês</h3>
+            <ol style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>O professor do Davi é do Brasil.</li>
+              <li>Os amigos da Ana são da Argentina.</li>
+              <li>A mãe do Lucas é de Portugal.</li>
+              <li>Os livros do Pedro estão na escola.</li>
+              <li>A irmã da Karlla é mexicana.</li>
+              <li>Os cachorros do Felipe são grandes.</li>
+              <li>O celular do João é novo.</li>
+              <li>As professoras são do Canadá.</li>
+              <li>O pai da Maria é britânico.</li>
+              <li>Os cantores são da Coreia do Sul.</li>
+              <li>O chefe do César é americano.</li>
+              <li>As casas são pequenas.</li>
+              <li>O amigo do Vitor é japonês.</li>
+              <li>As atrizes são famosas.</li>
+              <li>A cidade do Davi é no Brasil.</li>
+            </ol>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
