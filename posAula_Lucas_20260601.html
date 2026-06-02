@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Lucas — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Present Perfect, deduções e revisão de vocabulário</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Lucas &nbsp;•&nbsp; <strong>Data:</strong> 01/06/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula sobre rotina, estudos, revisão do pós-aula anterior, Present Perfect, vocabulário de conversação e deduções com may / must.
+          </p>
+        </section>
+
+        
+<section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              A aula começou com uma conversa livre sobre a semana do Lucas. Ele falou sobre a casa do pai, os gatos, a faculdade, uma matéria difícil, o projeto em grupo e os problemas com colegas que não entregaram a documentação corretamente. A conversa também trouxe vocabulário útil para situações reais, como <strong>subject</strong> para “matéria da faculdade”, <strong>minimum grade</strong> para “nota mínima”, <strong>deadline</strong> para “prazo” e <strong>short deadline</strong> para “prazo curto”.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois, revisamos o pós-aula anterior sobre <strong>body positivity</strong>. O foco foi lembrar expressões importantes do vídeo, como <strong>easy way out</strong>, <strong>get thin</strong>, <strong>all of a sudden</strong> e <strong>realize</strong>. Também foi reforçado que <strong>realize</strong> não significa “realizar”, mas sim <em>perceber / se dar conta</em>. A frase <em>Have you realized it?</em> foi usada para revisar o <strong>Present Perfect</strong>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Em seguida, trabalhamos com estruturas como <strong>have you realized?</strong>, <strong>have you already realized?</strong>, <strong>I have never gone to Japan</strong> e <strong>I have recently gone to Japan</strong>. A aula também diferenciou <strong>already</strong> de <strong>all ready</strong>, porque <em>already</em> significa “já”, enquanto <em>all ready</em> significa “tudo pronto”.
+            </p>
+            <p style="margin:0;">
+              Na parte final, Lucas praticou exercícios do livro com <strong>may, may not, must e must not</strong> para falar sobre possibilidades e deduções. Também houve revisão de <strong>tag questions</strong> e pequenos ajustes de vocabulário, pronúncia e pontuação. Um ponto importante da aula foi o lembrete de revisar o pós-aula e a área do aluno, porque várias palavras e estruturas esquecidas já estavam registradas ali para estudo.
+            </p>
+          
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Realize</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) perceber / se dar conta</em><br>
+                <small>Have you realized it?</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Easy way out</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) saída fácil / jeito mais fácil de escapar de algo</em><br>
+                <small>They found an easy way out.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+        
+<section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Conversação inicial</h3>
+            <ul>
+              <li><strong>subject</strong> – matéria da faculdade</li>
+              <li><strong>minimum grade</strong> – nota mínima</li>
+              <li><strong>deadline</strong> – prazo</li>
+              <li><strong>short deadline</strong> – prazo curto</li>
+              <li><strong>documentation</strong> – documentação</li>
+              <li><strong>semester</strong> – semestre</li>
+              <li><strong>declaration</strong> – declaração</li>
+              <li><strong>early in the morning</strong> – de madrugada / bem cedo</li>
+              <li><strong>the company doesn’t answer me</strong> – a empresa não me responde</li>
+              <li><strong>postgraduate course</strong> – pós-graduação</li>
+            </ul>
+
+            <h3>Revisão do vídeo sobre body positivity</h3>
+            <ul>
+              <li><strong>body positivity</strong> – movimento de aceitação do próprio corpo</li>
+              <li><strong>body positivity movement</strong> – movimento body positive</li>
+              <li><strong>get thin</strong> – ficar magro(a)</li>
+              <li><strong>easy way out</strong> – saída fácil</li>
+              <li><strong>realize</strong> – perceber / se dar conta</li>
+              <li><strong>all of a sudden</strong> – de repente / do nada</li>
+              <li><strong>suddenly</strong> – de repente</li>
+              <li><strong>in shape</strong> – em forma</li>
+            </ul>
+
+            <h3>Present Perfect e palavras de tempo</h3>
+            <ul>
+              <li><strong>Have you realized it?</strong> – Você percebeu isso?</li>
+              <li><strong>Have you already realized it?</strong> – Você já percebeu isso?</li>
+              <li><strong>already</strong> – já</li>
+              <li><strong>all ready</strong> – tudo pronto</li>
+              <li><strong>never</strong> – nunca</li>
+              <li><strong>recently</strong> – recentemente</li>
+              <li><strong>actually</strong> – na verdade</li>
+              <li><strong>I have never gone to Japan.</strong> – Eu nunca fui ao Japão.</li>
+            </ul>
+
+            <h3>Deduções e possibilidades</h3>
+            <ul>
+              <li><strong>may</strong> – pode ser / talvez</li>
+              <li><strong>may not</strong> – talvez não / pode não</li>
+              <li><strong>must</strong> – deve ser / com forte evidência</li>
+              <li><strong>must not</strong> – deve não / provavelmente não</li>
+              <li><strong>figure out</strong> – descobrir / resolver / entender sozinho</li>
+              <li><strong>familiar</strong> – familiar / conhecido</li>
+              <li><strong>Nice to meet you</strong> – prazer em conhecer você</li>
+              <li><strong>You may already know...</strong> – Talvez você já conheça...</li>
+            </ul>
+          
+          </div>
+        </section>
+
+        
+<section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>How many cats does your father have?</li>
+              <li>Last week, I studied a lot.</li>
+              <li>I passed with the minimum grade.</li>
+              <li>We had a short deadline.</li>
+              <li>The company doesn’t answer me.</li>
+              <li>Have you realized it?</li>
+              <li>Have you already realized it?</li>
+              <li>I have never gone to Japan.</li>
+              <li>I have recently gone to Japan.</li>
+              <li>They found an easy way out.</li>
+              <li>All of a sudden, nobody was talking about body positivity anymore.</li>
+              <li>He must not want your help.</li>
+              <li>You may already know him.</li>
+              <li>Nice to meet you.</li>
+            </ul>
+          
+          </div>
+        </section>
+
+        <!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+        
+<section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>“materia” → subject</strong><br>
+                Para falar de matéria da faculdade, use <em>subject</em>. Ex.: <em>I passed the subject.</em>
+              </li>
+              <li><strong>“prazo” → deadline</strong><br>
+                Para “prazo curto”, use <em>short deadline</em>. Ex.: <em>We had a short deadline.</em>
+              </li>
+              <li><strong>“The company don’t answer me” → The company doesn’t answer me</strong><br>
+                Como <em>company</em> é singular, usamos <strong>doesn’t</strong>.</li>
+              <li><strong>“They don’t answer me” também é possível</strong><br>
+                Quando você pensa nas pessoas da empresa, pode usar <strong>they</strong>: <em>They don’t answer me.</em></li>
+              <li><strong>Realize ≠ realizar</strong><br>
+                <em>Realize</em> significa <strong>perceber / se dar conta</strong>. Ex.: <em>Have you realized it?</em></li>
+              <li><strong>Already ≠ all ready</strong><br>
+                <em>Already</em> = já. <em>All ready</em> = tudo pronto.</li>
+              <li><strong>Have you realized?</strong><br>
+                A estrutura usa <strong>Present Perfect</strong>: <em>have/has + past participle</em>. A ideia é falar de uma experiência ou percepção sem focar exatamente quando aconteceu.</li>
+              <li><strong>May x Must</strong><br>
+                Use <strong>may</strong> quando há possibilidade, mas não muita certeza. Use <strong>must</strong> quando há evidência forte.</li>
+              <li><strong>Must not</strong><br>
+                Na fala rápida, o <em>t</em> final pode ficar fraco. Por isso, <em>must not like</em> pode soar mais conectado na fala natural.</li>
+              <li><strong>Tag questions</strong><br>
+                Atenção à ordem e ao auxiliar correto: <em>You will call back, won’t you?</em></li>
+              <li><strong>Pontuação e apóstrofo</strong><br>
+                Houve confusão entre apóstrofo e pontuação. Em contrações como <em>won’t</em>, o apóstrofo vem antes do <strong>t</strong>.</li>
+            </ul>
+          
+          </div>
+        </section>
+        <!-- ✅ FIM DA NOVA SEÇÃO -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <!-- Transcrição sem link (apenas botão) -->
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <!-- Vídeo da aula com o link que você mandou -->
+            <a
+              class="media-btn"
+              href="https://youtu.be/1kLjAKx5NHc"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">52%</span></td>
+                <td class="talk-time">~29 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Lucas</span></td>
+                <td><span class="talk-percent">48%</span></td>
+                <td class="talk-time">~27 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- ===== FIM TABELA ===== -->
+
+        
+<section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>, principalmente as partes de vocabulário e correções.</li>
+              <li>Revisar as expressões: <strong>realize</strong>, <strong>already</strong>, <strong>all of a sudden</strong>, <strong>easy way out</strong> e <strong>get thin</strong>.</li>
+              <li>Praticar a diferença entre <strong>may</strong> e <strong>must</strong> com os exemplos da aula.</li>
+              <li>Fazer/revisar as atividades da área do aluno para não esquecer o conteúdo trabalhado.</li>
+            </ul>
+          
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
