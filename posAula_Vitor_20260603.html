@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Resumo Pós-Aula — Vitor — CZK English</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V9qnROEu4nGg3dEjnFoSuLw2Gk9wone5FAeEx6pyKLI8fUb5jW9hTMyVSKy3LqREaWm_wfdpDlG8xZJ14db_JkEmr4KqjRYppo1tLqIQpTF5MuXxBQuATKUuphHRbKLLRJuj61XYAmqQZIHM5IJK65Y3bmYGplppBFmfOxrKDgik4ZqhDvWIkD5OliMuWoLu2xhU-p41Q62AILEpVFVkZjok9Zv5j1VA5Ku5ALkKQvuEElT_D1zJvg075TWnRKxYNGEOW2SG4H4kCN6Zlt_1Ub2e5HxKlyzXOWV0_21SYt-brfV_dmvC0vMcu07FZEHMIQ7KkFGF2nAKA4GGgWfUqw" charset="UTF-8"></script><style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<article class="card" role="main">
+<header>
+<div>
+<div style="display:flex;gap:10px;align-items:center;">
+<span class="badge">PÓS-AULA</span>
+<h1>Determiners e DO como intensificador</h1>
+</div>
+<div class="meta" style="margin-top:8px;"><strong>Professor:</strong> César  • 
+            <strong>Aluno:</strong> Vitor  • 
+            <strong>Data:</strong> 03/06/2026</div>
+</div>
+<div class="actions">
+<a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+</div>
+</header>
+<main>
+<section class="panel">
+<p style="margin:0;font-weight:600;color:#08325a;">Resumo da aula sobre <strong>do / does / did</strong> como intensificadores, revisão de <strong>determiners</strong> e prática com vocabulário de frases usando <em>can, should</em> e <em>achieve</em>.</p>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+<div class="outline-card">
+<p style="margin:0 0 8px 0;">
+  Nesta aula, trabalhamos dois pontos principais: o uso de <strong>do / does / did como intensificadores</strong> e uma revisão mais detalhada de <strong>determiners</strong>. A ideia foi entender como pequenas palavras antes do verbo ou antes do substantivo podem mudar bastante o sentido da frase.
+</p>
+<p style="margin:0 0 8px 0;">
+  Primeiro, vimos que <strong>do</strong>, <strong>does</strong> e <strong>did</strong> não aparecem apenas em perguntas e frases negativas. Eles também podem aparecer em frases afirmativas para dar ênfase, com o sentido de “realmente”, “de verdade” ou “sim”. Por exemplo: <em>I do like this</em> significa “Eu realmente gosto disso”. Também vimos que <em>does</em> é usado com <em>he / she / it</em>, e <em>did</em> é usado para dar ênfase no passado.
+</p>
+<p style="margin:0 0 8px 0;">
+  Depois, entramos em <strong>determiners</strong>: palavras que aparecem antes de um substantivo para mostrar quantidade, ideia geral ou ideia específica. Revisamos <strong>all, most, many, some, no</strong> e <strong>none</strong>, observando quando usamos essas palavras sozinhas e quando usamos com <strong>of the</strong>, como em <em>some of the students</em>, <em>all of the exercises</em> e <em>none of the answers</em>.
+</p>
+<p style="margin:0;">
+  Um ponto importante da aula foi perceber que <strong>no</strong> não combina com <strong>of the</strong>. Por isso, dizemos <em>no students</em>, mas dizemos <em>none of the students</em>. Também apareceram palavras úteis como <strong>should</strong>, <strong>achieve</strong> e <strong>can</strong>, usadas em frases para falar sobre conselho, possibilidade e objetivos.
+</p>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+<div class="vocab-grid">
+<div class="vocab">
+<h3>Determiner</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) determinante: palavra usada antes do substantivo para dar ideia de quantidade, definição ou especificidade.</em><br/>
+<small><em>Some students need more practice.</em></small>
+</p>
+</div>
+<div class="vocab green">
+<h3>Do / Does / Did</h3>
+<p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+<em>(pt) usados para dar ênfase: “realmente”, “de verdade”, “sim”.</em><br/>
+<small><em>I do understand this.</em></small>
+</p>
+</div>
+</div>
+</section>
+<!-- NOVOS TÓPICOS: VOCABULÁRIO DA AULA, FRASES MODELO, CORREÇÕES -->
+<section>
+<h2 style="margin-bottom:8px;">Vocabulário completo da aula</h2>
+<div class="outline-card">
+<h3 style="margin-top:0;">DO como intensificador</h3>
+<ul>
+<li><strong>do</strong> – usado para dar ênfase com <em>I / you / we / they</em>. Ex.: <em>I do like this.</em></li>
+<li><strong>does</strong> – usado para dar ênfase com <em>he / she / it</em>. Ex.: <em>She does understand the rule.</em></li>
+<li><strong>did</strong> – usado para dar ênfase no passado. Ex.: <em>He did study yesterday.</em></li>
+<li><strong>really</strong> – realmente / de verdade. Ex.: <em>I really like this.</em></li>
+<li><strong>emphasis</strong> – ênfase. Ex.: <em>We use do for emphasis.</em></li>
+</ul>
+<h3>Determiners estudados</h3>
+<ul>
+<li><strong>all</strong> – todos / todas. Ex.: <em>All students need practice.</em></li>
+<li><strong>most</strong> – a maioria / a maior parte. Ex.: <em>Most people like music.</em></li>
+<li><strong>many</strong> – muitos / muitas. Ex.: <em>Many students use English online.</em></li>
+<li><strong>some</strong> – alguns / algumas / um pouco de. Ex.: <em>Some exercises are difficult.</em></li>
+<li><strong>no</strong> – nenhum / nenhuma. Ex.: <em>No students were absent.</em></li>
+<li><strong>none</strong> – nenhum / nenhuma, geralmente usado com <em>of the</em>. Ex.: <em>None of the students were absent.</em></li>
+</ul>
+<h3>Estruturas com “of the”</h3>
+<ul>
+<li><strong>all of the</strong> – todos os / todas as. Ex.: <em>All of the answers are correct.</em></li>
+<li><strong>most of the</strong> – a maioria dos / das. Ex.: <em>Most of the students understood.</em></li>
+<li><strong>many of the</strong> – muitos dos / das. Ex.: <em>Many of the exercises were useful.</em></li>
+<li><strong>some of the</strong> – alguns dos / das. Ex.: <em>Some of the examples were easy.</em></li>
+<li><strong>none of the</strong> – nenhum dos / das. Ex.: <em>None of the answers were wrong.</em></li>
+</ul>
+<h3>Outras palavras da aula</h3>
+<ul>
+<li><strong>should</strong> – deveria / deve, usado para conselho. Ex.: <em>You should practice more.</em></li>
+<li><strong>achieve</strong> – alcançar / conquistar. Ex.: <em>She wants to achieve her goals.</em></li>
+<li><strong>can</strong> – poder / conseguir. Ex.: <em>They can write good sentences.</em></li>
+<li><strong>goal</strong> – objetivo / meta. Ex.: <em>English is an important goal.</em></li>
+<li><strong>practice</strong> – praticar / prática. Ex.: <em>Practice helps a lot.</em></li>
+<li><strong>specific</strong> – específico. Ex.: <em>Some of the students</em> fala de um grupo específico.</li>
+<li><strong>general</strong> – geral. Ex.: <em>Some students</em> fala de alunos em geral.</li>
+</ul>
+</div>
+</section>
+<section>
+<h2 style="margin-bottom:8px;">Frases usadas em aula</h2>
+<div class="outline-card">
+<ul>
+<li>I do like this.</li>
+<li>She does understand the exercise.</li>
+<li>They did study yesterday.</li>
+<li>All students should practice.</li>
+<li>Most students can understand this rule.</li>
+<li>Many students use English at work.</li>
+<li>Some students need more examples.</li>
+<li>No students were absent today.</li>
+<li>None of the students were absent today.</li>
+<li>Some of the exercises are easy.</li>
+<li>Most of the examples are useful.</li>
+<li>We can achieve our goals with practice.</li>
+</ul>
+</div>
+</section>
+<!-- ✅ NOVA SEÇÃO FIXA: CORREÇÕES IMPORTANTES -->
+<section>
+<h2 style="margin-bottom:8px;">Correções importantes</h2>
+<div class="outline-card">
+<h3 style="margin-top:0;">1) DO / DOES / DID como intensificador</h3>
+<p>
+  Normalmente, <strong>do / does / did</strong> aparecem em perguntas e frases negativas, mas eles também podem aparecer em frases afirmativas para dar ênfase. Nesse caso, eles passam a ideia de <strong>“realmente”</strong>, <strong>“de verdade”</strong> ou <strong>“sim”</strong>.
+</p>
+<ul>
+<li><strong>Normal:</strong> <em>I like this.</em> – Eu gosto disso.</li>
+<li><strong>Com ênfase:</strong> <em>I do like this.</em> – Eu realmente gosto disso.</li>
+<li><strong>Com he / she / it:</strong> <em>She does like this.</em> – Ela realmente gosta disso.</li>
+<li><strong>No passado:</strong> <em>He did study yesterday.</em> – Ele estudou sim ontem / Ele realmente estudou ontem.</li>
+</ul>
+<p>
+  Atenção: quando usamos <strong>did</strong> como intensificador, o verbo principal fica no infinitivo, sem passado.
+</p>
+<ul>
+<li>❌ <em>He did studied yesterday.</em></li>
+<li>✅ <em>He did study yesterday.</em></li>
+</ul>
+<h3>2) O que é um determiner?</h3>
+<p>
+  Um <strong>determiner</strong> é uma palavra que vem antes de um substantivo para dar mais informação sobre ele. Ele pode mostrar quantidade, ideia geral ou ideia específica.
+</p>
+<ul>
+<li><em>Some students</em> – alguns alunos, de forma geral.</li>
+<li><em>Some of the students</em> – alguns dos alunos, dentro de um grupo específico.</li>
+</ul>
+<h3>3) General x Specific</h3>
+<p>
+  Quando falamos de algo mais geral, usamos o determiner direto antes do substantivo. Quando falamos de um grupo específico, usamos <strong>of the</strong>.
+</p>
+<ul>
+<li><strong>Geral:</strong> <em>Most students like games.</em></li>
+<li><strong>Específico:</strong> <em>Most of the students in this class like games.</em></li>
+</ul>
+<h3>4) NO x NONE</h3>
+<p>
+<strong>No</strong> vem direto antes de um substantivo. <strong>None</strong> é usado quando falamos “nenhum de...” e, por isso, combina com <strong>of the</strong>.
+</p>
+<ul>
+<li>✅ <em>No students were absent.</em></li>
+<li>✅ <em>None of the students were absent.</em></li>
+<li>❌ <em>No of the students were absent.</em></li>
+</ul>
+<h3>5) Cuidado com plural depois dos determiners</h3>
+<p>
+  Depois de <strong>all, most, many, some, no</strong> e <strong>none of the</strong>, normalmente usamos substantivo no plural quando estamos falando de coisas contáveis.
+</p>
+<ul>
+<li>✅ <em>Many students</em></li>
+<li>✅ <em>Some exercises</em></li>
+<li>✅ <em>None of the answers</em></li>
+</ul>
+</div>
+</section>
+<!-- ✅ FIM DA NOVA SEÇÃO -->
+<section>
+<h2 style="margin-bottom:8px;">Link do vídeo</h2>
+<div class="media-row">
+<a class="media-btn" href="#" role="button">📄 Aula presencial, sem transcrição</a>
+<a class="media-btn" href="#" role="button" style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;">
+  🎥 Aula presencial, sem gravação
+</a>
+</div>
+</section>
+<!-- ===== TABELA DE DISTRIBUIÇÃO DE FALA ===== -->
+<section aria-label="Distribuição de fala" class="speaking">
+<h2>Tempo de Fala (Talk Time)</h2>
+<table class="talk-table">
+<thead>
+<tr>
+<th>Quem falou</th>
+<th>Porcentagem</th>
+<th>Duração aproximada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-teacher">
+<td><span class="talk-label">César (Professor)</span></td>
+<td><span class="talk-percent">65%</span></td>
+<td class="talk-time">~39 minutos</td>
+</tr>
+<tr class="row-student">
+<td><span class="talk-label">Vitor</span></td>
+<td><span class="talk-percent">35%</span></td>
+<td class="talk-time">~21 minutos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- ===== FIM TABELA ===== -->
+<section>
+<h2 style="margin-bottom:8px;">Homework</h2>
+<div class="homework">
+<p style="margin:0 0 8px 0;">
+  📌 <strong>Lição de casa:</strong>
+</p>
+<p style="margin:0 0 8px 0;color:var(--muted);font-size:0.94rem;">
+  Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>. Preste atenção principalmente em duas partes: <strong>do / does / did como intensificadores</strong> e <strong>determiners</strong>.
+</p>
+<h3 style="margin:10px 0 6px 0;">Parte 1 — DO / DOES / DID para dar ênfase</h3>
+<p style="margin:0 0 6px 0;color:var(--muted);font-size:0.94rem;">
+  Escreva <strong>5 frases em inglês</strong> usando <strong>do, does</strong> ou <strong>did</strong> para dar ideia de “realmente” ou “sim”.
+</p>
+<ul style="margin:0 0 10px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+<li>Exemplo 1: <em>I do like English.</em></li>
+<li>Exemplo 2: <em>She does understand the lesson.</em></li>
+<li>Exemplo 3: <em>They did study yesterday.</em></li>
+</ul>
+<h3 style="margin:10px 0 6px 0;">Parte 2 — Determiners</h3>
+<p style="margin:0 0 6px 0;color:var(--muted);font-size:0.94rem;">
+  Escreva <strong>5 frases em inglês</strong> usando estes determiners: <strong>all, most, many, some, no</strong> ou <strong>none of the</strong>.
+</p>
+<ul style="margin:0 0 10px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+<li>Exemplo 1: <em>Most students like music.</em></li>
+<li>Exemplo 2: <em>Some of the exercises are difficult.</em></li>
+<li>Exemplo 3: <em>None of the answers are wrong.</em></li>
+</ul>
+<p style="margin:0;color:var(--muted);font-size:0.94rem;">
+  Atenção: não use <strong>no of the</strong>. O correto é <strong>none of the</strong>.
+</p>
+</div>
+<div style="margin-top:14px;">
+<a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+</div>
+</section>
+</main>
+<footer>
+<p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+</footer>
+</article>
+</div>
+</body>
+</html>
