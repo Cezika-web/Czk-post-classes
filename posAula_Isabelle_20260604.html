@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Isabelle — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff; /* azul clarinho */
+    }
+
+    .row-student{
+      background:#e8f7ef; /* verde clarinho */
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Listening, música e provérbios — habilidades e aprendizagem</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Isabelle &nbsp;•&nbsp;
+            <strong>Data:</strong> 04/06/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula com prática de listening, revisão da música <em>Human</em>, interpretação de provérbio e atividades sobre aprendizagem de idiomas.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Começamos a aula conversando sobre a rotina da semana, viagem, tarefas e estudo. Também retomamos a ideia de manter contato com o inglês fora da aula, especialmente por meio de vídeos, músicas, séries e legendas, para criar mais familiaridade com o idioma no dia a dia.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Em seguida, trabalhamos com a música <strong>Human</strong>. A prática foi voltada para <strong>listening</strong>, identificação de palavras conhecidas, repetição de trechos curtos e compreensão geral. A música ajudou a revisar expressões como <em>human</em>, <em>blame</em>, <em>mirror</em>, <em>believe</em> e o verbo <em>put</em> em contexto.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois passamos para o livro e estudamos o provérbio <strong>You can't teach an old dog new tricks</strong>. A ideia principal foi entender que um provérbio não deve ser traduzido palavra por palavra: ele carrega uma mensagem cultural. Conversamos sobre o significado de aprender coisas novas quando a pessoa já está acostumada a fazer algo de um jeito específico.
+            </p>
+            <p style="margin:0;">
+              Na parte final, fizemos uma atividade de listening com um podcast sobre <strong>abilities</strong> e aprendizagem de idiomas. Trabalhamos a ideia principal da fala da Dr. Meyer, vocabulário como <em>main idea</em>, <em>ability</em>, <em>factors</em>, <em>motivation</em>, <em>practice</em> e <em>natural ability</em>, além de exercícios de verdadeiro/falso e compreensão de informações específicas.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Proverb</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) provérbio / ditado popular</em><br>
+                <small>This proverb talks about learning new habits.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Main idea</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) ideia principal</em><br>
+                <small>What is the speaker's main idea?</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Música e listening</h3>
+            <ul>
+              <li><strong>human</strong> – humano(a)</li>
+              <li><strong>blame</strong> – culpa / culpar</li>
+              <li><strong>to put</strong> – colocar</li>
+              <li><strong>mirror</strong> – espelho</li>
+              <li><strong>to believe</strong> – acreditar</li>
+              <li><strong>foolish</strong> – tolo(a), bobo(a)</li>
+              <li><strong>blind</strong> – cego(a)</li>
+              <li><strong>to prove</strong> – provar / comprovar</li>
+              <li><strong>after all</strong> – afinal / no fim das contas</li>
+            </ul>
+
+            <h3>Provérbios e interpretação</h3>
+            <ul>
+              <li><strong>proverb</strong> – provérbio / ditado popular</li>
+              <li><strong>meaning</strong> – significado</li>
+              <li><strong>similar meaning</strong> – significado parecido</li>
+              <li><strong>to infer</strong> – inferir / entender pelo contexto</li>
+              <li><strong>trick</strong> – truque</li>
+              <li><strong>old dog</strong> – cachorro velho, dentro do provérbio</li>
+              <li><strong>new tricks</strong> – truques novos / hábitos novos</li>
+              <li><strong>cartoon</strong> – charge / desenho</li>
+            </ul>
+
+            <h3>Podcast: habilidades e aprendizagem</h3>
+            <ul>
+              <li><strong>ability</strong> – habilidade / capacidade</li>
+              <li><strong>abilities</strong> – habilidades / capacidades</li>
+              <li><strong>main idea</strong> – ideia principal</li>
+              <li><strong>certain age</strong> – certa idade</li>
+              <li><strong>to develop</strong> – desenvolver</li>
+              <li><strong>fluent</strong> – fluente</li>
+              <li><strong>factor</strong> – fator</li>
+              <li><strong>to affect</strong> – afetar / influenciar</li>
+              <li><strong>motivation</strong> – motivação</li>
+              <li><strong>practice</strong> – prática</li>
+              <li><strong>natural ability</strong> – habilidade natural</li>
+              <li><strong>to pay attention</strong> – prestar atenção</li>
+              <li><strong>to care</strong> – se importar</li>
+              <li><strong>boring</strong> – chato(a)</li>
+              <li><strong>bored</strong> – entediado(a)</li>
+            </ul>
+
+            <h3>Observação importante: main</h3>
+            <p style="margin:0 0 8px 0;">
+              <strong>Main</strong> significa “principal”. Ele aparece em expressões como <em>main idea</em> (ideia principal), <em>main street</em> (rua principal) e <em>main dish</em> (prato principal).
+            </p>
+            <p style="margin:0;">
+              Na atividade do podcast, a pergunta pedia a <strong>main idea</strong>, ou seja, não era para entender cada palavra, mas sim a mensagem central da fala da Dr. Meyer.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I'm only human.</li>
+              <li>What does this proverb mean?</li>
+              <li>You can't teach an old dog new tricks.</li>
+              <li>It's hard to learn new things when you're not young.</li>
+              <li>What is the main idea?</li>
+              <li>Practice is very helpful.</li>
+              <li>Motivation is an important factor.</li>
+              <li>Some people learn faster than others.</li>
+              <li>People can develop new abilities.</li>
+              <li>I don't care about this.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>tricks, not treats</strong><br>
+                No provérbio, a palavra correta é <em>tricks</em> (truques), não <em>treats</em> (petiscos/recompensas). Correto: <em>You can't teach an old dog new tricks.</em>
+              </li>
+              <li><strong>Proverb não é tradução literal</strong><br>
+                Um provérbio carrega uma ideia cultural. Neste caso, a frase não é exatamente sobre cachorros; ela fala sobre a dificuldade de mudar hábitos ou aprender coisas novas depois de muito tempo fazendo algo de um jeito.
+              </li>
+              <li><strong>main = principal</strong><br>
+                <em>Main idea</em> significa “ideia principal”. Cuidado para não tentar traduzir <em>main</em> como nome próprio ou como algo isolado sem contexto.
+              </li>
+              <li><strong>effect x affect</strong><br>
+                <em>Effect</em> geralmente é substantivo: “efeito”. <em>Affect</em> geralmente é verbo: “afetar/influenciar”. Ex.: <em>Motivation can affect learning.</em>
+              </li>
+              <li><strong>bored x boring</strong><br>
+                <em>Bored</em> descreve como a pessoa se sente: <em>I'm bored.</em> <em>Boring</em> descreve algo que causa tédio: <em>The class is boring.</em>
+              </li>
+              <li><strong>to care</strong><br>
+                <em>I don't care</em> significa “eu não me importo”. Na aula, isso apareceu ligado à motivação: se a pessoa não se importa em aprender, ela provavelmente não se dedica tanto.
+              </li>
+              <li><strong>pay attention</strong><br>
+                Use <em>pay attention</em> para “prestar atenção”. Ex.: <em>Students need to pay attention in class.</em>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/jjyOZLEBLCo"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">64%</span></td>
+                <td class="talk-time">~48 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Isabelle</span></td>
+                <td><span class="talk-percent">36%</span></td>
+                <td class="talk-time">~27 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler este pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+              <li>Prestar atenção principalmente em <strong>main idea</strong>, <strong>proverb</strong>, <strong>motivation</strong>, <strong>practice</strong> e <strong>natural ability</strong>.</li>
+              <li>Revisar as correções: <strong>tricks x treats</strong>, <strong>effect x affect</strong> e <strong>bored x boring</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
