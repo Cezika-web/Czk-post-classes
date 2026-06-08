@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Isabelle — CZK English</title>
+
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=xO7ySs5twtrvE6Y4BVT4FahVLHPQMVJx_H54VLR7VZZi3TZ7IpU1NSJ0lLGPsvWXL3RBMyCCP5TrYRceqn21GF_b_Lbw2QIk21qQ4S0-GHGIzqJ4i6_E7sK68hp_6-HJQ4r2LYK4N1yhmzcgW0AyQBpf0MFRbmejtqpkvFQEXCmDcWYLcShxYXp8cOsp4Jt_ytVrKqGMD-UabPEn0YbbgWKTsObQOMFPinT0W-4MuIv2I4Rh6oEhu9NZtMX5s0qturJIqpxBGJxFYWWi1zyXxtHsPTefpJ-E3QYNQFJ7tp6g3utuJ2GcrqmIlII2rSexc-wTYamtzhnAiL1-HsF1jQ" charset="UTF-8"></script><style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{background:#e7f2ff;}
+    .row-student{background:#e8f7ef;}
+    .talk-label{font-weight:700;}
+    .talk-percent{font-weight:700;color:#0f1724;}
+    .talk-time{color:var(--muted);}
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Revisão da unidade — rotina de estudos, modais e verbos</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluna:</strong> Isabelle &nbsp;•&nbsp;
+            <strong>Data:</strong> 08/06/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula sobre organização dos estudos, correção da área do aluno, revisão da unidade e prática com <em>can</em>, <em>should</em>, <em>will</em> e identificação de verbos.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, começamos conversando sobre a possibilidade de uma viagem internacional no próximo ano e combinamos que, mais perto da data, vamos trabalhar inglês específico para viagem, como aeroporto, hotel, restaurante, compras e situações de emergência.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois, vimos a nova forma de correção da <strong>área do aluno</strong>. A partir de agora, as atividades terão um retorno mais organizado, com número de questões respondidas, questões não respondidas, acertos, erros bobos, erros medianos e erros graves. O resultado geral foi bom: muitos erros foram causados por corretor automático ou pequenos detalhes de escrita, como <em>rest</em> virando “resto”, <em>soap</em> sendo confundido, ou problemas com <em>doesn't</em>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também alinhamos uma nova rotina de estudos: aula na segunda e quarta, leitura do pós-aula na terça e quinta, e uma atividade por dia na sexta, sábado e domingo. A ideia é criar contato diário com o inglês, sem sobrecarregar, mas com constância.
+            </p>
+            <p style="margin:0;">
+              Na parte final, fizemos revisão da unidade, principalmente com <strong>can</strong>, <strong>should</strong>, <strong>will</strong> e identificação de verbos dentro das frases. Um ponto importante foi perceber que uma palavra pode mudar de função dependendo do contexto, como <em>work</em>, que pode ser verbo (“trabalhar”) ou substantivo/lugar (“trabalho”).
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Should</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) deveria / usado para dar conselho</em><br>
+                <small>You should rest. — Você deveria descansar.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Come to work</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) vir para o trabalho</em><br>
+                <small>She can't come to work today.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Rotina de estudos</h3>
+            <ul>
+              <li><strong>study routine</strong> – rotina de estudos</li>
+              <li><strong>homework / student area</strong> – tarefa / área do aluno</li>
+              <li><strong>post-class summary</strong> – pós-aula</li>
+              <li><strong>read out loud</strong> – ler em voz alta</li>
+              <li><strong>slowly / calmly</strong> – devagar / com calma</li>
+              <li><strong>habit</strong> – hábito</li>
+            </ul>
+
+            <h3>Correção da área do aluno</h3>
+            <ul>
+              <li><strong>correct answers</strong> – respostas corretas</li>
+              <li><strong>wrong answers</strong> – respostas erradas</li>
+              <li><strong>unanswered questions</strong> – questões não respondidas</li>
+              <li><strong>spelling mistake</strong> – erro de escrita/ortografia</li>
+              <li><strong>autocorrect</strong> – corretor automático</li>
+              <li><strong>silly mistake</strong> – erro bobo</li>
+              <li><strong>serious mistake</strong> – erro grave</li>
+            </ul>
+
+            <h3>Modais e verbos</h3>
+            <ul>
+              <li><strong>can</strong> – pode / consegue</li>
+              <li><strong>can't</strong> – não pode / não consegue</li>
+              <li><strong>should</strong> – deveria / usado para conselho</li>
+              <li><strong>will</strong> – marca ideia de futuro</li>
+              <li><strong>enjoy</strong> – aproveitar / curtir</li>
+              <li><strong>come</strong> – vir</li>
+              <li><strong>have</strong> – ter; também pode funcionar como auxiliar</li>
+              <li><strong>work</strong> – trabalhar ou trabalho/local de trabalho, dependendo do contexto</li>
+              <li><strong>practice</strong> – praticar; também pode aparecer como substantivo em alguns contextos</li>
+            </ul>
+
+            <h3>Viagem</h3>
+            <ul>
+              <li><strong>trip</strong> – viagem</li>
+              <li><strong>travel English</strong> – inglês para viagem</li>
+              <li><strong>Europe</strong> – Europa</li>
+              <li><strong>emergency</strong> – emergência</li>
+              <li><strong>hospital</strong> – hospital</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>You should rest.</li>
+              <li>She can't come to work today.</li>
+              <li>Zayn will enjoy the extra time with his family.</li>
+              <li>I have a question.</li>
+              <li>Have fun.</li>
+              <li>Can you help me?</li>
+              <li>Read the post-class summary out loud.</li>
+              <li>Do one activity on Friday, one on Saturday, and one on Sunday.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Rest ≠ resto</strong><br>
+                <span style="font-family:monospace;">rest</span> = descansar / descanso. O corretor automático pode trocar por “resto”, então vale revisar antes de enviar.</li>
+              <li><strong>Soap</strong><br>
+                <span style="font-family:monospace;">soap</span> = sabonete / sabão. Cuidado para não confundir a escrita.</li>
+              <li><strong>Doesn't</strong><br>
+                A forma correta é <span style="font-family:monospace;">doesn't</span>. Cuidado com escritas como <em>duzent</em>, que aparecem por causa do corretor ou da digitação.</li>
+              <li><strong>He / She / They</strong><br>
+                Continue prestando atenção em quem faz a ação: <em>he</em> para ele, <em>she</em> para ela e <em>they</em> para eles/elas.</li>
+              <li><strong>Work como verbo ou lugar</strong><br>
+                Em <em>She can't come to work today</em>, <strong>come</strong> é o verbo principal. <strong>Work</strong> funciona como o lugar “trabalho”, não como o verbo “trabalhar”.</li>
+              <li><strong>Should como conselho</strong><br>
+                <em>Should</em> modifica a frase e transforma a ideia em conselho. Ex.: <em>You should rest</em> = Você deveria descansar.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/1k8tdhFedu4"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">62%</span></td>
+                <td class="talk-time">~38 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Isabelle</span></td>
+                <td><span class="talk-percent">38%</span></td>
+                <td class="talk-time">~23 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Rotina combinada para esta nova fase:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li><strong>Segunda:</strong> aula normal.</li>
+              <li><strong>Terça:</strong> ler o pós-aula duas vezes, em dois blocos de aproximadamente 10 minutos. As frases modelo devem ser lidas em voz alta.</li>
+              <li><strong>Quarta:</strong> aula normal.</li>
+              <li><strong>Quinta:</strong> repetir a leitura do pós-aula, novamente em dois blocos de 10 minutos, com calma e atenção.</li>
+              <li><strong>Sexta:</strong> fazer 1 atividade da área do aluno.</li>
+              <li><strong>Sábado:</strong> fazer 1 atividade da área do aluno.</li>
+              <li><strong>Domingo:</strong> fazer 1 atividade da área do aluno.</li>
+            </ul>
+            <p style="margin:8px 0 0 0;color:var(--muted);font-size:0.94rem;">
+              Lembrete principal: o objetivo não é fazer correndo. O objetivo é criar contato diário com o inglês e revisar com calma para diminuir o esquecimento.
+            </p>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
