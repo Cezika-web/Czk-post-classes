@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Davi — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+
+      <!-- CAIXA DE LINK PARA ENVIAR AO ALUNO -->
+      <div style="background:#fffbe6;border:1.5px solid #f0c040;border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <span style="font-size:1.1rem;">🔗</span>
+        <div style="flex:1;min-width:0;">
+          <p style="margin:0 0 4px 0;font-weight:700;color:#7a5c00;font-size:0.85rem;">LINK PARA ENVIAR AO ALUNO — copie e cole no WhatsApp</p>
+          <input
+            id="student-link"
+            readonly
+            value="https://cezika-web.github.io/Czk-post-classes/pos-aula-davi.html"
+            style="width:100%;box-sizing:border-box;border:1px solid #e0c060;border-radius:8px;padding:8px 10px;font-size:0.9rem;background:#fff;color:#333;cursor:pointer;"
+            onclick="this.select();"
+          />
+        </div>
+        <button
+          onclick="navigator.clipboard.writeText(document.getElementById('student-link').value).then(()=>{this.textContent='✅ Copiado!';setTimeout(()=>{this.textContent='📋 Copiar'},2000)})"
+          style="padding:9px 16px;background:#f0c040;border:none;border-radius:8px;font-weight:700;cursor:pointer;white-space:nowrap;color:#5a3e00;"
+        >📋 Copiar</button>
+      </div>
+      <!-- FIM CAIXA DE LINK -->
+
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Possessivo ('s), Títulos e Pronomes Possessivos</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Davi &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/09/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula: lição de casa com possessivo ('s), revisão de títulos (Mr., Mrs., Miss, Ms.), pronomes possessivos e vocabulário com o jogo Babadum.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com a <strong>correção da lição de casa</strong>: Davi criou 10 sentenças usando o <strong>possessivo 's</strong> (apóstrofe + s) para indicar posse em inglês — por exemplo, <em>Lucas's house is big</em> (a casa do Lucas é grande) e <em>Gabriela's videogame is amazing</em> (o videogame da Gabriela é incrível). No geral, as sentenças estavam bem construídas, mas algumas apresentaram erros que foram discutidos e corrigidos em aula.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Em seguida, a aula avançou para o <strong>jogo de vocabulário Babadum</strong>, em que Davi precisava ouvir a palavra em inglês e clicar na imagem correspondente. Davi foi muito bem, acertando <strong>28 das 30 palavras</strong> — resultado excelente! Os dois erros foram por desatenção e pressa, não por falta de conhecimento.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A segunda parte da aula foi dedicada à <strong>revisão de conteúdos anteriores</strong>: títulos em inglês (<em>Mr., Mrs., Miss, Ms., Dr.</em>), pronomes possessivos (<em>my, your, his, her, its, our, their</em>), estrutura de endereços em inglês (número + nome da rua + Street) e o uso do <strong>apóstrofe 's</strong> em exercícios aplicados.
+            </p>
+            <p style="margin:0;">
+              Davi demonstrou boa memorização dos conteúdos e melhorou visivelmente em relação a aulas anteriores. O professor destacou que fazer a lição de casa faz diferença direta na qualidade da aula.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Lucas's house is big. — A casa do Lucas é grande.</li>
+              <li>Gabriela's videogame is amazing. — O videogame da Gabriela é incrível.</li>
+              <li>Eduardo's notebook is old. — O caderno do Eduardo é velho.</li>
+              <li>Maria's city is very busy. — A cidade de Maria é muito movimentada.</li>
+              <li>John's computer is expensive. — O computador de João é caro.</li>
+              <li>The children's books are on the table. — Os livros das crianças estão na mesa.</li>
+              <li>The doctors' opinions are important. — As opiniões dos médicos são importantes.</li>
+              <li>My parents' car is blue. — O carro dos meus pais é azul.</li>
+              <li>The teacher's room is big. — A sala dos professores é grande.</li>
+              <li>The girls' shoes are new. — Os sapatos das garotas são novos.</li>
+              <li>My mother's car is white. — O carro da minha mãe é branco.</li>
+              <li>I am from Brazil. — Eu sou do Brasil.</li>
+              <li>My teacher's last name is Oliveira. — O sobrenome do meu professor é Oliveira.</li>
+              <li>My address is 66 Pedro Álvares Cabral Street. — Meu endereço é rua Pedro Álvares Cabral, 66.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Expensive</h3>
+              <p>
+                <em>(pt) caro(a)</em><br>
+                <small>John's computer is very expensive.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Lounge</h3>
+              <p>
+                <em>(pt) salão / sala de espera (de aeroporto, hotel ou bar)</em><br>
+                <small>The airport lounge is very comfortable.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Possessivo 's — palavras das sentenças</h3>
+            <ul>
+              <li><strong>house</strong> – casa</li>
+              <li><strong>big / large</strong> – grande</li>
+              <li><strong>videogame</strong> – videogame</li>
+              <li><strong>amazing</strong> – incrível</li>
+              <li><strong>notebook</strong> – caderno</li>
+              <li><strong>old</strong> – velho(a)</li>
+              <li><strong>city</strong> – cidade</li>
+              <li><strong>busy</strong> – movimentado(a) / ocupado(a)</li>
+              <li><strong>computer</strong> – computador</li>
+              <li><strong>expensive</strong> – caro(a)</li>
+              <li><strong>table</strong> – mesa</li>
+              <li><strong>opinion</strong> – opinião</li>
+              <li><strong>important</strong> – importante</li>
+              <li><strong>car</strong> – carro</li>
+              <li><strong>blue / white / red</strong> – azul / branco / vermelho</li>
+              <li><strong>room</strong> – sala / quarto</li>
+              <li><strong>shoes</strong> – sapatos</li>
+              <li><strong>bicycle</strong> – bicicleta</li>
+              <li><strong>backpack</strong> – mochila</li>
+              <li><strong>phone / cell phone</strong> – celular</li>
+              <li><strong>dog</strong> – cachorro</li>
+              <li><strong>small</strong> – pequeno(a)</li>
+              <li><strong>fast</strong> – rápido(a)</li>
+              <li><strong>toy</strong> – brinquedo</li>
+            </ul>
+
+            <h3>Títulos em inglês</h3>
+            <ul>
+              <li><strong>Mr.</strong> (Mister) – usado para homens</li>
+              <li><strong>Mrs.</strong> (Missiz) – mulher casada</li>
+              <li><strong>Miss</strong> (sem ponto) – mulher solteira</li>
+              <li><strong>Ms.</strong> (Miz) – mulher (sem especificar estado civil)</li>
+              <li><strong>Dr.</strong> – doutor / médico</li>
+            </ul>
+
+            <h3>Pronomes possessivos</h3>
+            <ul>
+              <li><strong>my</strong> – meu / minha</li>
+              <li><strong>your</strong> – seu / sua (você)</li>
+              <li><strong>his</strong> – dele</li>
+              <li><strong>her</strong> – dela</li>
+              <li><strong>its</strong> – dele/dela (animais e coisas)</li>
+              <li><strong>our</strong> – nosso / nossa</li>
+              <li><strong>their</strong> – deles / delas</li>
+            </ul>
+
+            <h3>Vocabulário do jogo Babadum (destaques)</h3>
+            <ul>
+              <li><strong>giraffe</strong> – girafa</li>
+              <li><strong>garbage truck</strong> – caminhão de lixo</li>
+              <li><strong>grandfather</strong> – avô</li>
+              <li><strong>hand cream</strong> – creme de mãos</li>
+              <li><strong>power plug</strong> – tomada / plugue</li>
+              <li><strong>centipede</strong> – lacraia / centopeia</li>
+              <li><strong>wasp</strong> – vespa</li>
+              <li><strong>gold</strong> – ouro</li>
+              <li><strong>microscope</strong> – microscópio</li>
+              <li><strong>shadow</strong> – sombra</li>
+              <li><strong>subway</strong> – metrô</li>
+              <li><strong>remote control</strong> – controle remoto</li>
+              <li><strong>chessboard</strong> – tabuleiro de xadrez</li>
+              <li><strong>excavator</strong> – escavadeira</li>
+              <li><strong>glacier</strong> – geleira</li>
+              <li><strong>hairdresser</strong> – cabeleireiro(a)</li>
+              <li><strong>megaphone</strong> – megafone</li>
+              <li><strong>soldier</strong> – soldado</li>
+              <li><strong>sword</strong> – espada</li>
+              <li><strong>screw</strong> – parafuso</li>
+              <li><strong>flowerpot</strong> – vaso de flor</li>
+              <li><strong>brush</strong> – pincel / escova</li>
+              <li><strong>lounge</strong> – salão / sala de espera</li>
+              <li><strong>street</strong> – rua</li>
+              <li><strong>address</strong> – endereço</li>
+              <li><strong>last name / surname</strong> – sobrenome</li>
+              <li><strong>first name</strong> – primeiro nome</li>
+              <li><strong>classmate</strong> – colega de sala</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+
+            <p><strong>1. Notebook ≠ livro nem computador</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Notebook é livro"</em> / <em>"Notebook é computador"</em><br>
+              ✅ <strong>Notebook = caderno</strong> (o objeto de papel mesmo).<br>
+              Para computador portátil, o mais comum em inglês é <em>laptop</em>.
+            </p>
+
+            <p><strong>2. Lounge ≠ sala comum</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>The teacher's lounge is big.</em> (para "sala dos professores" em escola)<br>
+              ✅ <strong>The teacher's room is big.</strong><br>
+              <em>Lounge</em> tem sentido específico: sala de espera de aeroporto, salão de hotel, bar confortável. Para uma sala escolar comum, usa-se <strong>room</strong>.
+            </p>
+
+            <p><strong>3. Pronome possessivo — letra maiúscula só no início da frase</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>This is Her dog.</em> (no meio da frase)<br>
+              ✅ <strong>This is her dog.</strong><br>
+              Pronomes como <em>my, your, his, her, its, our, their</em> só levam maiúscula quando iniciam uma frase ou vêm após ponto final.
+            </p>
+
+            <p><strong>4. Uso correto de Ms. — ponto obrigatório</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>Ms</em> (sem ponto)<br>
+              ✅ <strong>Ms.</strong> (com ponto) — assim como <em>Mr.</em> e <em>Mrs.</em><br>
+              <em>Miss</em> é a única forma que não leva ponto, pois não é uma abreviação.
+            </p>
+
+            <p><strong>5. Pronúncia: Parents ≠ "parentes"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Traduzir <em>parents</em> como "parentes"<br>
+              ✅ <strong>Parents = pai e mãe</strong> (os pais). Para "parentes" em inglês, usa-se <em>relatives</em>.
+            </p>
+
+            <p><strong>6. Pronúncia: Sword</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Soul-ward"</em> ou <em>"De-word"</em><br>
+              ✅ <strong>Sword</strong> — pronuncia-se <em>"sord"</em> (o W é mudo). Significa espada.
+            </p>
+
+            <p><strong>7. Estrutura do endereço em inglês</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Em inglês, a ordem do endereço é diferente do português:<br>
+              ❌ <em>Pedro Álvares Cabral Street, 66</em><br>
+              ✅ <strong>66 Pedro Álvares Cabral Street</strong><br>
+              Começa pelo <strong>número</strong>, depois o nome da rua, e <em>Street</em> vai no final.
+            </p>
+
+            <p><strong>8. Last name ≠ primeiro nome</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Confundir <em>last name</em> com o primeiro nome<br>
+              ✅ <strong>First name</strong> = nome (César) / <strong>Last name / Surname</strong> = sobrenome (Oliveira)
+            </p>
+
+            <p><strong>9. Sentenças repetidas na lição de casa</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Davi usou a mesma sentença (<em>The teacher's room is big</em>) em dois exercícios diferentes, com traduções diferentes da palavra "sala" (<em>room</em> e <em>lounge</em>). Atenção para não repetir sentenças na lição de casa!
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/iqNWQBU9jig"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">70%</span></td>
+                <td class="talk-time">~40 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Davi</span></td>
+                <td><span class="talk-percent">30%</span></td>
+                <td class="talk-time">~17 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
