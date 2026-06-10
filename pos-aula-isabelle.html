@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Isabelle — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Modais (Can/Should), Determiners e Vocabulário de Saúde</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Isabelle &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/10/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula: revisão de verbos modais (can/should), determiners (quantificadores), vocabulário de saúde e o frasal verbo <em>sign up</em>.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou revisando a expressão <strong>What are you up to?</strong> — uma forma informal de perguntar "e aí, o que tá rolando?", equivalente ao <em>What's up?</em> A resposta mais natural é <strong>Not much</strong> (nada demais), diferente de <em>I'm good</em>, que responderia a um <em>How are you?</em> mais direto.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A maior parte da aula foi dedicada à <strong>revisão de verbos modais</strong>: <em>can / can't</em> (poder/conseguir) e <em>should / shouldn't</em> (deveria/não deveria), com exercícios práticos de montagem de sentenças. O professor reforçou que em perguntas com modais a ordem é invertida — o modal vem antes do sujeito: <em>When can we go?</em> e não <em>When we can go?</em>
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Um ponto importante foi o uso de <strong>does / doesn't</strong> com a terceira pessoa do singular (he, she, it) no presente. A frase trabalhada foi: <em>The rain doesn't bother me</em> — "bother" (atrapalhar) é um verbo novo e bastante útil no dia a dia.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Também foi estudado o conceito de <strong>determiners</strong> (determinantes): palavras que quantificam um substantivo, como <em>all, most, much, some, nothing, something</em>. A grande sacada é que quando o determinante é <em>some</em> ou <em>no</em>, ele se funde com o substantivo e vira uma palavra só: <em>something, nothing</em>.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O <strong>frasal verbo Sign up</strong> (se cadastrar/inscrever) foi apresentado com um detalhe importante: ele pode ser "quebrado" com um pronome no meio — <em>Sign her up</em> = cadastrar ela, <em>Sign me up</em> = me cadastrar.
+            </p>
+            <p style="margin:0;">
+              A aula fechou com exercícios de <strong>vocabulário de saúde</strong> (febre, resfriado, dor de garganta, dor de cabeça, dor de dente, dor nas costas, nariz escorrendo) e uma atividade de verdadeiro ou falso com texto. Próxima aula: finalizar a revisão.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>To bother</h3>
+              <p>
+                <em>(pt) atrapalhar / incomodar</em><br>
+                <small>The rain doesn't bother me.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Determiner</h3>
+              <p>
+                <em>(pt) determinante — palavra que quantifica um substantivo</em><br>
+                <small>Some cars. Most things. Nothing.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Expressões e verbos</h3>
+            <ul>
+              <li><strong>What are you up to? / What's up?</strong> – E aí? O que tá rolando?</li>
+              <li><strong>Not much</strong> – Nada demais / Nada de especial</li>
+              <li><strong>Well</strong> – Bem (também usado como conector de início de conversa)</li>
+              <li><strong>to bother</strong> – atrapalhar / incomodar</li>
+              <li><strong>to hope</strong> – esperar (com expectativa) / ter esperança</li>
+              <li><strong>hope</strong> (substantivo) – esperança</li>
+              <li><strong>to want</strong> – querer</li>
+              <li><strong>to sign up</strong> – se cadastrar / se inscrever</li>
+              <li><strong>sign her/him/me up</strong> – cadastrar ela / ele / eu</li>
+              <li><strong>pot roast</strong> – assado de panela</li>
+              <li><strong>waterfall</strong> – cachoeira</li>
+              <li><strong>fall</strong> – outono (inglês americano)</li>
+              <li><strong>autumn</strong> – outono (inglês britânico)</li>
+            </ul>
+
+            <h3>Determiners (quantificadores)</h3>
+            <ul>
+              <li><strong>all</strong> – todos / toda</li>
+              <li><strong>most</strong> – a maioria</li>
+              <li><strong>much</strong> – muito (para incontáveis)</li>
+              <li><strong>some</strong> – alguns / algumas</li>
+              <li><strong>something</strong> – alguma coisa (<em>some</em> + <em>thing</em> = uma palavra só)</li>
+              <li><strong>nothing</strong> – nada (<em>no</em> + <em>thing</em> = uma palavra só)</li>
+              <li><strong>no</strong> – nenhum / nenhuma</li>
+            </ul>
+
+            <h3>Verbos modais revisados</h3>
+            <ul>
+              <li><strong>can</strong> – poder / conseguir</li>
+              <li><strong>can't</strong> – não poder / não conseguir</li>
+              <li><strong>should</strong> – deveria</li>
+              <li><strong>shouldn't</strong> – não deveria</li>
+            </ul>
+
+            <h3>Vocabulário de saúde</h3>
+            <ul>
+              <li><strong>a cold</strong> – um resfriado</li>
+              <li><strong>a fever</strong> – febre</li>
+              <li><strong>a sore throat</strong> – dor de garganta</li>
+              <li><strong>a headache</strong> – dor de cabeça</li>
+              <li><strong>a backache</strong> – dor nas costas</li>
+              <li><strong>a toothache</strong> – dor de dente</li>
+              <li><strong>a runny nose</strong> – nariz escorrendo / coriza</li>
+              <li><strong>heavy</strong> – pesado(a)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>What are you up to? — E aí, o que tá rolando?</li>
+              <li>Not much. — Nada demais.</li>
+              <li>The rain doesn't bother me. — A chuva não me atrapalha.</li>
+              <li>What can I do for you? — O que posso fazer por você?</li>
+              <li>When can we go for a drive this morning? — Quando nós podemos sair de carro essa manhã?</li>
+              <li>Why can't we go for a drive? — Por que não podemos sair de carro?</li>
+              <li>Where can we go for our picnic this fall? — Onde podemos ir para o nosso piquenique esse outono?</li>
+              <li>She wants to learn how to drive. — Ela quer aprender a dirigir.</li>
+              <li>Should I teach her myself? — Eu deveria ensinar ela mesma?</li>
+              <li>Sign her up for a driving class. — Cadastre ela em uma aula de direção.</li>
+              <li>Can you drive? — Você sabe dirigir?</li>
+              <li>She should see a doctor. — Ela deveria ver um médico.</li>
+              <li>You shouldn't have eaten all the pizza. — Você não deveria ter comido toda a pizza.</li>
+              <li>You don't look so good. — Você não está parecendo muito bem.</li>
+              <li>I hope you feel better. — Espero que você fique melhor.</li>
+              <li>Patience is something to consider. — Paciência é algo a se considerar.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+
+            <p><strong>1. Does / Doesn't — terceira pessoa do singular no presente</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>The rain don't bother me.</em><br>
+              ✅ <strong>The rain doesn't bother me.</strong><br>
+              Quando o sujeito é <em>he, she, it</em> (terceira pessoa do singular) no presente, usa-se <strong>doesn't</strong> na negativa — e não <em>don't</em>. A chuva é "it", então: <em>doesn't</em>.
+            </p>
+
+            <p><strong>2. Ordem da pergunta com modal: modal + sujeito</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>When we can go?</em><br>
+              ✅ <strong>When can we go?</strong><br>
+              Em perguntas com verbos modais (<em>can, should, will</em>…), o modal vem antes do sujeito. Em português dizemos "quando nós podemos", mas em inglês a ordem inverte: o modal puxa para antes.
+            </p>
+
+            <p><strong>3. What are you up to? ≠ How are you?</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              As duas expressões parecem iguais, mas a resposta esperada é diferente:<br>
+              ✅ <em>How are you?</em> → resposta: <em>I'm good / I'm fine</em> (como você está)<br>
+              ✅ <em>What are you up to?</em> → resposta: <em>Not much / Just working</em> (o que tá acontecendo)<br>
+              Responder <em>I'm good</em> para <em>What are you up to?</em> soa estranho em inglês.
+            </p>
+
+            <p><strong>4. Something / Nothing — fusão com substantivo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Os determinantes <em>some</em> e <em>no</em>, quando combinados com <em>thing</em>, se fundem em uma palavra só:<br>
+              ✅ <strong>something</strong> = alguma coisa &nbsp;|&nbsp; <strong>nothing</strong> = nada<br>
+              Com outros substantivos (carros, pessoas…) eles ficam separados: <em>some cars, no cars</em>.
+            </p>
+
+            <p><strong>5. Sign up é um frasal verbo — pronome vai no meio</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>Sign up her for a class.</em><br>
+              ✅ <strong>Sign her up for a class.</strong><br>
+              Com pronomes, o frasal verbo é "separado": o pronome vai entre o verbo e a preposição. Exemplos: <em>sign me up, sign him up, sign us up</em>.
+            </p>
+
+            <p><strong>6. Hope: verbo ≠ esperar de aguardar</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>I hope you feel better.</strong> = Espero que você fique melhor (expectativa, desejo)<br>
+              ❌ Não é o "esperar" de ficar aguardando na fila — esse é <em>to wait</em>.<br>
+              <em>Hope</em> como substantivo = esperança: <em>I have hope.</em>
+            </p>
+
+            <p><strong>7. Fall vs Autumn</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              As duas palavras significam "outono", mas:<br>
+              ✅ <strong>Fall</strong> = inglês americano &nbsp;|&nbsp; <strong>Autumn</strong> = inglês britânico<br>
+              <em>Waterfall</em> (cachoeira) vem do verbo <em>to fall</em> (cair) — não tem relação com a estação do ano.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/ybRNP29J5X8"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">55%</span></td>
+                <td class="talk-time">~26 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Isabelle</span></td>
+                <td><span class="talk-percent">45%</span></td>
+                <td class="talk-time">~21 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
