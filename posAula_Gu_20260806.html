@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Gu — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Tech Addiction: Is It a Myth? — Vídeo + Debate</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Gustavo &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/08/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula de vídeo avançado sobre vício em tecnologia, com debate de opinião em inglês, vocabulário acadêmico e correções de estrutura gramatical.
+          </p>
+        </section>
+
+        <!-- RESUMO DA AULA -->
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma conversa livre sobre a semana do Gustavo — um dia carregado emocionalmente: ele <strong>assinou a demissão da Toyota</strong> no período da manhã e, ainda à tarde, começou a receber mensagens de ex-colegas e contatos profissionais interessados em seu trabalho. O professor destacou que é natural sentir ansiedade, tristeza e animação ao mesmo tempo nesse tipo de transição.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Na parte principal da aula, Gustavo assistiu a um <strong>vídeo avançado (nível alto)</strong> com o professor universitário Andrew Przybylski, que defende que <em>"technology addiction is a myth"</em>. O conteúdo foi desafiador — com vocabulário acadêmico denso e fala rápida — e foi assistido duas vezes, com pausas para análise por partes: introdução, argumento da dopamina, origem histórica do conceito, falta de evidências científicas e perspectiva histórica.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Após o vídeo, houve um <strong>debate de opinião em inglês</strong> onde Gustavo conectou os temas do vídeo com situações do cotidiano: a cobertura tendenciosa da mídia, o movimento body positive, e a diferença entre preguiça e vício. O professor trouxe dados sobre letramento no Brasil para aprofundar o debate.
+            </p>
+            <p style="margin:0;">
+              Vocabulário-chave do vídeo foi revisado com atenção: <em>trivialize, equate, immersive, dopamine, lack of evidence, gravitate towards, addictive</em> e outros. O professor também fez correções gramaticais ao longo da conversa, especialmente em relação ao uso de pronomes e estrutura de frases.
+            </p>
+          </div>
+        </section>
+
+        <!-- FRASES USADAS EM AULA -->
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul style="margin:0; padding-left:18px; font-size:0.95rem; color:#374151; line-height:1.9;">
+              <li>In my humble opinion, technology addiction is a myth.</li>
+              <li>Casual use of the term addiction has a very real effect of potentially trivializing how we talk about addiction more broadly.</li>
+              <li>Are we seriously equating this kind of behavior with a problem with drink or taking drugs?</li>
+              <li>What we really mean is the activity is fun, it's engaging, it's immersive, and it's enjoyable.</li>
+              <li>The actual research itself is a bit of a mess.</li>
+              <li>Those who already have problems in their lives gravitate to using technology in less healthy ways.</li>
+              <li>There are a lot of people trying to sell the general public on some big ideas.</li>
+              <li>They're running for-profit clinics using methods that haven't been standardized or validated.</li>
+              <li>Is there really something special about technology, or is this a new panic that we have to grapple with?</li>
+              <li>I think the internet has the power to induce people, to seduce people, to direct them to an opinion.</li>
+              <li>You aren't addicted to technology — you are lazy.</li>
+              <li>I am sad because I'm leaving Toyota. I love working there.</li>
+              <li>I'm still working. Are you still working?</li>
+              <li>He congratulated me because of the new company.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- VOCABULÁRIO-CHAVE (APENAS 2) -->
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Trivialize</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) trivializar — fazer algo sério parecer menos importante do que é</em><br>
+                <small>Using the word "addiction" too casually can trivialize real mental health issues.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Gravitate towards</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) ser atraído por / tender a — mover-se naturalmente em direção a algo</em><br>
+                <small>People with problems in their lives gravitate towards using technology in unhealthy ways.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- VOCABULÁRIO COMPLETO -->
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Vocabulário do vídeo (acadêmico)</h3>
+            <ul style="font-size:0.94rem; color:#374151; line-height:1.9;">
+              <li><strong>addictive</strong> – viciante / difícil de parar de usar (adjetivo)</li>
+              <li><strong>addiction</strong> – vício (substantivo)</li>
+              <li><strong>trivialize</strong> – trivializar, fazer parecer menos sério do que é</li>
+              <li><strong>to equate</strong> – equiparar, dizer que duas coisas são iguais</li>
+              <li><strong>immersive</strong> – imersivo, te faz esquecer o mundo ao redor</li>
+              <li><strong>engaging</strong> – envolvente, prende a atenção</li>
+              <li><strong>dopamine</strong> – dopamina (substância química do cérebro ligada ao prazer)</li>
+              <li><strong>evidence</strong> – evidência, prova</li>
+              <li><strong>lack of evidence</strong> – falta de evidência / falta de prova</li>
+              <li><strong>gravitate towards</strong> – ser atraído por, tender a</li>
+              <li><strong>practical joke</strong> – brincadeira de mau gosto / piada prática</li>
+              <li><strong>medicalizing</strong> – medicalizar (transformar algo cotidiano em doença)</li>
+              <li><strong>standardized</strong> – padronizado</li>
+              <li><strong>validated</strong> – validado, comprovado</li>
+              <li><strong>for-profit clinic</strong> – clínica com fins lucrativos</li>
+              <li><strong>profiting</strong> – lucrando</li>
+              <li><strong>empirical evidence</strong> – evidência empírica (baseada em dados reais)</li>
+              <li><strong>historic perspective</strong> – perspectiva histórica</li>
+              <li><strong>narrow band</strong> – faixa estreita / limite pequeno</li>
+              <li><strong>larger impact</strong> – impacto maior</li>
+              <li><strong>myth</strong> – mito (algo que as pessoas falam mas não é verdade)</li>
+              <li><strong>in my humble opinion</strong> – na minha humilde opinião</li>
+              <li><strong>more broadly</strong> – de forma mais ampla / aberta</li>
+            </ul>
+
+            <h3>Vocabulário da conversa</h3>
+            <ul style="font-size:0.94rem; color:#374151; line-height:1.9;">
+              <li><strong>congratulate</strong> – parabenizar (verbo). Ex.: <em>He congratulated me.</em></li>
+              <li><strong>congratulations</strong> – parabéns (substantivo / exclamação)</li>
+              <li><strong>sponsor / sponsorship</strong> – patrocinador / patrocínio</li>
+              <li><strong>trusted person</strong> – pessoa de confiança</li>
+              <li><strong>I'm still working</strong> – ainda estou trabalhando</li>
+              <li><strong>show up</strong> – aparecer, se apresentar</li>
+              <li><strong>behavior</strong> – comportamento</li>
+              <li><strong>body positive</strong> – movimento de aceitação corporal</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CORREÇÕES IMPORTANTES -->
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 12px 0; color:var(--muted); font-size:0.92rem;">Pontos corrigidos ou reforçados pelo professor durante a aula:</p>
+
+            <p style="margin:0 0 6px 0;"><strong>1. Pronome de gênero: "he" vs "she"</strong></p>
+            <p style="margin:0 0 14px 0; font-size:0.94rem; color:#374151;">
+              ❌ <em>Now he is food.</em> (referindo-se a Elena)<br>
+              ✅ <em>She's eating.</em> — Elena é feminino: sempre use <strong>she / her</strong>.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>2. "Congratulate" é verbo; "congratulations" é substantivo</strong></p>
+            <p style="margin:0 0 14px 0; font-size:0.94rem; color:#374151;">
+              ❌ <em>He congratulate me.</em><br>
+              ✅ <em>He congratulated me.</em> — o verbo precisa de conjugação no passado: <strong>congratulated</strong>.<br>
+              ✅ Para exclamar: <em>Congratulations!</em> — sem verbo.
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>3. "Talk about" vs "talk to"</strong></p>
+            <p style="margin:0 0 14px 0; font-size:0.94rem; color:#374151;">
+              ❌ <em>I will talk about my brothers.</em> (quando a intenção é conversar com eles)<br>
+              ✅ <em>I will talk to my brothers.</em> — <strong>talk to</strong> = conversar com alguém diretamente.<br>
+              ✅ <strong>talk about</strong> = falar sobre um assunto. Ex.: <em>I talked about the project.</em>
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>4. Uso correto de "still" (ainda)</strong></p>
+            <p style="margin:0 0 14px 0; font-size:0.94rem; color:#374151;">
+              ❌ <em>Ayette working.</em><br>
+              ✅ <em>I'm still working.</em> — "ainda" em inglês = <strong>still</strong> (não "yet" em frases afirmativas). <em>Yet</em> é usado em perguntas e negativas: <em>Have you finished yet?</em>
+            </p>
+
+            <p style="margin:0 0 6px 0;"><strong>5. "Lives" como substantivo plural de "life"</strong></p>
+            <p style="margin:0 0 6px 0; font-size:0.94rem; color:#374151;">
+              ❌ Confusão com o verbo <em>lives</em> (ele vive)<br>
+              ✅ <em>Problems in people's lives</em> — aqui <strong>lives</strong> é o plural de <strong>life</strong> (vidas), não o verbo.<br>
+              Contexto ajuda: <em>He lives here</em> (verbo) vs <em>their lives</em> (substantivo).
+            </p>
+          </div>
+        </section>
+
+        <!-- VÍDEO -->
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/IdHm_gBreKU"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <!-- TALK TIME -->
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">55%</span></td>
+                <td class="talk-time">~57 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Gustavo</span></td>
+                <td><span class="talk-percent">45%</span></td>
+                <td class="talk-time">~47 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- HOMEWORK -->
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
