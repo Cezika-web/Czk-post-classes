@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Fatima — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    /* Vocabulary boxes */
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Transcrição / gravação buttons */
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    /* Homework box */
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== TALK TIME – TABELA RETANGULAR ===== */
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* responsive */
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Direções em Inglês — Asking &amp; Giving Directions</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Fatima &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/10/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula: vocabulário com Babadum, expressões para dar e pedir direções, roleplay prático e a palavra <em>acknowledge</em>.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma breve discussão sobre o hábito de leitura do pós-aula e a importância de criar um momento fixo para isso — antes do almoço, antes de dormir, etc. Em seguida, a aula foi ao jogo <strong>Babadum</strong> para aquecer o vocabulário. Fatima fez <strong>31 palavras</strong> e errou apenas 6 — destaque para as primeiras 15, das quais errou somente 1. Muito bem!
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O tópico principal da aula foi <strong>direções em inglês</strong>. A aula passou por três etapas: ouvir diálogos com direções, entender as expressões usadas, e praticar por meio de um <strong>roleplay</strong> em que Fatima exercitou tanto pedir quanto dar direções. O professor destacou que na próxima aula haverá uma atividade mais longa no mapa (cerca de 40 minutos), então é importante chegar bem preparada.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Foram trabalhadas expressões-chave como <em>walk three blocks to the corner of…</em>, <em>right around the corner</em>, <em>across from</em> e <em>I'm not sure</em>. O professor também explicou a diferença importante entre <strong>across from</strong> (do outro lado da rua — precisa atravessar) e <strong>in front of</strong> (em frente, sem atravessar a rua).
+            </p>
+            <p style="margin:0;">
+              Por fim, a aula explorou a palavra <strong>acknowledge</strong> — reconhecer, admitir ou confirmar o recebimento de algo — com exemplos práticos em português e inglês.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Across from</h3>
+              <p>
+                <em>(pt) do outro lado da rua</em><br>
+                <small>The museum is across from Barrow Park.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Acknowledge</h3>
+              <p>
+                <em>(pt) reconhecer / confirmar recebimento</em><br>
+                <small>She acknowledged the email.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Direções e localização</h3>
+            <ul>
+              <li><strong>nearby / close</strong> – perto, nas proximidades</li>
+              <li><strong>next</strong> – próximo (sequência / fila) — <em>cuidado: não é "perto"!</em></li>
+              <li><strong>corner</strong> – esquina</li>
+              <li><strong>block</strong> – quarteirão</li>
+              <li><strong>walk</strong> – caminhar / andar</li>
+              <li><strong>across from</strong> – do outro lado da rua</li>
+              <li><strong>right around the corner</strong> – bem na esquina / logo ali dobrar a esquina</li>
+              <li><strong>in front of</strong> – em frente a (sem atravessar rua)</li>
+              <li><strong>directions</strong> – direções</li>
+              <li><strong>I'm not sure</strong> – não tenho certeza</li>
+              <li><strong>No worries</strong> – sem problema / não tem de quê</li>
+              <li><strong>Thank you anyway</strong> – obrigado(a) mesmo assim</li>
+              <li><strong>acknowledge</strong> – reconhecer, admitir, confirmar recebimento</li>
+            </ul>
+
+            <h3>Vocabulário do jogo Babadum (destaques)</h3>
+            <ul>
+              <li><strong>pirate</strong> – pirata</li>
+              <li><strong>razor</strong> – gilete / navalha</li>
+              <li><strong>artichoke</strong> – alcachofra</li>
+              <li><strong>knot</strong> – nó (o K é mudo — pronúncia igual a <em>not</em>)</li>
+              <li><strong>scorpion</strong> – escorpião</li>
+              <li><strong>welder</strong> – soldador(a)</li>
+              <li><strong>slow</strong> – devagar / lento(a)</li>
+              <li><strong>centipede</strong> – lacraia / centopeia</li>
+              <li><strong>strainer</strong> – escorredor / peneira de cozinha</li>
+              <li><strong>lifeguard</strong> – salva-vidas</li>
+              <li><strong>gooseberry</strong> – groselha</li>
+              <li><strong>sewing machine</strong> – máquina de costura</li>
+              <li><strong>ski boots</strong> – botas de esqui</li>
+              <li><strong>to dig</strong> – cavar (verbo — em vermelho no jogo)</li>
+              <li><strong>brother</strong> – irmão</li>
+              <li><strong>circle</strong> – círculo</li>
+              <li><strong>trailer</strong> – trailer / reboque</li>
+              <li><strong>envelope</strong> – envelope</li>
+              <li><strong>to wake up</strong> – acordar (verbo)</li>
+              <li><strong>life</strong> – vida (substantivo)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Excuse me, is the Hall Museum near here? — Com licença, o Museu Hall fica aqui perto?</li>
+              <li>Walk three blocks to the corner of Fifth and Gary Street. — Caminhe três quarteirões até a esquina da Quinta com a rua Gary.</li>
+              <li>It's right around the corner. — É bem na esquina / logo ali.</li>
+              <li>It's across from Barrow Park. — É do outro lado da rua, em frente ao Parque Barrow.</li>
+              <li>Is there a bank nearby? — Tem um banco aqui perto?</li>
+              <li>Sorry, I'm not sure. — Desculpe, não tenho certeza.</li>
+              <li>Thank you anyway. — Obrigado(a) mesmo assim.</li>
+              <li>No worries. — Sem problema.</li>
+              <li>How do I get to the bank? — Como eu chego ao banco?</li>
+              <li>She acknowledged the email. — Ela confirmou o recebimento do e-mail.</li>
+              <li>He acknowledged his mistake. — Ele admitiu o erro dele.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+
+            <p><strong>1. Nearby / Close ≠ Next</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Em português, usamos "próximo" para as duas ideias. Em inglês, elas são palavras diferentes:<br>
+              ✅ <strong>Nearby / Close</strong> = perto, nas proximidades (localização)<br>
+              ✅ <strong>Next</strong> = próximo de uma sequência ou fila — <em>Next question, next stop</em><br>
+              ❌ Cuidado ao usar o Google Tradutor para "próximo" — pode aparecer <em>next</em> quando o correto seria <em>nearby</em>.
+            </p>
+
+            <p><strong>2. Across from ≠ In front of</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>Across from</strong> = do outro lado da rua (há uma rua no meio — a pessoa precisa atravessar)<br>
+              ✅ <strong>In front of</strong> = em frente a (sem rua no meio — ex.: <em>I'm in front of the computer</em>)<br>
+              Não use <em>across from</em> para coisas que estão imediatamente à sua frente sem travessia.
+            </p>
+
+            <p><strong>3. Pronúncia: Brother</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ "brô" (como se lê em português)<br>
+              ✅ <strong>"brá-ther"</strong> — o som do "o" é aberto, como em "pai" mas mais curto. Não é um "o" fechado.
+            </p>
+
+            <p><strong>4. Pronúncia: Slow ≠ Snow</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Confundir <em>slow</em> com <em>snow</em><br>
+              ✅ <strong>Slow</strong> = devagar / lento &nbsp;|&nbsp; <strong>Snow</strong> = neve<br>
+              São palavras diferentes — preste atenção ao "l" em <em>slow</em>.
+            </p>
+
+            <p><strong>5. Life (substantivo) ≠ Live (verbo)</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Pensar que <em>live</em> (viver) e <em>life</em> (vida) são a mesma coisa<br>
+              ✅ <strong>Life</strong> = vida (substantivo) — ex.: <em>lifeguard</em> = salva-vidas<br>
+              ✅ <strong>Live</strong> = viver (verbo) — ex.: <em>I live in São Paulo</em><br>
+              Esta é uma das primeiras palavras de qualquer curso de inglês. Vale fixar bem!
+            </p>
+
+            <p><strong>6. Knot e Not — mesma pronúncia, K mudo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>Knot</strong> (nó) e <strong>Not</strong> (não) têm a mesma pronúncia: <em>"nót"</em><br>
+              O <strong>K</strong> no início de palavras como <em>knot, know, knife, knock</em> é sempre mudo em inglês.
+            </p>
+
+            <p><strong>7. Dica do jogo Babadum: cores das palavras</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>Vermelho</strong> = verbo — sempre vai aparecer com <em>to</em> antes (ex.: <em>to dig, to wake up</em>)<br>
+              ✅ <strong>Amarelo</strong> = adjetivo<br>
+              Use isso como estratégia para eliminar opções erradas mais rápido!
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/zEkHgY3uFeo"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~32 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Fatima</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~17 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
