@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Michelle — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    /* ===== UPGRADE DE EXPRESSÃO — SEÇÃO EXCLUSIVA MICHELLE ===== */
+    .upgrade-box {
+      background: linear-gradient(135deg, #f0f7ff, #f9f0ff);
+      border: 1.5px solid #c4d9f8;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+
+    .upgrade-item {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #d0dff5;
+    }
+
+    .upgrade-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .upgrade-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .upgrade-original {
+      color: #b45309;
+    }
+
+    .upgrade-improved {
+      color: #1a6b3a;
+    }
+
+    .upgrade-note {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: #6b7280;
+      background: #fff;
+      border-left: 3px solid #a78bfa;
+      padding: 6px 10px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .upgrade-sentence {
+      font-size: 0.97rem;
+      margin: 2px 0 0 0;
+      font-style: italic;
+    }
+    /* ===== FIM UPGRADE ===== */
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Primeira Aula — Rotina, Vocabulário e Vogal Longa</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluna:</strong> Michelle &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/11/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da primeira aula: organização da rotina de estudos, jogo Babadum (vocabulário), pronúncia com vogal longa e sílaba tônica, e vídeo de listening com top 10 fatores que envelhecem mais rápido.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A primeira aula foi dividida em três partes. Começou com a <strong>organização da rotina de estudos</strong>: foram definidos os dias e compromissos semanais com o inglês — aula na quinta e no sábado às 17h, leitura do pós-aula na sexta e no domingo (duas etapas de 10 minutos cada), e uma atividade por dia na segunda, terça e quarta, através da Área do Aluno. O objetivo é ter contato com o inglês todos os dias da semana.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Como Michelle se prepara para um <strong>teste de proficiência</strong>, o pós-aula terá uma seção especial de upgrade de expressão — um quadro simples mostrando como ela poderia ter dito a mesma coisa com inglês mais elaborado, para ampliar gradualmente o vocabulário no nível B2/C1.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A segunda parte foi o <strong>jogo Babadum</strong> (vocabulário com imagens), para o professor avaliar o nível de vocabulário de Michelle. Ela foi muito bem: errou apenas 4 de 30. Durante o jogo, foram introduzidos conceitos fonéticos fundamentais, especialmente a <strong>vogal longa</strong> — quando uma vogal é esticada na pronúncia, como em <em>meet</em> (dois Es = vogal longa) vs <em>mat</em> (um E = vogal curta). Também foram trabalhadas a pronúncia de <em>garage</em> (sílaba tônica no RA), e a regra de que o H no inglês tem som de R no início de palavras (<em>horse</em>, <em>house</em>).
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A terceira parte foi o <strong>vídeo de listening</strong>: um vídeo sem legenda sobre o top 10 de coisas que envelhecem mais rápido. Michelle entendeu cerca de 5/10, usando a escrita como apoio. Depois do vídeo, foram explorados vocabulário novo (<em>to guess, to age, sleep deprivation, loneliness, dehydration</em>), os sufixos <strong>-ness</strong> (sempre substantivo) e <strong>-tion / -ation</strong> (sempre substantivo), e a regra da sílaba tônica (<em>tense</em>).
+            </p>
+            <p style="margin:0;">
+              A aula encerrou com um jogo conversacional em inglês, onde o professor perguntava sobre os fatores do top 10 e Michelle respondia — primeira prática de fala da turma.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Roller skates. — Patins.</li>
+              <li>Crosswalk. — Faixa de pedestres.</li>
+              <li>Bookmark. — Marcador de páginas.</li>
+              <li>Between. — Entre.</li>
+              <li>No, I don't smoke. — Não, eu não fumo.</li>
+              <li>I am very stressed. — Estou muito estressada.</li>
+              <li>My diet is good. — Minha dieta é boa.</li>
+              <li>No, I don't drink alcohol. — Não, eu não bebo álcool.</li>
+              <li>I drink two, three liters of water. — Eu bebo dois, três litros de água.</li>
+              <li>Obesity. — Obesidade. (após prática de pronúncia)</li>
+              <li>Loneliness. — Solidão. (após prática de pronúncia)</li>
+              <li>Dehydration. — Desidratação. (após prática de pronúncia)</li>
+              <li>Sleep deprivation. — Privação de sono. (após prática de pronúncia)</li>
+              <li>Air pollution. — Poluição do ar.</li>
+              <li>Sun exposure. — Exposição solar.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Sleep deprivation</h3>
+              <p>
+                <em>(pt) privação de sono</em><br>
+                <small>Chronic sleep deprivation can age you significantly faster.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Loneliness</h3>
+              <p>
+                <em>(pt) solidão — substantivo formado por lonely + -ness</em><br>
+                <small>Loneliness was one of the most surprising items on the top 10 list.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SEÇÃO EXCLUSIVA MICHELLE — UPGRADE DE EXPRESSÃO ===== -->
+        <section>
+          <h2 style="margin-bottom:8px;">🎯 Upgrade de Expressão — Prepare-se para a Prova</h2>
+          <div class="upgrade-box">
+
+            <div class="upgrade-item">
+              <p class="upgrade-label upgrade-original">Como Michelle disse:</p>
+              <p class="upgrade-sentence">"I am very stressed."</p>
+              <p class="upgrade-label upgrade-improved" style="margin-top:10px;">Versão aprimorada (B2/C1):</p>
+              <p class="upgrade-sentence">"I must admit I've been dealing with quite a lot of stress lately."</p>
+              <div class="upgrade-note">💡 "I am stressed" comunica a ideia, mas para uma prova de proficiência vale enriquecer: "must admit" introduz a frase com elegância, o present perfect "I've been dealing with" mostra continuidade no tempo, e "quite a lot of" é mais preciso e natural do que simplesmente "very".</div>
+            </div>
+
+            <div class="upgrade-item">
+              <p class="upgrade-label upgrade-original">Como Michelle disse:</p>
+              <p class="upgrade-sentence">"My diet is good."</p>
+              <p class="upgrade-label upgrade-improved" style="margin-top:10px;">Versão aprimorada (B2/C1):</p>
+              <p class="upgrade-sentence">"I tend to follow a fairly balanced diet and try to be mindful of what I eat."</p>
+              <div class="upgrade-note">💡 "My diet is good" é correto, mas simples. A versão aprimorada usa "tend to" (tendência habitual), "fairly balanced" (vocabulário mais específico e neutro) e "be mindful of" — expressão de nível avançado muito frequente no IELTS e TOEFL.</div>
+            </div>
+
+            <div class="upgrade-item">
+              <p class="upgrade-label upgrade-original">Como Michelle disse:</p>
+              <p class="upgrade-sentence">"No drink. Alcohol no."</p>
+              <p class="upgrade-label upgrade-improved" style="margin-top:10px;">Versão aprimorada (B2/C1):</p>
+              <p class="upgrade-sentence">"I don't really drink alcohol — at least not on a regular basis these days."</p>
+              <div class="upgrade-note">💡 "Alcohol no" é a estrutura mais básica possível. A versão aprimorada usa "don't really" (negação suavizada, muito natural no inglês falado), "at least not" (conector de contraste) e "on a regular basis" — expressão de alta frequência em provas de proficiência que demonstra precisão vocabular.</div>
+            </div>
+
+          </div>
+        </section>
+        <!-- ===== FIM SEÇÃO EXCLUSIVA MICHELLE ===== -->
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Top 10 coisas que envelhecem mais rápido</h3>
+            <ul>
+              <li><strong>smoking</strong> – fumar</li>
+              <li><strong>sleep deprivation</strong> – privação de sono</li>
+              <li><strong>chronic stress</strong> – estresse crônico</li>
+              <li><strong>poor diet</strong> – dieta ruim / má alimentação</li>
+              <li><strong>alcohol</strong> – álcool</li>
+              <li><strong>sun exposure</strong> – exposição solar</li>
+              <li><strong>obesity</strong> – obesidade</li>
+              <li><strong>loneliness</strong> – solidão</li>
+              <li><strong>air pollution</strong> – poluição do ar</li>
+              <li><strong>dehydration</strong> – desidratação</li>
+            </ul>
+
+            <h3>Verbos e expressões do vídeo</h3>
+            <ul>
+              <li><strong>to guess</strong> – adivinhar / dar um palpite</li>
+              <li><strong>to age</strong> – envelhecer (verbo)</li>
+              <li><strong>age</strong> – idade (substantivo)</li>
+              <li><strong>fast</strong> – rápido(a) (adjetivo)</li>
+              <li><strong>sleep</strong> – dormir (verbo) / sono (substantivo)</li>
+            </ul>
+
+            <h3>Vocabulário do jogo Babadum</h3>
+            <ul>
+              <li><strong>toilet paper</strong> – papel higiênico</li>
+              <li><strong>swivel chair</strong> – cadeira giratória</li>
+              <li><strong>roller skates</strong> – patins</li>
+              <li><strong>bookmark</strong> – marcador de páginas</li>
+              <li><strong>crosswalk</strong> – faixa de pedestres</li>
+              <li><strong>toolbox</strong> – caixa de ferramentas</li>
+              <li><strong>wall</strong> – parede / muro</li>
+              <li><strong>Santa Claus</strong> – Papai Noel</li>
+              <li><strong>garlic</strong> – alho</li>
+              <li><strong>east</strong> – leste / oriente</li>
+              <li><strong>thumb</strong> – polegar</li>
+              <li><strong>puppet</strong> – fantoche / marionete</li>
+              <li><strong>park</strong> – parque</li>
+              <li><strong>balcony</strong> – varanda</li>
+              <li><strong>goggles</strong> – óculos de proteção / máscara de natação</li>
+              <li><strong>horn</strong> – chifre / buzina</li>
+              <li><strong>armchair</strong> – poltrona</li>
+              <li><strong>to cook</strong> – cozinhar</li>
+              <li><strong>mailman</strong> – carteiro</li>
+              <li><strong>penguin</strong> – pinguim</li>
+              <li><strong>between</strong> – entre</li>
+              <li><strong>wasp</strong> – vespa</li>
+              <li><strong>sponge</strong> – esponja</li>
+            </ul>
+
+            <h3>Fonética e gramática — conceitos da aula</h3>
+            <ul>
+              <li><strong>long vowel (vogal longa)</strong> – vogal esticada na pronúncia (ex.: <em>meet</em> com dois Es = som longo)</li>
+              <li><strong>tense (sílaba tônica)</strong> – sílaba pronunciada com mais força; define a pronúncia correta de qualquer palavra</li>
+              <li><strong>sufixo -ness</strong> – transforma adjetivo em substantivo: <em>happy → happiness</em>, <em>lonely → loneliness</em>, <em>sad → sadness</em></li>
+              <li><strong>sufixo -tion / -ation</strong> – sempre substantivo: <em>dehydration, deprivation, action</em></li>
+              <li><strong>H no início de palavra</strong> – tem som de R em inglês: <em>horse, house</em></li>
+              <li><strong>T entre vogais (inglês americano)</strong> – vira som de R: <em>obesity → obesiri</em>, <em>Mexico → Mérico</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+
+            <p><strong>1. Vogal longa — não é "tchiu", é "tu"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Pronunciar <em>toolbox</em> como "tchiu-box" (com chiado)<br>
+              ✅ <strong>Toolbox</strong> = "tu-box" (vogal longa, sem chiado)<br>
+              Quando há duas vogais iguais seguidas (ou uma vogal seguida de E muda), o som é esticado e limpo — sem aquele "ch" que o português coloca no meio. Compare: <em>meet</em> (longo, sem chiado) vs <em>mat</em> (curto).
+            </p>
+
+            <p><strong>2. Garage — sílaba tônica no RA</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>GA-rage</em> (tônica no início, como em português)<br>
+              ✅ <strong>ga-RAGE</strong> (tônica no final, no "RA")<br>
+              Em inglês, a sílaba tônica muda completamente a pronúncia. No caso de <em>garage</em>, o RA é forte: "ga-RAGE".
+            </p>
+
+            <p><strong>3. Penguin — o E depois do P tem som de "i"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>pin-guin</em> ou <em>pén-guin</em><br>
+              ✅ <strong>PEN-guin</strong> — o E depois do P soa como "i" (como a letra E no alfabeto inglês)<br>
+              Regra útil: quando a letra E aparece depois de P em inglês, costuma ter esse som aberto, quase de "i".
+            </p>
+
+            <p><strong>4. Obesity — sílaba tônica no B</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>oBEZiri</em> (focando no R americano no final)<br>
+              ✅ <strong>o-BE-si-ty</strong> — a tônica é no BE, não no final<br>
+              Ao inserir o som de R americano no meio das palavras, cuidado para não deslocar a tônica. O R é sutil; o acento (BE) é o que sustenta a pronúncia.
+            </p>
+
+            <p><strong>5. "I am slippie" — essa forma não existe em inglês</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I am slippie"</em><br>
+              ✅ <strong>"I am sleep-deprived"</strong> ou <strong>"I suffer from sleep deprivation."</strong><br>
+              Para dizer que falta sono, o correto é usar o adjetivo <em>sleep-deprived</em> ou o substantivo <em>sleep deprivation</em> com um verbo adequado.
+            </p>
+
+            <p><strong>6. Sufixo -ness = sempre substantivo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Toda palavra que termina em <strong>-ness</strong> é um substantivo:<br>
+              ✅ <em>happy</em> (adjetivo) → <em>happiness</em> (felicidade)<br>
+              ✅ <em>lonely</em> (adjetivo) → <em>loneliness</em> (solidão)<br>
+              ✅ <em>sad</em> (adjetivo) → <em>sadness</em> (tristeza)<br>
+              Isso ajuda a identificar a função da palavra em qualquer texto ou prova.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/jOkUxj4-zc0"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~43 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Michelle</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~23 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li><strong>Sexta-feira:</strong> Ler o pós-aula 2 vezes — duas etapas de 10 minutos cada.</li>
+              <li><strong>Domingo:</strong> Ler o pós-aula novamente 2 vezes — duas etapas de 10 minutos cada.</li>
+              <li><strong>Segunda, terça e quarta:</strong> Realizar uma atividade por dia na Área do Aluno (link chegará na segunda-feira).</li>
+            </ul>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
