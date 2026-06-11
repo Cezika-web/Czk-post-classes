@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Felipe — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Modais: Must, May, Might &amp; Be Able To</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Felipe &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/10/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula: nova dinâmica da área do aluno, rotina de estudos, modais (must / may / might / be able to), be aware e exercícios do livro — Unit 1: Becoming Culturally Literate.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma atualização importante sobre a <strong>área do aluno</strong>: a partir de agora, a correção das atividades será mais técnica e detalhada, classificando os erros em três categorias — <em>erros bobos</em> (desatenção), <em>erros medianos</em> (lacunas de conhecimento) e <em>erros graves</em> (estruturas que precisam de reforço). Essa análise será feita a cada quinze dias para acompanhar a evolução.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Também foi combinada uma <strong>nova rotina de estudos semanal</strong>: aula na segunda → leitura do pós-aula na terça (20 min) → aula na quarta → leitura do pós-aula na quinta → uma atividade por dia na sexta, sábado e domingo. A quinzena muda o conteúdo, e o ciclo recomeça.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O conteúdo gramatical foi uma continuação da <strong>Unit 1 — Becoming Culturally Literate</strong>, com foco nos <strong>verbos modais must, may e might</strong> e em como combiná-los com <strong>be able to</strong> para expressar conclusões ou possibilidades:
+            </p>
+            <ul style="margin:0 0 10px 0;padding-left:18px;color:#374151;">
+              <li><strong>Must + verbo</strong> → conclusão lógica / certeza (ex.: <em>It must be cold.</em>)</li>
+              <li><strong>May / Might + verbo</strong> → possibilidade incerta (ex.: <em>She might be late.</em>)</li>
+              <li><strong>Must / May / Might + be able to + verbo</strong> → possibilidade de ser capaz de algo (ex.: <em>She might be able to help.</em>)</li>
+            </ul>
+            <p style="margin:0 0 10px 0;">
+              Um destaque prático foi o diálogo sobre a camisa: quando um atendente de loja responde <em>"We might have one in the back"</em>, ele está sendo correto e educado — expressando incerteza. Já <em>"We must have one"</em> soa grosseiro ou impositivo, como se não houvesse dúvida ou como se fosse uma exigência. O contexto muda completamente o tom da frase.
+            </p>
+            <p style="margin:0;">
+              O adjetivo <strong>aware</strong> também foi trabalhado durante os exercícios do livro. Ele aparece nas estruturas <em>be aware</em> (estar ciente / ficar atento) e <em>be aware of</em> (estar ciente de algo), sendo muito comum em inglês para alertas e avisos.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Be aware (of)</h3>
+              <p>
+                <em>(pt) estar ciente / ficar atento (a algo)</em><br>
+                <small>Be aware that it's going to snow.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Be able to</h3>
+              <p>
+                <em>(pt) ser capaz de / conseguir</em><br>
+                <small>She might be able to meet you at 2:30.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Verbos modais e suas funções</h3>
+            <ul>
+              <li><strong>must</strong> – deve / precisa (conclusão lógica ou obrigação forte) — <em>He must be tired after that run.</em></li>
+              <li><strong>must not / mustn't</strong> – não pode / é proibido — <em>We must not park here.</em></li>
+              <li><strong>may</strong> – pode / talvez (possibilidade, mais formal) — <em>I may not recognize Kate.</em></li>
+              <li><strong>might</strong> – pode / talvez (possibilidade menor certeza) — <em>She might be able to help.</em></li>
+              <li><strong>might not</strong> – pode não / talvez não — <em>I might not get an appointment today.</em></li>
+              <li><strong>be able to</strong> – ser capaz de / conseguir — combina com must/may/might para expressar possibilidade de capacidade</li>
+            </ul>
+
+            <h3>Adjetivo / expressão importante</h3>
+            <ul>
+              <li><strong>aware</strong> – ciente / consciente (adjetivo — nunca usado sozinho como verbo)</li>
+              <li><strong>be aware</strong> – estar ciente / ficar atento</li>
+              <li><strong>be aware of something</strong> – estar ciente de algo — <em>They are aware of the problem.</em></li>
+              <li><strong>Be careful! / Be aware!</strong> – Cuidado! / Fique atento!</li>
+            </ul>
+
+            <h3>Vocabulário do contexto — Unit 1</h3>
+            <ul>
+              <li><strong>culturally literate</strong> – culturalmente letrado / com cultura geral</li>
+              <li><strong>coincidence</strong> – coincidência — <em>What a coincidence!</em></li>
+              <li><strong>That's amazing!</strong> – Que incrível! (expressão de entusiasmo)</li>
+              <li><strong>I can't believe it!</strong> – Não acredito! (expressão de entusiasmo)</li>
+              <li><strong>Oops, my mistake.</strong> – Opa, foi erro meu. (reconhecer um erro pequeno)</li>
+              <li><strong>draw a conclusion</strong> – tirar uma conclusão</li>
+              <li><strong>express possibility</strong> – expressar possibilidade</li>
+            </ul>
+
+            <h3>Nova dinâmica — Área do Aluno</h3>
+            <ul>
+              <li><strong>erros bobos</strong> – trivial errors (desatenção, não falta de conhecimento)</li>
+              <li><strong>erros medianos</strong> – medium errors (lacunas que precisam de prática)</li>
+              <li><strong>erros graves</strong> – serious errors (estruturas que exigem reforço urgente)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>It must be cold. — Deve estar frio. (conclusão lógica)</li>
+              <li>He must not know that the schedule changed. — Ele provavelmente não sabe que o horário mudou.</li>
+              <li>I may not recognize Kate. I haven't seen her in years. — Talvez eu não reconheça a Kate. Faz anos que não a vejo.</li>
+              <li>She might be able to meet you at 2:30. — Talvez ela consiga te encontrar às 2:30.</li>
+              <li>We might be able to park here. — Talvez a gente consiga estacionar aqui.</li>
+              <li>Excuse me, do you have this sweater in a size small? — Com licença, você tem essa camisa em tamanho P?</li>
+              <li>We might have one in the back. Let me check. — Talvez tenhamos um no fundo. Deixa eu verificar.</li>
+              <li>Be aware that they're doing construction on the street. — Fique ciente de que estão fazendo obras na rua.</li>
+              <li>I'm not sure, but I think Sean might be able to see you at 2:30. — Não tenho certeza, mas acho que o Sean talvez consiga te ver às 2:30.</li>
+              <li>Oops, my mistake. — Opa, foi erro meu.</li>
+              <li>That's amazing! I can't believe it! — Que incrível! Não acredito!</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+
+            <p><strong>1. "We must have" vs "We might have" — o contexto muda tudo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Situação: um cliente pergunta se a loja tem uma camisa em tamanho menor.<br>
+              ❌ <em>"We must have one in the back."</em> — soa rude ou impositivo, como se fosse uma obrigação ou certeza absoluta ("a gente tem que ter / a gente com certeza tem")<br>
+              ✅ <strong>"We might have one in the back. Let me check."</strong> — correto e educado, expressando incerteza genuína ("talvez tenhamos um no fundo")<br>
+              Use <em>must</em> para conclusões lógicas, não para respostas de atendimento ao cliente.
+            </p>
+
+            <p><strong>2. "Aware" é adjetivo — nunca verbo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I aware of the problem."</em><br>
+              ✅ <strong>"I am aware of the problem."</strong> / <strong>"Be aware of the problem."</strong><br>
+              <em>Aware</em> é sempre adjetivo. Para usá-lo, precisa do verbo <em>to be</em>: <em>am/is/are/be + aware</em>. Tradução: estar ciente / estar atento / ter consciência de.
+            </p>
+
+            <p><strong>3. Must + be able to — combinação possível</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Uma combinação menos óbvia mas muito usada:<br>
+              ✅ <strong>She must be able to drive.</strong> — Ela deve saber dirigir. (conclusão lógica sobre capacidade)<br>
+              ✅ <strong>He might be able to help.</strong> — Talvez ele consiga ajudar. (possibilidade de capacidade)<br>
+              A estrutura é: modal + <em>be able to</em> + verbo no infinitivo.
+            </p>
+
+            <p><strong>4. May vs Might — grau de certeza</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Ambos expressam possibilidade, mas com nuances:<br>
+              ✅ <strong>May</strong> — possibilidade real, mais formal (<em>I may go tomorrow.</em> = É possível que eu vá amanhã.)<br>
+              ✅ <strong>Might</strong> — possibilidade menor certeza (<em>I might go tomorrow.</em> = Talvez eu vá amanhã, não sei ainda.)<br>
+              Na prática do dia a dia, <em>might</em> é mais comum na fala.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="#"
+              role="button"
+              style="background:linear-gradient(180deg,#9ca3af,#6b7280);color:#fff;border:none;min-width:260px;cursor:default;"
+            >
+              🎥 Gravação indisponível nesta aula
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~32 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Felipe</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~18 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
