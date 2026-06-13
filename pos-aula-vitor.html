@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Vitor — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Provérbio, Vocabulário e Listening — "You Can't Teach an Old Dog New Tricks"</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Vitor &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/12/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula em dupla: revisão da área do aluno, jogo Word Bomb, provérbio "You can't teach an old dog new tricks", gramática de a/an, too vs very, music/song/track e listening sobre aprendizado de idiomas.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com a <strong>correção das atividades da área do aluno</strong>. Os erros foram poucos e todos de escrita: faltou um C em "practice", a palavra "mistakes" foi escrita no singular sem artigo, e "practise" ficou sem o E final. O professor reforçou que errar é parte do processo — mas que em inglês, para o singular, é obrigatório o uso de artigo: <em>a mistake</em>.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Em seguida, a turma jogou o <strong>Word Bomb</strong> — jogo competitivo de vocabulário com imagens e áudio. Karla venceu a rodada, mas apareceram várias palavras novas importantes para reforçar o vocabulário geral: <em>raspberry, groom, bride, walking stick, safety pin, lifeguard tower, rectangle</em>, entre outras.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O ponto central da aula foi o provérbio <strong>"You can't teach an old dog new tricks"</strong> — "Pau que nasce torto, morre torto." O professor aproveitou para trabalhar a regra gramatical de <strong>a vs an</strong>: usamos <em>an</em> antes de palavras que começam com <em>som</em> de vogal. No caso, "an old dog" — porque <em>old</em> começa com som de vogal (O). A turma praticou o provérbio em voz alta e debateu se concordam com ele.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Também foi explicada a diferença entre <strong>too</strong> e <strong>very</strong>: <em>very</em> significa simplesmente "muito", enquanto <em>too</em> carrega um sentido de excesso negativo, de "demais". Ex.: <em>Today is very cold</em> (hoje está muito frio) vs <em>Today is too cold</em> (hoje está frio demais — implica que está incomodando).
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A distinção entre <strong>music, song e track</strong> também foi trabalhada: <em>music</em> refere-se ao gênero ou tipo de música (<em>What kind of music do you like?</em>), enquanto <em>song</em> e <em>track</em> referem-se a uma música específica (<em>I like this track.</em>).
+            </p>
+            <p style="margin:0;">
+              A parte final foi um <strong>exercício de listening</strong>: um podcast com a Dra. Myers, de Porto Alegre, debatendo se adultos conseguem aprender idiomas. Os três fatores discutidos foram <em>motivation</em>, <em>practice</em> e <em>natural ability</em>. A turma respondeu perguntas de compreensão (verdadeiro/falso e múltipla escolha) e depois discutiu as porcentagens de cada fator para diferentes habilidades — tocar instrumento, praticar esporte, aprender idioma e cozinhar.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>You can't teach an old dog new tricks. — Pau que nasce torto, morre torto.</li>
+              <li>It's normal to make mistakes. — É normal cometer erros.</li>
+              <li>I have a natural ability for dealing with people. — Tenho habilidade natural para lidar com pessoas.</li>
+              <li>Practice is important if you want to learn a language. — Prática é importante se você quer aprender um idioma.</li>
+              <li>There are three factors that can help people develop new abilities. — Há três fatores que podem ajudar as pessoas a desenvolver novas habilidades.</li>
+              <li>Today is very cold. — Hoje está muito frio. (sem excesso)</li>
+              <li>Today is too cold. — Hoje está frio demais. (excesso / incômodo)</li>
+              <li>I like this track. — Eu gosto dessa música. (música específica)</li>
+              <li>What kind of music do you like? — Que tipo de música você gosta?</li>
+              <li>This is my dream since I was a child. — Este é meu sonho desde criança.</li>
+              <li>People can be too old to learn a language. — Pessoas podem ser velhas demais para aprender um idioma. (verdadeiro/falso — FALSO)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Too (demais / excesso)</h3>
+              <p>
+                <em>(pt) demasiado — indica que algo passou do limite ideal</em><br>
+                <small>It's too cold today. I can't go out.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>An (artigo antes de vogal)</h3>
+              <p>
+                <em>(pt) um/uma — usado antes de sons de vogal, não de letras</em><br>
+                <small>An old dog. / An apple. / An hour.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Jogo Word Bomb — palavras da rodada</h3>
+            <ul>
+              <li><strong>raspberry</strong> – amora / framboesa</li>
+              <li><strong>dictionary</strong> – dicionário</li>
+              <li><strong>groom</strong> – noivo (a partir do momento da cerimônia de casamento)</li>
+              <li><strong>bride</strong> – noiva (a partir do momento da cerimônia de casamento)</li>
+              <li><strong>grapefruit</strong> – toranja / grapefruit</li>
+              <li><strong>walking stick</strong> – bengala</li>
+              <li><strong>belt</strong> – cinto</li>
+              <li><strong>ice cream</strong> – sorvete</li>
+              <li><strong>rectangle</strong> – retângulo</li>
+              <li><strong>lifeguard tower</strong> – torre de salva-vidas</li>
+              <li><strong>safety pin</strong> – alfinete de segurança</li>
+              <li><strong>rainbow</strong> – arco-íris (rain = chuva + bow = arco)</li>
+              <li><strong>seesaw</strong> – gangorra</li>
+              <li><strong>to sweep</strong> – varrer</li>
+              <li><strong>combat helmet</strong> – capacete de combate</li>
+            </ul>
+
+            <h3>Vocabulário do podcast e da discussão</h3>
+            <ul>
+              <li><strong>motivation</strong> – motivação</li>
+              <li><strong>practice</strong> – prática</li>
+              <li><strong>natural ability</strong> – habilidade natural</li>
+              <li><strong>to develop</strong> – desenvolver (verbo)</li>
+              <li><strong>development</strong> – desenvolvimento (substantivo)</li>
+              <li><strong>motivated</strong> – motivado(a)</li>
+              <li><strong>fluent</strong> – fluente</li>
+              <li><strong>accent</strong> – sotaque</li>
+              <li><strong>factor</strong> – fator</li>
+              <li><strong>to argue</strong> – discutir / bater boca (conflito)</li>
+              <li><strong>to discuss</strong> – debater / conversar sobre ideias</li>
+              <li><strong>dog trainer</strong> – adestrador de cães</li>
+              <li><strong>proverb</strong> – provérbio</li>
+            </ul>
+
+            <h3>Distinção: music / song / track</h3>
+            <ul>
+              <li><strong>music</strong> – música como gênero ou tipo: <em>What kind of music do you like?</em></li>
+              <li><strong>song</strong> – uma música específica (com letra): <em>I love this song.</em></li>
+              <li><strong>track</strong> – faixa / música específica (sinônimo de song): <em>I like this track.</em></li>
+              <li>❌ <em>What music are you listening to?</em> → ✅ <em>What song / track are you listening to?</em></li>
+            </ul>
+
+            <h3>Artigo: a vs an</h3>
+            <ul>
+              <li><strong>a</strong> → usado antes de sons de consoante: <em>a dog, a car, a university</em></li>
+              <li><strong>an</strong> → usado antes de sons de vogal: <em>an old dog, an apple, an hour</em></li>
+              <li>Atenção: a regra é sobre o <em>som</em>, não a letra! <em>an hour</em> → o H é mudo, soa como vogal. <em>a university</em> → o U soa como "iu" (consoante).</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos corrigidos ou reforçados durante a aula:</p>
+
+            <p><strong>1. "a mistake" vs "mistakes" — artigo obrigatório no singular</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"It's normal to make mistake."</em><br>
+              ✅ <strong>"It's normal to make a mistake."</strong> (singular com artigo)<br>
+              ✅ <strong>"It's normal to make mistakes."</strong> (plural sem artigo)<br>
+              Em inglês, substantivos contáveis no singular sempre precisam de artigo (a / an / the) ou outro determinante. Sem artigo, usa-se o plural.
+            </p>
+
+            <p><strong>2. Too vs Very — excesso vs intensidade</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>Very</strong> = muito, intensificador neutro: <em>Today is very cold.</em> (hoje está muito frio)<br>
+              ✅ <strong>Too</strong> = demasiado, indica excesso negativo: <em>Today is too cold.</em> (hoje está frio demais — implica incômodo ou problema)<br>
+              <em>Too old to learn</em> = velho demais para aprender (passou do limite). <em>Very old</em> = muito velho (sem julgamento negativo implícito).
+            </p>
+
+            <p><strong>3. A vs An — regra do som, não da letra</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"a old dog"</em><br>
+              ✅ <strong>"an old dog"</strong> — porque <em>old</em> começa com som de vogal (O)<br>
+              A regra não é sobre a letra, mas sobre o <em>som</em>. Palavras que começam com som de vogal pedem <em>an</em>; palavras que começam com som de consoante pedem <em>a</em>.
+            </p>
+
+            <p><strong>4. Music ≠ Song/Track para uma música específica</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"What music are you listening to?"</em> (quando se pergunta sobre uma música específica)<br>
+              ✅ <strong>"What song are you listening to?"</strong> ou <strong>"What track is this?"</strong><br>
+              <em>Music</em> refere-se ao gênero ou à ideia de música em geral. Para uma faixa ou música específica, use <em>song</em> ou <em>track</em>.
+            </p>
+
+            <p><strong>5. "Motivated" — sílaba tônica no TI</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"MOtivated"</em> (tônica no início, como em português)<br>
+              ✅ <strong>"moTIvated"</strong> (tônica no TI)<br>
+              A sílaba tônica define a pronúncia correta. Em <em>motivated</em>, o acento forte fica no TI: mo-TI-vat-ed.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/9WStsSQrd8k"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">60%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Vitor + Karla (alunos)</span></td>
+                <td><span class="talk-percent">40%</span></td>
+                <td class="talk-time">~25 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
