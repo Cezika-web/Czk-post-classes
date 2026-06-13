@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Ritcher — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Nacionalidades, This vs That e Top 10 Coisas que Envelhecem</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Ritcher &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/13/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Correção da área do aluno (sem erros medianos ou graves pela primeira vez!), revisão da Unidade 2, this vs that, right there, from em perguntas, nacionalidades, vídeo de listening e conversa em inglês.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com a <strong>correção das atividades da área do aluno</strong> — e veio uma boa notícia: pela primeira vez, nenhum erro mediano e nenhum erro grave! Os deslizes foram pequenos: o pronome <em>I</em> em minúsculo (sempre maiúsculo em inglês), falta de ponto depois de <em>Mr.</em>, e letras maiúsculas faltando no início de frases ou em nomes próprios. Tudo coisa de prática — com duas ou três semanas de atenção, some.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Também foram trabalhadas abreviações comuns em mensagens informais: <em>Y</em> = Why (por quê?) e <em>U</em> = You (você). E uma regra importante dos títulos: <strong>Mr.</strong> e <strong>Mrs.</strong> sempre com ponto; <strong>Miss</strong> não leva ponto (ela já está completa).
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Depois, foi feita a revisão da <strong>Unidade 2 do livro</strong>, com exercícios de conversação. Foram praticados:
+            </p>
+            <ul style="margin:0 0 10px 0;padding-left:18px;">
+              <li><strong>From</strong> nas perguntas: em perguntas, <em>from</em> vai para o final — <em>"Where are you from?"</em>. Em respostas afirmativas, vai no meio — <em>"They are from Brazil."</em></li>
+              <li><strong>This vs That</strong>: <em>this</em> = algo próximo (bem aqui); <em>that</em> = algo distante (bem ali). Ex.: <em>"This is my phone"</em> vs <em>"That is my colleague."</em></li>
+              <li><strong>Right there / Right over there</strong>: são sinônimos — ambos significam "bem ali". O <em>over</em> é apenas uma variação de vocabulário, não muda o sentido.</li>
+              <li><strong>Nacionalidades</strong>: Brasil → Brazilian, Canadá → Canadian, Japão → Japanese, México → Mexican, Colômbia → Colombian, Rússia → Russian, Reino Unido → British, EUA → American, França → French.</li>
+              <li><strong>You're welcome</strong>: significa "de nada" — é a resposta padrão para um obrigado.</li>
+            </ul>
+            <p style="margin:0 0 10px 0;">
+              A terceira parte foi o <strong>vídeo de listening</strong>: "Top 10 Things That Age You Faster". Gabriel acertou 8 de 10 — um resultado excelente. As duas palavras que não reconheceu foram <em>poor diet</em> (dieta pobre/ruim) e <em>loneliness</em> (solidão). O professor aproveitou para explicar que <em>poor</em> não é só "ruim" — é o oposto de <em>rich</em>, e no contexto de dieta, significa "de baixa qualidade". Também foi explicado que <em>loneliness</em> é o substantivo de <em>lonely</em>: tira o Y, coloca I + ness.
+            </p>
+            <p style="margin:0;">
+              A aula fechou com um <strong>game conversacional em inglês</strong>: o professor fez perguntas sobre o top 10 falando só em inglês, e Gabriel respondeu. Foi muito bem — usou frases como <em>"I smoked cigarettes for six years"</em>, <em>"I sleep six, seven hours"</em> e <em>"I drink water"</em>. Combinado também que o professor vai começar a mandar conteúdo em inglês no Instagram (futebol, memes) para treinar o algoritmo e expor Gabriel ao idioma no dia a dia.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Where are you from, Mr. Davis? — De onde você é, Sr. Davis?</li>
+              <li>I am from Sydney. — Eu sou de Sydney.</li>
+              <li>They are from Brazil. — Eles são do Brasil.</li>
+              <li>That is my colleague. She is right over there. — Essa é minha colega. Ela está bem ali.</li>
+              <li>We are Canadian. — Nós somos canadenses.</li>
+              <li>He is from China. He is Chinese. — Ele é da China. Ele é chinês.</li>
+              <li>She is from Russia. She is Russian. — Ela é da Rússia. Ela é russa.</li>
+              <li>They are British. — Eles são britânicos.</li>
+              <li>He is from the US. He is American. — Ele é dos EUA. Ele é americano.</li>
+              <li>You're welcome. — De nada.</li>
+              <li>I smoked cigarettes for six years. — Eu fumei cigarros por seis anos.</li>
+              <li>I sleep six, seven hours. — Eu durmo seis, sete horas.</li>
+              <li>I drink water. — Eu bebo água.</li>
+              <li>Poor diet ages you faster. — Uma dieta ruim envelhece você mais rápido.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Poor (pobre / de má qualidade)</h3>
+              <p>
+                <em>(pt) pobre — oposto de rich (rico). Em contexto de dieta, alimentação ruim/de baixa qualidade</em><br>
+                <small>A poor diet ages you faster than almost anything.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>That (distante) vs This (próximo)</h3>
+              <p>
+                <em>(pt) that = aquilo / aquele (longe); this = isto / este (perto)</em><br>
+                <small>This is my phone. — That is my colleague over there.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Nacionalidades — país e gentílico</h3>
+            <ul>
+              <li><strong>Brazil → Brazilian</strong> – Brasil / brasileiro(a)</li>
+              <li><strong>Canada → Canadian</strong> – Canadá / canadense</li>
+              <li><strong>Japan → Japanese</strong> – Japão / japonês</li>
+              <li><strong>Mexico → Mexican</strong> – México / mexicano(a)</li>
+              <li><strong>Colombia → Colombian</strong> – Colômbia / colombiano(a)</li>
+              <li><strong>Russia → Russian</strong> – Rússia / russo(a)</li>
+              <li><strong>UK / United Kingdom → British</strong> – Reino Unido / britânico(a)</li>
+              <li><strong>USA / United States → American</strong> – EUA / americano(a)</li>
+              <li><strong>France → French</strong> – França / francês (ex.: French fries = batata frita)</li>
+              <li><strong>Italy → Italian</strong> – Itália / italiano(a)</li>
+            </ul>
+
+            <h3>Top 10 coisas que envelhecem mais rápido</h3>
+            <ul>
+              <li><strong>smoking</strong> – fumar</li>
+              <li><strong>sleep deprivation</strong> – privação de sono (dormir pouco)</li>
+              <li><strong>chronic stress</strong> – estresse crônico (constante, sempre a mesma causa)</li>
+              <li><strong>poor diet</strong> – dieta pobre / má alimentação</li>
+              <li><strong>alcohol</strong> – álcool</li>
+              <li><strong>sun exposure</strong> – exposição solar</li>
+              <li><strong>obesity</strong> – obesidade</li>
+              <li><strong>loneliness</strong> – solidão (substantivo de <em>lonely</em>)</li>
+              <li><strong>air pollution</strong> – poluição do ar</li>
+              <li><strong>dehydration</strong> – desidratação</li>
+            </ul>
+
+            <h3>Vocabulário gramatical e expressões</h3>
+            <ul>
+              <li><strong>from</strong> – de / procedente de (vai ao FINAL de perguntas: <em>Where are you from?</em>)</li>
+              <li><strong>this</strong> – este/esta/isto (algo próximo, alcançável)</li>
+              <li><strong>that</strong> – aquele/aquela/aquilo (algo distante)</li>
+              <li><strong>right there</strong> – bem ali (localização específica)</li>
+              <li><strong>right over there</strong> – bem ali / bem lá (sinônimo de right there, variação comum)</li>
+              <li><strong>You're welcome.</strong> – De nada. (resposta a "thank you")</li>
+              <li><strong>age</strong> (verbo) – envelhecer / <strong>age</strong> (substantivo) – idade</li>
+              <li><strong>poor</strong> – pobre (oposto de rich) / de baixa qualidade</li>
+              <li><strong>rich</strong> – rico (oposto de poor)</li>
+              <li><strong>lonely</strong> – solitário(a), sozinho(a) (adjetivo)</li>
+              <li><strong>loneliness</strong> – solidão (substantivo: <em>lonely</em> → remove Y, adiciona I + ness)</li>
+              <li><strong>chronic</strong> – crônico (algo que acontece constantemente, todo dia)</li>
+              <li><strong>to guess</strong> – adivinhar</li>
+            </ul>
+
+            <h3>Abreviações informais</h3>
+            <ul>
+              <li><strong>Y</strong> = Why (por quê?) — usado em mensagens informais</li>
+              <li><strong>U</strong> = You (você) — usado em mensagens informais</li>
+            </ul>
+
+            <h3>Títulos — uso correto</h3>
+            <ul>
+              <li><strong>Mr.</strong> – Senhor (homem) — sempre com ponto</li>
+              <li><strong>Mrs.</strong> – Senhora (mulher casada) — sempre com ponto</li>
+              <li><strong>Ms.</strong> – Senhora (neutro, casada ou não) — sempre com ponto</li>
+              <li><strong>Dr.</strong> – Doutor(a) — sempre com ponto</li>
+              <li><strong>Miss</strong> – Senhorita (mulher solteira) — SEM ponto (já está completo)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos corrigidos ou reforçados durante a aula:</p>
+
+            <p><strong>1. "I" é SEMPRE maiúsculo em inglês</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"i am from Brazil"</em><br>
+              ✅ <strong>"I am from Brazil."</strong><br>
+              Não importa onde o <em>I</em> apareça na frase — no início, no meio ou no fim — ele sempre é maiúsculo. É uma regra absoluta do inglês.
+            </p>
+
+            <p><strong>2. Mr. com ponto / Miss sem ponto</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>Mr.</strong> / <strong>Mrs.</strong> / <strong>Ms.</strong> / <strong>Dr.</strong> — todos com ponto (são abreviações)<br>
+              ✅ <strong>Miss</strong> — sem ponto (não é abreviação, é a forma completa)<br>
+              Dica: se você consegue abreviar uma letra, leva ponto. Miss não tem versão mais longa, então está completa.
+            </p>
+
+            <p><strong>3. "From" vai para o final das perguntas</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"From where are you?"</em><br>
+              ✅ <strong>"Where are you from?"</strong> (pergunta — from no final)<br>
+              ✅ <strong>"I am from Brazil."</strong> (afirmativa — from no meio)<br>
+              Em inglês, preposições como <em>from</em> ficam "sobrando" no final das perguntas. Isso é correto e natural.
+            </p>
+
+            <p><strong>4. This vs That — perto vs distante</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-out:0;">
+              ✅ <strong>This</strong> → algo que está perto, alcançável: <em>"This is my phone."</em><br>
+              ✅ <strong>That</strong> → algo que está longe, não ao seu lado: <em>"That is my colleague over there."</em><br>
+              O uso de <em>that</em> indica distância — a pessoa ou objeto não está do seu lado.
+            </p>
+
+            <p><strong>5. "Poor" não é só "ruim" — é o oposto de rich</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              <em>Poor</em> é o oposto de <em>rich</em> (rico), não de <em>expensive</em> (caro):<br>
+              ✅ <strong>rich ↔ poor</strong> = rico ↔ pobre<br>
+              ✅ <strong>expensive ↔ cheap</strong> = caro ↔ barato<br>
+              No contexto do vídeo: <em>poor diet</em> = dieta pobre, de má qualidade (não dieta barata).
+            </p>
+
+            <p><strong>6. "You're welcome" = de nada</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Pensar que é sempre "seja bem-vindo"<br>
+              ✅ <strong>"You're welcome"</strong> = de nada (resposta padrão ao "thank you")<br>
+              O contexto define: quando alguém agradece, <em>you're welcome</em> significa "de nada". Quando alguém chega a algum lugar, aí sim pode ser "seja bem-vindo(a)".
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/Rvn63l816Wg"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">60%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Ritcher</span></td>
+                <td><span class="talk-percent">40%</span></td>
+                <td class="talk-time">~25 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
