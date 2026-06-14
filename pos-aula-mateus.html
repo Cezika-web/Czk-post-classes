@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Mateus — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Sistema Imperial dos EUA, Tech Addiction e Conversação</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Mateus &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/14/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula dividida em dois blocos: vocabulário sobre o sistema imperial de medidas dos EUA (com vídeo de comédia histórica) e fluência com debate sobre vício em tecnologia.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com uma conversa em inglês sobre novidades: Mateus está aguardando o início de um novo emprego no Burger King (próximo à universidade), realizou a entrevista e o exame médico, e está no aguardo da data de início. Também está sob pressão na faculdade — enfrenta a terceira tentativa de aprovação em Banco de Dados, matéria que considera muito difícil.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              <strong>Bloco 1 — Vocabulário: Sistema Imperial dos EUA</strong><br>
+              Foi assistido um vídeo de comédia (sketch histórico com Washington) que satiriza o sistema de medidas americano. Antes do vídeo, o professor fez uma revisão das unidades:
+            </p>
+            <ul style="margin:0 0 10px 0;padding-left:18px;">
+              <li><strong>Comprimento:</strong> inch (polegada) → foot/feet (pé) → yard (jarda) → mile (milha). 12 inches = 1 foot; 3 feet = 1 yard; 5,280 feet = 1 mile (~1.6km).</li>
+              <li><strong>Peso:</strong> ounce (onça) → pound (libra) → ton (tonelada = 2,000 pounds). Dica rápida: kilo → remove 10%, divide por 2 → você tem o pound aproximado.</li>
+              <li><strong>Volume:</strong> gallon, pint, quart (para leite e tinta); litros apenas para refrigerante, vinho e bebidas alcoólicas.</li>
+              <li><strong>Temperatura:</strong> Fahrenheit (escala americana, considerada aleatória pelo vídeo) vs Celsius.</li>
+            </ul>
+            <p style="margin:0 0 10px 0;">
+              Vocabulário destacado do vídeo: <em>troops</em>, <em>God willing</em>, <em>ruler</em>, <em>line up</em>, <em>track</em> (esporte de pista), <em>throw a tantrum</em>, <em>melting pot</em>, <em>glamour</em> (exceção: manteve o U britânico mesmo no inglês americano), diferença ortográfica entre inglês americano e britânico (<em>color/colour</em>, <em>armor/armour</em>).
+            </p>
+            <p style="margin:0 0 10px 0;">
+              <strong>Bloco 2 — Fluência: Debate sobre Tech Addiction</strong><br>
+              Foi retomado o tema de "Tech Addiction" — tema oposto ao de uma aula anterior sobre tédio/boredom. Assistiu-se a um vídeo do Professor Andrew Schubilsky argumentando que vício em tecnologia é um mito. Os principais argumentos do vídeo foram discutidos em inglês:
+            </p>
+            <ul style="margin:0 0 10px 0;padding-left:18px;">
+              <li>O uso casual da palavra "addiction" pode trivializar o conceito de vício real (drogas, álcool).</li>
+              <li>A pesquisa científica sobre tech addiction ainda é inconclusiva — "a bit of a mess".</li>
+              <li>O termo foi criado originalmente como uma piada por Ivan Goldberg nos anos 90, para satirizar a medicalização do cotidiano.</li>
+              <li>Há pessoas lucrando com clínicas de tratamento de vício em tecnologia sem validação científica.</li>
+              <li>A "moral panic" sobre tecnologia segue o mesmo padrão histórico do Dungeons & Dragons e do rap nos anos 80/90.</li>
+            </ul>
+            <p style="margin:0;">
+              Mateus participou ativamente do debate: concordou que tech addiction é real, especialmente na sua geração (nasceu com celular), argumentou que a questão pode ser ampliada por comparação social nas redes (body image → fat-burning pills), e refletiu sobre o conceito de screen time total (~16h acordado). A aula encerrou com uma discussão sobre anúncios, boredom e o jogo do Brasil à noite.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I'm doing pretty good. — Estou indo bem.</li>
+              <li>I started at a new job. — Comecei em um novo emprego.</li>
+              <li>I don't know when I will start. — Não sei quando vou começar.</li>
+              <li>I did an interview, I did an exam. — Fiz uma entrevista, fiz um exame.</li>
+              <li>It's near to my university. — É perto da minha universidade.</li>
+              <li>This fucking discipline is so hard, man. — Essa matéria é muito difícil.</li>
+              <li>I went bad in 2. — Fui mal em 2. (exames)</li>
+              <li>I have to be good on this. — Tenho que ir bem nessa.</li>
+              <li>They use feet, right? — Eles usam pés, né?</li>
+              <li>I am mixing up the things. — Estou confundindo as coisas.</li>
+              <li>I think technology addiction is a myth. — Acho que vício em tecnologia é um mito.</li>
+              <li>It is ambiguous. — É ambíguo.</li>
+              <li>I don't understand anything. (correção de "nothing") — Não entendo nada.</li>
+              <li>The more I study, the less I understand. — Quanto mais estudo, menos entendo.</li>
+              <li>Mainly in my generation, because we were already born with a cell phone. — Principalmente na minha geração, porque já nascemos com celular.</li>
+              <li>I think we trivialize the word addiction. — Acho que banalizamos a palavra vício.</li>
+              <li>This can be heavier than saying I have a daughter addicted to technology. — Isso pode pesar mais do que dizer que tenho uma filha viciada em tecnologia.</li>
+              <li>You start to compare yourself with another person on Instagram. — Você começa a se comparar com outra pessoa no Instagram.</li>
+              <li>I will live in the mountains without any type of technology. — Vou morar nas montanhas sem nenhum tipo de tecnologia.</li>
+              <li>Probably you will cure yourself. — Provavelmente você vai se curar.</li>
+              <li>It's almost impossible, but it's not impossible. — É quase impossível, mas não é impossível.</li>
+              <li>I get angry and I check my phone to distract my mind. — Fico bravo e pego o celular para distrair minha mente.</li>
+              <li>How much time am I awake? — Quanto tempo estou acordado?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Throw a tantrum</h3>
+              <p>
+                <em>(pt) fazer birra / ter um colapso emocional</em><br>
+                <small>The measurements were so confusing that Europeans threw little tantrums.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Melting pot</h3>
+              <p>
+                <em>(pt) caldeirão cultural — cidade ou lugar com muitas culturas diferentes convivendo</em><br>
+                <small>New York and São Paulo are both melting pot cities.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Sistema Imperial dos EUA — Medidas</h3>
+            <ul>
+              <li><strong>inch</strong> – polegada (~2,54cm)</li>
+              <li><strong>foot / feet</strong> – pé / pés (singular: foot; plural: feet) | 12 inches = 1 foot</li>
+              <li><strong>yard</strong> – jarda (~91cm) | 3 feet = 1 yard</li>
+              <li><strong>mile</strong> – milha (~1,6km) | 5,280 feet = 1 mile</li>
+              <li><strong>ounce</strong> – onça (unidade de peso)</li>
+              <li><strong>pound</strong> – libra (~454g) | 2,000 pounds = 1 ton</li>
+              <li><strong>ton</strong> – tonelada (americana: 2,000 pounds)</li>
+              <li><strong>gallon</strong> – galão (para leite, tinta)</li>
+              <li><strong>pint</strong> – pinta (medida de volume)</li>
+              <li><strong>quart</strong> – quarto de galão</li>
+              <li><strong>Fahrenheit</strong> – escala de temperatura usada nos EUA</li>
+              <li><strong>Celsius</strong> – escala usada no Brasil e no resto do mundo</li>
+              <li><strong>ruler</strong> – régua</li>
+              <li><strong>line up</strong> – se alinhar, se encaixar (contexto: inches e centimeters que não batem)</li>
+              <li><strong>weights and measures</strong> – pesos e medidas</li>
+              <li><strong>troops</strong> – tropas (militares)</li>
+            </ul>
+
+            <h3>Vocabulário do vídeo (comédia)</h3>
+            <ul>
+              <li><strong>God willing</strong> – expressão: se Deus quiser / com um pouco de sorte (usado ironicamente no vídeo)</li>
+              <li><strong>track</strong> – pista de corrida (como esporte olímpico); também pode ser "faixa" (música)</li>
+              <li><strong>throw a tantrum</strong> – fazer birra / ter um episódio de raiva (substantivo: tantrum)</li>
+              <li><strong>melting pot</strong> – caldeirão cultural: lugar com muitas culturas misturadas</li>
+              <li><strong>glamour</strong> – única palavra que manteve o U britânico no inglês americano (colour → color, armour → armor, mas glamour ficou)</li>
+              <li><strong>armor / armour</strong> – armadura (americano sem U / britânico com U)</li>
+              <li><strong>color / colour</strong> – cor (americano / britânico)</li>
+              <li><strong>I must confess</strong> – expressão formal: devo confessar</li>
+            </ul>
+
+            <h3>Tech Addiction — vocabulário do vídeo e debate</h3>
+            <ul>
+              <li><strong>technology addiction</strong> – vício em tecnologia</li>
+              <li><strong>trivialize</strong> – banalizar, trivializar</li>
+              <li><strong>addictive</strong> – viciante</li>
+              <li><strong>addiction</strong> – vício</li>
+              <li><strong>dopamine</strong> – dopamina</li>
+              <li><strong>gravitate towards</strong> – ser naturalmente atraído por, tender a</li>
+              <li><strong>for-profit clinic</strong> – clínica com fins lucrativos</li>
+              <li><strong>validated</strong> – validado (cientificamente)</li>
+              <li><strong>standardized</strong> – padronizado</li>
+              <li><strong>a bit of a mess</strong> – uma bagunça / desorganizado (sobre o estado das pesquisas)</li>
+              <li><strong>screen time</strong> – tempo de tela</li>
+              <li><strong>fast content</strong> – conteúdo rápido (Reels, TikToks)</li>
+              <li><strong>advertisement / commercial</strong> – propaganda / anúncio</li>
+              <li><strong>avoid</strong> – evitar (≠ irritar)</li>
+              <li><strong>profit</strong> – lucro; também verbo: lucrar</li>
+              <li><strong>run (a clinic/business)</strong> – administrar, gerir (não "correr")</li>
+              <li><strong>ambiguous</strong> – ambíguo (duas leituras possíveis)</li>
+              <li><strong>Dungeons & Dragons</strong> – jogo de RPG mencionado como exemplo de "moral panic" dos anos 80</li>
+              <li><strong>boredom</strong> – tédio (tema de aula anterior)</li>
+              <li><strong>fat-burning pills</strong> – pílulas para queimar gordura</li>
+              <li><strong>body image</strong> – imagem corporal (tema de aula anterior)</li>
+              <li><strong>distract my mind</strong> – distrair minha mente</li>
+            </ul>
+
+            <h3>Expressões e estruturas avançadas usadas</h3>
+            <ul>
+              <li><strong>The more I study, the less I understand.</strong> – Estrutura de comparação paralela: quanto mais X, menos Y.</li>
+              <li><strong>I made myself clear.</strong> – Me expressei claramente. (✅ correto e natural)</li>
+              <li><strong>Long time no see.</strong> – Há muito tempo! (expressão idiomática)</li>
+              <li><strong>Last shot.</strong> – Última chance.</li>
+              <li><strong>Easy peasy.</strong> – Moleza. (informal)</li>
+              <li><strong>Cure yourself.</strong> – Se curar. (no contexto de se livrar do vício)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos corrigidos ou que merecem atenção:</p>
+
+            <p><strong>1. "I have two weights" → "I have two weeks"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I have two weights."</em><br>
+              ✅ <strong>"I have to wait two weeks."</strong><br>
+              <em>Weight</em> (/weɪt/) = peso. <em>Week</em> (/wiːk/) = semana. Sons similares, mas significados completamente diferentes. Cuidado!
+            </p>
+
+            <p><strong>2. "I don't understand nothing" → dupla negação</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I don't understand nothing."</em><br>
+              ✅ <strong>"I don't understand anything."</strong><br>
+              Em inglês, dupla negação é erro gramatical. Com "don't" (negação), o segundo elemento deve ser "anything" (não "nothing").
+            </p>
+
+            <p><strong>3. "I went good" → "I did well"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I don't know if I went good."</em><br>
+              ✅ <strong>"I don't know if I did well."</strong><br>
+              Para descrever performance em algo (exame, jogo, entrevista), usa-se <em>do well / did well</em>, não "go good".
+            </p>
+
+            <p><strong>4. "Irritate the technology" → "Avoid technology"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"How to irritate the technology around you."</em><br>
+              ✅ <strong>"How to avoid technology."</strong><br>
+              <em>Irritate</em> = irritar (causar irritação em alguém). <em>Avoid</em> = evitar, fugir de algo.
+            </p>
+
+            <p><strong>5. "We already born" → "We were already born"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"We already born with a cell phone."</em><br>
+              ✅ <strong>"We were already born with a cell phone."</strong><br>
+              <em>Born</em> é adjetivo/particípio — precisa do verbo auxiliar <em>were</em> no passado. Sem o auxiliar, a frase fica incompleta.
+            </p>
+
+            <p><strong>6. "Invented" vs "Discovered" — palavras que não se trocam</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Who invented gravity?"</em><br>
+              ✅ <strong>"Who discovered gravity?"</strong> (Isaac Newton)<br>
+              <em>Invent</em> = criar algo novo que não existia. <em>Discover</em> = encontrar algo que já existia mas não era conhecido. Mateus se autocorrigiu — ótimo!
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/oYwrIn9-fI8"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">55%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Mateus</span></td>
+                <td><span class="talk-percent">45%</span></td>
+                <td class="talk-time">~30 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
