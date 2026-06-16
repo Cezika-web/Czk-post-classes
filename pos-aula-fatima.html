@@ -62,22 +62,9 @@
       font-size:0.85rem;
     }
 
-    h1{
-      margin:0;
-      font-size:1.3rem;
-      color:#0f1724;
-    }
-
-    .meta{
-      color:var(--muted);
-      font-size:0.92rem;
-      margin-top:6px;
-    }
-
-    .actions{
-      display:flex;
-      gap:10px;
-    }
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
 
     .btn{
       display:inline-flex;
@@ -118,13 +105,7 @@
       background:#fff;
     }
 
-    /* Vocabulary boxes */
-    .vocab-grid{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
 
     .vocab{
       flex:1;
@@ -135,30 +116,11 @@
       background:#fff;
     }
 
-    .vocab.green{
-      border-color:#c9f3dc;
-      background:#f5fff6;
-    }
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
 
-    .vocab h3{
-      margin:0;
-      font-size:1rem;
-      color:#154360;
-    }
-
-    .vocab p{
-      margin:8px 0 0 0;
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-
-    /* Transcrição / gravação buttons */
-    .media-row{
-      display:flex;
-      gap:14px;
-      margin-top:12px;
-      flex-wrap:wrap;
-    }
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
 
     .media-btn{
       background:#fff;
@@ -175,7 +137,6 @@
       justify-content:center;
     }
 
-    /* Homework box */
     .homework{
       background:#f3fff6;
       border:1px solid #d7f5df;
@@ -184,7 +145,6 @@
       margin-top:10px;
     }
 
-    /* ===== TALK TIME – TABELA RETANGULAR ===== */
     .speaking{
       margin-top:18px;
       padding:16px;
@@ -194,11 +154,7 @@
       max-width:640px;
     }
 
-    .speaking h2{
-      margin:0 0 10px 0;
-      font-size:1.05rem;
-      color:#0f1724;
-    }
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
 
     .talk-table{
       width:100%;
@@ -210,48 +166,16 @@
       font-size:0.9rem;
     }
 
-    .talk-table th,
-    .talk-table td{
-      padding:8px 10px;
-      text-align:left;
-    }
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
 
-    .talk-table th{
-      background:#eef4ff;
-      color:#1b3556;
-      font-weight:700;
-      border-bottom:1px solid #dde6fa;
-    }
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
 
-    .row-teacher{
-      background:#e7f2ff;
-    }
-
-    .row-student{
-      background:#e8f7ef;
-    }
-
-    .talk-label{
-      font-weight:700;
-    }
-
-    .talk-percent{
-      font-weight:700;
-      color:#0f1724;
-    }
-
-    .talk-time{
-      color:var(--muted);
-    }
-
-    footer{
-      margin-top:20px;
-      color:var(--muted);
-      font-size:0.9rem;
-      text-align:center;
-    }
-
-    /* responsive */
     @media (max-width:720px){
       .card{padding:18px;border-radius:14px;}
       .vocab-grid{flex-direction:column;}
@@ -266,15 +190,14 @@
         <div>
           <div style="display:flex;gap:10px;align-items:center;">
             <span class="badge">PÓS-AULA</span>
-            <h1>Direções em Inglês — Asking &amp; Giving Directions</h1>
+            <h1>Next / Nearby / Close e Como Dar Direções em Inglês</h1>
           </div>
           <div class="meta" style="margin-top:8px;">
             <strong>Professor:</strong> César &nbsp;•&nbsp;
-            <strong>Aluno:</strong> Fatima &nbsp;•&nbsp;
-            <strong>Data:</strong> 06/10/2026
+            <strong>Aluna:</strong> Fatima &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/16/2026
           </div>
         </div>
-
         <div class="actions">
           <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
         </div>
@@ -283,7 +206,7 @@
       <main>
         <section class="panel">
           <p style="margin:0;font-weight:600;color:#08325a;">
-            Resumo da aula: vocabulário com Babadum, expressões para dar e pedir direções, roleplay prático e a palavra <em>acknowledge</em>.
+            Aula focada em dois temas: a diferença entre <em>next</em>, <em>nearby</em> e <em>close</em> — três traduções de "próximo" — e vocabulário prático para dar e entender direções em inglês usando um mapa.
           </p>
         </section>
 
@@ -291,83 +214,22 @@
           <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
           <div class="outline-card">
             <p style="margin:0 0 10px 0;">
-              A aula começou com uma breve discussão sobre o hábito de leitura do pós-aula e a importância de criar um momento fixo para isso — antes do almoço, antes de dormir, etc. Em seguida, a aula foi ao jogo <strong>Babadum</strong> para aquecer o vocabulário. Fatima fez <strong>31 palavras</strong> e errou apenas 6 — destaque para as primeiras 15, das quais errou somente 1. Muito bem!
+              A aula começou com a explicação de três palavras em inglês que em português costumamos traduzir como "próximo", mas que têm usos bem diferentes:
+            </p>
+            <ul style="margin:0 0 10px 0;padding-left:18px;">
+              <li><strong>Next</strong> — indica posição em uma sequência ou ordem, como "próximo passo", "próxima parada", "quem é o próximo?". Não tem nada a ver com proximidade física. Ex.: <em>Who's next?</em> / <em>The next stop is the museum.</em></li>
+              <li><strong>Nearby</strong> — indica proximidade física entre dois lugares ou objetos que existem concretamente. Só funciona com localização. Não se usa para relações ou tempo. Ex.: <em>Is there a bank nearby?</em> / <em>There's a gym nearby.</em></li>
+              <li><strong>Close</strong> — é o "coringa". Pode ser usado para os mesmos casos que o <em>nearby</em> (localização), mas vai além: funciona também para <strong>relações</strong> (<em>close friends</em> = amigos próximos) e para <strong>tempo</strong> (<em>the deadline is close</em> = o prazo está chegando). Por isso é mais versátil que <em>nearby</em>.</li>
+            </ul>
+            <p style="margin:0 0 10px 0;">
+              O professor resumiu assim: quando você quer falar que dois locais físicos estão próximos, pode usar <em>nearby</em> ou <em>close</em>. Mas se a proximidade envolve uma relação pessoal ou algo imaterial como tempo, use apenas <em>close</em>.
             </p>
             <p style="margin:0 0 10px 0;">
-              O tópico principal da aula foi <strong>direções em inglês</strong>. A aula passou por três etapas: ouvir diálogos com direções, entender as expressões usadas, e praticar por meio de um <strong>roleplay</strong> em que Fatima exercitou tanto pedir quanto dar direções. O professor destacou que na próxima aula haverá uma atividade mais longa no mapa (cerca de 40 minutos), então é importante chegar bem preparada.
-            </p>
-            <p style="margin:0 0 10px 0;">
-              Foram trabalhadas expressões-chave como <em>walk three blocks to the corner of…</em>, <em>right around the corner</em>, <em>across from</em> e <em>I'm not sure</em>. O professor também explicou a diferença importante entre <strong>across from</strong> (do outro lado da rua — precisa atravessar) e <strong>in front of</strong> (em frente, sem atravessar a rua).
+              Na segunda parte da aula, foram praticadas <strong>direções em inglês</strong> com base em um mapa fictício de cidade. Primeiro, assistiu-se a um vídeo com um diálogo real de alguém pedindo e recebendo direções. Depois, Fatima praticou ativamente dar direções para chegar a três pontos do mapa: a Central Train Station, o Central Mall e o Burners Movie Theater (que fica em frente ao Northwood Hospital).
             </p>
             <p style="margin:0;">
-              Por fim, a aula explorou a palavra <strong>acknowledge</strong> — reconhecer, admitir ou confirmar o recebimento de algo — com exemplos práticos em português e inglês.
+              Expressões praticadas: <em>go down [street]</em> (seguir pela rua), <em>turn left / turn right</em> (vire à esquerda / direita), <em>on the corner of</em> (na esquina de), <em>between</em> (entre), <em>across from</em> (em frente a / do outro lado de). A próxima aula de quarta-feira continuará com o mesmo mapa, e o professor fará as mesmas perguntas para Fatima responder com mais fluidez.
             </p>
-          </div>
-        </section>
-
-        <section>
-          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
-          <div class="vocab-grid">
-            <div class="vocab">
-              <h3>Across from</h3>
-              <p>
-                <em>(pt) do outro lado da rua</em><br>
-                <small>The museum is across from Barrow Park.</small>
-              </p>
-            </div>
-            <div class="vocab green">
-              <h3>Acknowledge</h3>
-              <p>
-                <em>(pt) reconhecer / confirmar recebimento</em><br>
-                <small>She acknowledged the email.</small>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 style="margin-bottom:8px;">📚 Vocabulário da aula</h2>
-          <div class="outline-card">
-            <h3 style="margin-top:0;">Direções e localização</h3>
-            <ul>
-              <li><strong>nearby / close</strong> – perto, nas proximidades</li>
-              <li><strong>next</strong> – próximo (sequência / fila) — <em>cuidado: não é "perto"!</em></li>
-              <li><strong>corner</strong> – esquina</li>
-              <li><strong>block</strong> – quarteirão</li>
-              <li><strong>walk</strong> – caminhar / andar</li>
-              <li><strong>across from</strong> – do outro lado da rua</li>
-              <li><strong>right around the corner</strong> – bem na esquina / logo ali dobrar a esquina</li>
-              <li><strong>in front of</strong> – em frente a (sem atravessar rua)</li>
-              <li><strong>directions</strong> – direções</li>
-              <li><strong>I'm not sure</strong> – não tenho certeza</li>
-              <li><strong>No worries</strong> – sem problema / não tem de quê</li>
-              <li><strong>Thank you anyway</strong> – obrigado(a) mesmo assim</li>
-              <li><strong>acknowledge</strong> – reconhecer, admitir, confirmar recebimento</li>
-            </ul>
-
-            <h3>Vocabulário do jogo Babadum (destaques)</h3>
-            <ul>
-              <li><strong>pirate</strong> – pirata</li>
-              <li><strong>razor</strong> – gilete / navalha</li>
-              <li><strong>artichoke</strong> – alcachofra</li>
-              <li><strong>knot</strong> – nó (o K é mudo — pronúncia igual a <em>not</em>)</li>
-              <li><strong>scorpion</strong> – escorpião</li>
-              <li><strong>welder</strong> – soldador(a)</li>
-              <li><strong>slow</strong> – devagar / lento(a)</li>
-              <li><strong>centipede</strong> – lacraia / centopeia</li>
-              <li><strong>strainer</strong> – escorredor / peneira de cozinha</li>
-              <li><strong>lifeguard</strong> – salva-vidas</li>
-              <li><strong>gooseberry</strong> – groselha</li>
-              <li><strong>sewing machine</strong> – máquina de costura</li>
-              <li><strong>ski boots</strong> – botas de esqui</li>
-              <li><strong>to dig</strong> – cavar (verbo — em vermelho no jogo)</li>
-              <li><strong>brother</strong> – irmão</li>
-              <li><strong>circle</strong> – círculo</li>
-              <li><strong>trailer</strong> – trailer / reboque</li>
-              <li><strong>envelope</strong> – envelope</li>
-              <li><strong>to wake up</strong> – acordar (verbo)</li>
-              <li><strong>life</strong> – vida (substantivo)</li>
-            </ul>
           </div>
         </section>
 
@@ -375,17 +237,88 @@
           <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
           <div class="outline-card">
             <ul>
-              <li>Excuse me, is the Hall Museum near here? — Com licença, o Museu Hall fica aqui perto?</li>
-              <li>Walk three blocks to the corner of Fifth and Gary Street. — Caminhe três quarteirões até a esquina da Quinta com a rua Gary.</li>
-              <li>It's right around the corner. — É bem na esquina / logo ali.</li>
-              <li>It's across from Barrow Park. — É do outro lado da rua, em frente ao Parque Barrow.</li>
               <li>Is there a bank nearby? — Tem um banco aqui perto?</li>
-              <li>Sorry, I'm not sure. — Desculpe, não tenho certeza.</li>
-              <li>Thank you anyway. — Obrigado(a) mesmo assim.</li>
-              <li>No worries. — Sem problema.</li>
-              <li>How do I get to the bank? — Como eu chego ao banco?</li>
-              <li>She acknowledged the email. — Ela confirmou o recebimento do e-mail.</li>
-              <li>He acknowledged his mistake. — Ele admitiu o erro dele.</li>
+              <li>The museum is very close. You can walk there. — O museu é muito perto. Você pode ir a pé.</li>
+              <li>We are close friends. — Somos amigos próximos.</li>
+              <li>The deadline is close. — O prazo está chegando.</li>
+              <li>The museum is next in line. — O museu é o próximo da lista.</li>
+              <li>Who is next? — Quem é o próximo?</li>
+              <li>Go down Second Street. — Siga pela Segunda Rua.</li>
+              <li>It is on the corner of Second Street. — Está na esquina da Segunda Rua.</li>
+              <li>The Central Mall is between Good Beans Coffee and Central Train Station. — O shopping fica entre o Good Beans Coffee e a Central Train Station.</li>
+              <li>Go to the corner of the First Street and turn left. — Vá até a esquina da Primeira Rua e vire à esquerda.</li>
+              <li>Turn right on Park Avenue. — Vire à direita na Park Avenue.</li>
+              <li>The Burners Movie Theater is across from the Northwood Hospital. — O Burners Movie Theater fica em frente ao Northwood Hospital.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Deadline</h3>
+              <p>
+                <em>(pt) prazo final — a data limite para entregar algo (trabalho, projeto, tarefa)</em><br>
+                <small>The deadline is close. Submit your work by tomorrow.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>On the corner of</h3>
+              <p>
+                <em>(pt) na esquina de — estrutura para indicar a localização de algo num cruzamento</em><br>
+                <small>The café is on the corner of Park Avenue and Second Street.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Next / Nearby / Close — três formas de dizer "próximo"</h3>
+            <ul>
+              <li><strong>next</strong> – próximo em sequência, ordem ou fila | <em>Who's next? / The next stop.</em></li>
+              <li><strong>next in line</strong> – o próximo da fila / da lista | <em>The museum is next in line.</em></li>
+              <li><strong>nearby</strong> – perto daqui (apenas localização física) | <em>Is there a hospital nearby?</em></li>
+              <li><strong>close</strong> – perto (versátil: localização, relações e tempo) | <em>The school is close to my house.</em></li>
+              <li><strong>close friends</strong> – amigos próximos (relação, não localização)</li>
+              <li><strong>deadline</strong> – prazo final de entrega | <em>The deadline is close.</em></li>
+            </ul>
+
+            <h3>Direções — como dar e pedir</h3>
+            <ul>
+              <li><strong>go down [street]</strong> – seguir pela rua | <em>Go down Second Street.</em></li>
+              <li><strong>turn left</strong> – vire à esquerda</li>
+              <li><strong>turn right</strong> – vire à direita</li>
+              <li><strong>on the corner of</strong> – na esquina de | <em>It's on the corner of Park Avenue and Second Street.</em></li>
+              <li><strong>around the corner</strong> – virando a esquina, ali na esquina</li>
+              <li><strong>between [A] and [B]</strong> – entre [A] e [B] | <em>The mall is between the coffee shop and the station.</em></li>
+              <li><strong>across from</strong> – em frente a, do outro lado de | <em>The theater is across from the hospital.</em></li>
+              <li><strong>next to</strong> – ao lado de | <em>The café is next to the park.</em></li>
+              <li><strong>go to the corner of</strong> – vá até a esquina de | <em>Go to the corner of First Street.</em></li>
+            </ul>
+
+            <h3>Vocabulário do mapa / exercício</h3>
+            <ul>
+              <li><strong>train station</strong> – estação de trem (≠ stadium = estádio esportivo)</li>
+              <li><strong>mall / shopping mall</strong> – shopping center</li>
+              <li><strong>movie theater</strong> – cinema</li>
+              <li><strong>hospital</strong> – hospital</li>
+              <li><strong>coffee shop</strong> – cafeteria</li>
+              <li><strong>park</strong> – parque</li>
+              <li><strong>street</strong> – rua</li>
+              <li><strong>avenue</strong> – avenida</li>
+              <li><strong>block</strong> – quarteirão</li>
+              <li><strong>line / queue</strong> – fila</li>
+            </ul>
+
+            <h3>Expressões úteis para pedir direções</h3>
+            <ul>
+              <li><strong>Excuse me, is there a [place] nearby?</strong> — Com licença, tem um [lugar] aqui perto?</li>
+              <li><strong>How do I get to [place]?</strong> — Como eu chego a [lugar]?</li>
+              <li><strong>You can walk there.</strong> — Você pode ir a pé.</li>
+              <li><strong>It's not far from here.</strong> — Não fica longe daqui.</li>
             </ul>
           </div>
         </section>
@@ -394,55 +327,41 @@
           <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
           <div class="outline-card">
 
-            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que o professor corrigiu ou reforçou durante a aula:</p>
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que merecem atenção especial:</p>
 
-            <p><strong>1. Nearby / Close ≠ Next</strong></p>
+            <p><strong>1. Nearby não funciona com tempo ou relações</strong></p>
             <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              Em português, usamos "próximo" para as duas ideias. Em inglês, elas são palavras diferentes:<br>
-              ✅ <strong>Nearby / Close</strong> = perto, nas proximidades (localização)<br>
-              ✅ <strong>Next</strong> = próximo de uma sequência ou fila — <em>Next question, next stop</em><br>
-              ❌ Cuidado ao usar o Google Tradutor para "próximo" — pode aparecer <em>next</em> quando o correto seria <em>nearby</em>.
+              ❌ <em>"The deadline is nearby."</em><br>
+              ✅ <strong>"The deadline is close."</strong><br>
+              <em>Nearby</em> só funciona para distância física entre dois lugares que existem. Para tempo ("o prazo está perto") ou relações ("amigos próximos"), use sempre <em>close</em>.
             </p>
 
-            <p><strong>2. Across from ≠ In front of</strong></p>
+            <p><strong>2. "Station" vs "Stadium" — palavras diferentes</strong></p>
             <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ✅ <strong>Across from</strong> = do outro lado da rua (há uma rua no meio — a pessoa precisa atravessar)<br>
-              ✅ <strong>In front of</strong> = em frente a (sem rua no meio — ex.: <em>I'm in front of the computer</em>)<br>
-              Não use <em>across from</em> para coisas que estão imediatamente à sua frente sem travessia.
+              ❌ <em>"Central Train Stadium"</em><br>
+              ✅ <strong>"Central Train Station"</strong><br>
+              <em>Station</em> = estação (trem, metrô, ônibus). <em>Stadium</em> = estádio (esportivo, de futebol). Sons parecidos, mas significados completamente diferentes.
             </p>
 
-            <p><strong>3. Pronúncia: Brother</strong></p>
+            <p><strong>3. "Of" vs "Off" na esquina</strong></p>
             <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ❌ "brô" (como se lê em português)<br>
-              ✅ <strong>"brá-ther"</strong> — o som do "o" é aberto, como em "pai" mas mais curto. Não é um "o" fechado.
+              ❌ <em>"It's on the corner off Second Street."</em><br>
+              ✅ <strong>"It's on the corner of Second Street."</strong><br>
+              A preposição para conectar o nome da rua em "on the corner" é <em>of</em> (de/da), não <em>off</em> (que tem outro significado: desligado, fora).
             </p>
 
-            <p><strong>4. Pronúncia: Slow ≠ Snow</strong></p>
+            <p><strong>4. Sempre use um sujeito em inglês</strong></p>
             <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ❌ Confundir <em>slow</em> com <em>snow</em><br>
-              ✅ <strong>Slow</strong> = devagar / lento &nbsp;|&nbsp; <strong>Snow</strong> = neve<br>
-              São palavras diferentes — preste atenção ao "l" em <em>slow</em>.
+              ❌ <em>"Is between Good Beans Coffee and the station."</em><br>
+              ✅ <strong>"The Central Mall is between Good Beans Coffee and the station."</strong> ou <strong>"It is between..."</strong><br>
+              Em inglês, toda frase precisa de um sujeito explícito. Você pode usar o nome do lugar ou o pronome <em>it</em> (para coisas).
             </p>
 
-            <p><strong>5. Life (substantivo) ≠ Live (verbo)</strong></p>
+            <p><strong>5. "Next" não significa "perto" — significa "o seguinte"</strong></p>
             <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ❌ Pensar que <em>live</em> (viver) e <em>life</em> (vida) são a mesma coisa<br>
-              ✅ <strong>Life</strong> = vida (substantivo) — ex.: <em>lifeguard</em> = salva-vidas<br>
-              ✅ <strong>Live</strong> = viver (verbo) — ex.: <em>I live in São Paulo</em><br>
-              Esta é uma das primeiras palavras de qualquer curso de inglês. Vale fixar bem!
-            </p>
-
-            <p><strong>6. Knot e Not — mesma pronúncia, K mudo</strong></p>
-            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ✅ <strong>Knot</strong> (nó) e <strong>Not</strong> (não) têm a mesma pronúncia: <em>"nót"</em><br>
-              O <strong>K</strong> no início de palavras como <em>knot, know, knife, knock</em> é sempre mudo em inglês.
-            </p>
-
-            <p><strong>7. Dica do jogo Babadum: cores das palavras</strong></p>
-            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
-              ✅ <strong>Vermelho</strong> = verbo — sempre vai aparecer com <em>to</em> antes (ex.: <em>to dig, to wake up</em>)<br>
-              ✅ <strong>Amarelo</strong> = adjetivo<br>
-              Use isso como estratégia para eliminar opções erradas mais rápido!
+              ❌ Usar <em>next</em> quando quer dizer "perto daqui"<br>
+              ✅ <em>Next</em> = próximo em ordem/sequência | <em>Nearby / Close</em> = perto (distância)<br>
+              Ex.: "Who's next?" = Quem é o próximo (da fila/ordem)? vs "Is there a bank nearby?" = Tem um banco aqui perto?
             </p>
 
           </div>
@@ -455,7 +374,7 @@
 
             <a
               class="media-btn"
-              href="https://youtu.be/zEkHgY3uFeo"
+              href="https://youtu.be/SwWMlPj_cPE"
               target="_blank"
               rel="noopener noreferrer"
               role="button"
@@ -480,12 +399,12 @@
               <tr class="row-teacher">
                 <td><span class="talk-label">César (Professor)</span></td>
                 <td><span class="talk-percent">65%</span></td>
-                <td class="talk-time">~32 minutos</td>
+                <td class="talk-time">~35 minutos</td>
               </tr>
               <tr class="row-student">
                 <td><span class="talk-label">Fatima</span></td>
                 <td><span class="talk-percent">35%</span></td>
-                <td class="talk-time">~17 minutos</td>
+                <td class="talk-time">~19 minutos</td>
               </tr>
             </tbody>
           </table>
