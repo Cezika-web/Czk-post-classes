@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Davi — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Revisão: Informações Pessoais, Possessivo 's, Pronomes e Origem</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Davi &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/16/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula de revisão com exercícios do livro: perguntas e respostas sobre informações pessoais, possessivo 's, pronomes possessivos (his/her), verbos to be, short answers e diálogo de origem/nacionalidade.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula continuou a revisão da página 16 do livro, focando em exercícios escritos e orais sobre informações pessoais. Davi trabalhou com fichas de personagens (Mr. Silver, Michael Brant, Katie Harrison) e precisou criar perguntas a partir das respostas dadas — um exercício que exige raciocínio reverso: olhar a resposta e deduzir qual pergunta teria gerado aquela informação.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Um dos pontos centrais foi o <strong>possessivo 's</strong> (apóstrofe + s): para atribuir algo a alguém em inglês, usa-se o nome da pessoa + 's. Ex.: <em>Michael Brant's occupation</em> (a profissão do Michael Brant) / <em>Katie Harrison's address</em> (o endereço da Katie Harrison). Davi errou algumas vezes ao esquecer o apóstrofo, e o professor reforçou que sem ele a frase não transmite posse.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Em paralelo, foi revisado o uso dos <strong>pronomes possessivos</strong> — quando usar <em>his</em> (dele) ou <em>her</em> (dela) — e a diferença entre o apóstrofo possessivo e a forma pronominal. Também foi revisada a regra das <strong>short answers positivas</strong>: nunca se abrevia. "Yes, I am." é obrigatório; "Yes, I'm." é gramaticalmente errado.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              A aula terminou com a leitura e role-play de um diálogo de apresentação e origem entre os personagens Brad, Lily, Skyler e Camila. O diálogo envolveu: saudações, apresentar um amigo (<em>this is my friend</em>), dizer de onde é (<em>I am from Porto Rico</em>), fazer palpite de cidade (<em>Are you from San Juan?</em>), e corrigir uma suposição (<em>No, she isn't. She is from La Plata.</em>).
+            </p>
+            <p style="margin:0;">
+              O professor reforçou: quando Davi parava de dizer "não sei" e tentava pensar, ele acertava. A capacidade está lá — basta confiar no raciocínio.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>What is your phone number? — Qual é o seu número de telefone?</li>
+              <li>What is your first name? / What is your last name? — Qual é o seu primeiro nome? / sobrenome?</li>
+              <li>What is Mr. Silver's first name? — Qual é o primeiro nome do Sr. Silver?</li>
+              <li>What is his email address? — Qual é o endereço de e-mail dele?</li>
+              <li>What is Michael Brant's occupation? — Qual é a profissão do Michael Brant?</li>
+              <li>He is an engineer. — Ele é um engenheiro.</li>
+              <li>What is her address? — Qual é o endereço dela?</li>
+              <li>Hi, I am Brad and this is my friend Lily. — Oi, eu sou o Brad e essa é minha amiga Lily.</li>
+              <li>We are from Boston. — Nós somos de Boston.</li>
+              <li>Nice to meet you. / Nice to meet you too. — Prazer em conhecer você. / Prazer também.</li>
+              <li>Where are you from? — De onde você é?</li>
+              <li>I am from Porto Rico. — Eu sou de Porto Rico.</li>
+              <li>Are you from San Juan? — Você é de San Juan?</li>
+              <li>Yes, I am. Good guess. — Sim, sou. Bom palpite.</li>
+              <li>Where is your friend from? — De onde é sua amiga?</li>
+              <li>She is from Argentina. She is from La Plata. — Ela é da Argentina. Ela é de La Plata.</li>
+              <li>No, she isn't. — Não, ela não é. (short answer negativa)</li>
+              <li>That's right. — É isso mesmo. / Correto.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Occupation</h3>
+              <p>
+                <em>(pt) profissão / ocupação — forma mais formal que "job" (emprego)</em><br>
+                <small>What is his occupation? He is an engineer.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>That's right</h3>
+              <p>
+                <em>(pt) é isso mesmo / correto — usado para confirmar que algo foi entendido ou dito corretamente</em><br>
+                <small>"Your address is 55 Overview Court." "That's right!"</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Informações pessoais — perguntas e respostas</h3>
+            <ul>
+              <li><strong>first name</strong> – primeiro nome</li>
+              <li><strong>last name</strong> – sobrenome</li>
+              <li><strong>phone number</strong> – número de telefone</li>
+              <li><strong>email address</strong> – endereço de e-mail (@ = "at", . = "dot")</li>
+              <li><strong>address</strong> – endereço (formato: número + nome da rua → ex.: 777 York Street)</li>
+              <li><strong>occupation</strong> – profissão (formal) / <strong>job</strong> – emprego (informal)</li>
+              <li><strong>engineer</strong> – engenheiro(a)</li>
+            </ul>
+
+            <h3>Possessivo 's e pronomes possessivos</h3>
+            <ul>
+              <li><strong>[Nome] + 's</strong> – indica posse: <em>Michael Brant's occupation</em> = a profissão do Michael Brant</li>
+              <li><strong>his</strong> – dele (quando a pessoa já foi mencionada, pronome substitui o nome)</li>
+              <li><strong>her</strong> – dela</li>
+              <li><strong>my / your / our / their</strong> – meu(a) / seu(a) / nosso(a) / deles(as)</li>
+            </ul>
+
+            <h3>Verbos to be e short answers</h3>
+            <ul>
+              <li><strong>I am / I'm</strong> – eu sou / estou</li>
+              <li><strong>She is / She's</strong> – ela é / está</li>
+              <li><strong>We are / We're</strong> – nós somos / estamos</li>
+              <li><strong>Yes, I am.</strong> – short answer positiva: NUNCA abrevia (<em>"Yes, I'm."</em> é errado)</li>
+              <li><strong>No, she isn't.</strong> – short answer negativa: pode contrair</li>
+            </ul>
+
+            <h3>Origem e nacionalidade</h3>
+            <ul>
+              <li><strong>Where are you from?</strong> – De onde você é?</li>
+              <li><strong>I am from [place].</strong> – Eu sou de [lugar].</li>
+              <li><strong>She is from Argentina.</strong> – Ela é da Argentina.</li>
+              <li><strong>Is from Boston.</strong> – É de Boston. (usado no texto: "He is from Boston")</li>
+            </ul>
+
+            <h3>Expressões úteis</h3>
+            <ul>
+              <li><strong>Good guess.</strong> – Bom palpite. (quando alguém acerta uma suposição)</li>
+              <li><strong>That's right.</strong> – É isso mesmo. Correto.</li>
+              <li><strong>Nice to meet you.</strong> – Prazer em conhecer você.</li>
+              <li><strong>Nice to meet you too.</strong> – Prazer também.</li>
+              <li><strong>This is my friend [name].</strong> – Esse(a) é meu(minha) amigo(a) [nome].</li>
+              <li><strong>dot</strong> – ponto (em endereços de e-mail)</li>
+              <li><strong>at</strong> – arroba (@) em endereços de e-mail</li>
+            </ul>
+
+            <h3>Abreviações de tratamento</h3>
+            <ul>
+              <li><strong>Mr.</strong> – Sr. (para homens)</li>
+              <li><strong>Mrs. / Ms.</strong> – Sra. / Ms. (para mulheres)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos corrigidos ou reforçados durante a aula:</p>
+
+            <p><strong>1. Possessivo 's — não esqueça o apóstrofo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"What is Michael Brant occupation?"</em><br>
+              ✅ <strong>"What is Michael Brant's occupation?"</strong><br>
+              Sem o apóstrofe + s, a frase não indica posse. Em inglês, a posse é marcada com <em>'s</em> — diferente do português onde usamos "de" (a profissão DO Michael Brant → Michael Brant's occupation).
+            </p>
+
+            <p><strong>2. Short answer positiva — nunca abrevia</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Yes, I'm."</em><br>
+              ✅ <strong>"Yes, I am."</strong><br>
+              Numa short answer positiva isolada, é proibido usar a forma contraída. "Yes, I'm." não existe em inglês formal. A forma completa "Yes, I am." é a única correta.
+            </p>
+
+            <p><strong>3. Tempo verbal: presente, não passado</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"She was from Argentina."</em><br>
+              ✅ <strong>"She is from Argentina."</strong><br>
+              Ao falar de origem, usa-se o presente (<em>is</em>), não o passado (<em>was</em>), a menos que a pessoa já não more mais lá ou tenha falecido.
+            </p>
+
+            <p><strong>4. Pronome possessivo: his vs her</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              <em>His</em> = dele (pronome masculino) | <em>Her</em> = dela (pronome feminino)<br>
+              Ao usar pronome em vez do nome possessivo, é preciso verificar o gênero da pessoa mencionada antes.<br>
+              Ex.: Falando de Michael → <em>his email</em> | Falando de Katie → <em>her address</em>
+            </p>
+
+            <p><strong>5. Letras do alfabeto — E vs I</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              No alfabeto inglês: <strong>E</strong> soa como "Ii" (como no português) e <strong>I</strong> soa como "Ai". Davi confundiu os dois ao soletrar. Lembre: E = /iː/ | I = /aɪ/.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/0zOo3IKwtVg"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~32 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Davi</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~18 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
