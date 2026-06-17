@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Fatima — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Prática de Direções — Blocos, On the Left e Around the Corner</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluna:</strong> Fatima &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/16/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Continuação da aula anterior: repetição e aprofundamento das direções no mapa, com novos conceitos — <em>go [number] blocks</em>, <em>is on the left</em>, <em>next to</em> e <em>around the corner from</em>.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com a revisão das três direções praticadas na aula anterior — Central Train Station, Central Mall e Burners Movie Theater — que Fatima repetiu com mais fluidez. Em seguida, o professor introduziu novos destinos no mesmo mapa, aumentando progressivamente a complexidade do percurso.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O <strong>primeiro novo destino</strong> foi o <em>North Museum of Art</em>, que exigiu uma rota mais longa: seguir pela Second Street, virar à direita na Park Avenue, ir até a esquina da First Street, virar à esquerda, seguir pela First Street, virar à esquerda na City Avenue, e o museu fica à esquerda. O ponto novo aqui foi a expressão <strong>"is on the left"</strong> (fica à esquerda) — e a regra de que sempre precisa de um sujeito: "The North Museum of Art <em>is</em> on the left" ou "It <em>is</em> on the left". A frase "is on the left" sozinha, sem sujeito, não existe em inglês.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O <strong>segundo exercício</strong> introduziu o conceito de <strong>blocos</strong>: em vez de apenas nomear a rua, pode-se dizer quantos quarteirões a pessoa deve andar. Ex.: <em>"Go two blocks"</em> (ande dois quarteirões). Fatima praticou um percurso que usava <em>go two blocks + turn right on City Avenue + it is next to Good Morning Coffee</em>.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              O professor também apresentou a expressão <strong>"around the corner from [place]"</strong> (virando a esquina de [lugar]), usada para indicar que algo está logo ali, dobrar a esquina de um ponto de referência. <strong>Atenção</strong>: quando se usa <em>around the corner</em>, não é necessário (nem correto) adicionar "is on the left/right" logo depois, porque "around the corner" já indica uma posição geral — sem especificar esquerda ou direita.
+            </p>
+            <p style="margin:0;">
+              O professor encerrou anunciando os próximos temas: a Lição 4 vai combinar direções com convites para eventos (<em>invite someone to an event</em>), e uma aula de leitura e música está programada.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>It is on the corner of Second Street and Park Avenue. — Fica na esquina da Second Street com a Park Avenue.</li>
+              <li>The Central Mall is between Good Morning Coffee and Central Train Station. — O shopping fica entre o Good Beans Coffee e a Central Train Station.</li>
+              <li>Go down the Second Street, turn right on Park Avenue. — Siga pela Second Street, vire à direita na Park Avenue.</li>
+              <li>Go to the corner of the First Street and turn left. — Vá até a esquina da First Street e vire à esquerda.</li>
+              <li>The Burners Movie Theater is across from the Northwood Hospital. — O Burners Movie Theater fica em frente ao Northwood Hospital.</li>
+              <li>Go down the First Street, turn left on City Avenue. — Siga pela First Street, vire à esquerda na City Avenue.</li>
+              <li>The North Museum of Art is on the left. — O Museu de Arte do Norte fica à esquerda.</li>
+              <li>It is on the left. — Fica à esquerda.</li>
+              <li>Go two blocks on Second Street. — Ande dois quarteirões na Second Street.</li>
+              <li>It is next to Good Morning Coffee. — Fica ao lado do Good Morning Coffee.</li>
+              <li>Go down Second Street, turn right on City Avenue. — Siga pela Second Street, vire à direita na City Avenue.</li>
+              <li>It is around the corner from the museum. — Fica virando a esquina do museu.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Go [number] blocks</h3>
+              <p>
+                <em>(pt) ande [número de] quarteirões — forma de dar direções por distância em vez de nome de rua</em><br>
+                <small>Go two blocks and turn right. You can't miss it.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Around the corner from [place]</h3>
+              <p>
+                <em>(pt) virando a esquina de [lugar] — indica proximidade a partir de um ponto de referência, sem especificar esquerda/direita</em><br>
+                <small>The café is around the corner from the museum.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Novos termos de direção</h3>
+            <ul>
+              <li><strong>go [number] blocks</strong> – ande [N] quarteirões | <em>Go two blocks, then turn left.</em></li>
+              <li><strong>block</strong> – quarteirão (distância de uma esquina à outra)</li>
+              <li><strong>is on the left</strong> – fica à esquerda (precisa de sujeito: <em>It is on the left</em>)</li>
+              <li><strong>is on the right</strong> – fica à direita</li>
+              <li><strong>around the corner from [place]</strong> – virando a esquina de [lugar]; não use junto com "on the left/right"</li>
+              <li><strong>next to</strong> – ao lado de | <em>It is next to Good Morning Coffee.</em></li>
+              <li><strong>across from</strong> – em frente a, do outro lado de | <em>The theater is across from the hospital.</em></li>
+            </ul>
+
+            <h3>Revisão — direções do mapa (já praticadas)</h3>
+            <ul>
+              <li><strong>go down [street]</strong> – seguir pela rua, siga reto</li>
+              <li><strong>turn left</strong> – vire à esquerda</li>
+              <li><strong>turn right</strong> – vire à direita</li>
+              <li><strong>on the corner of [A] and [B]</strong> – na esquina de [A] com [B]</li>
+              <li><strong>go to the corner of [street]</strong> – vá até a esquina da [rua]</li>
+              <li><strong>between [A] and [B]</strong> – entre [A] e [B]</li>
+            </ul>
+
+            <h3>Locais do mapa</h3>
+            <ul>
+              <li><strong>Central Train Station</strong> – estação central de trem (⚠️ station ≠ stadium)</li>
+              <li><strong>Central Mall</strong> – shopping central</li>
+              <li><strong>Burners Movie Theater</strong> – cinema</li>
+              <li><strong>Northwood Hospital</strong> – hospital</li>
+              <li><strong>Good Morning Coffee</strong> – cafeteria</li>
+              <li><strong>North Museum of Art</strong> – museu de arte</li>
+              <li><strong>CPC Pharmacy</strong> – farmácia</li>
+            </ul>
+
+            <h3>Pronúncia — nota rápida</h3>
+            <ul>
+              <li><strong>not bad</strong> – o T pode ser silencioso na fala cotidiana americana: "nah bad" (silent T)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos corrigidos ou reforçados durante a aula:</p>
+
+            <p><strong>1. "Is on the left" sem sujeito</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"…is on the left."</em> (sem sujeito)<br>
+              ✅ <strong>"It is on the left."</strong> ou <strong>"The North Museum of Art is on the left."</strong><br>
+              Em inglês, toda frase precisa de sujeito. Use <em>it</em> quando o lugar já foi mencionado, ou repita o nome.
+            </p>
+
+            <p><strong>2. "Around the corner" + "is on the left" — não usar juntos</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"It's around the corner from the museum. It is on the left."</em><br>
+              ✅ <strong>"It's around the corner from the museum."</strong> (suficiente)<br>
+              <em>Around the corner</em> já indica proximidade sem especificar direção. Adicionar "on the left/right" cria contradição porque depende de por onde você virou.
+            </p>
+
+            <p><strong>3. "Stadium" vs "Station" — ainda!</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Central Train Stadium"</em><br>
+              ✅ <strong>"Central Train Station"</strong><br>
+              Revisão do erro anterior: <em>station</em> = estação. <em>Stadium</em> = estádio esportivo. Sons parecidos — memorize!
+            </p>
+
+            <p><strong>4. "It is around the corner from [place]" — estrutura correta</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ✅ <strong>"It is around the corner from the museum."</strong><br>
+              Lembre: o ponto de referência vem depois de "from" (de, a partir de). O sujeito da frase é o lugar que você está descrevendo, não o ponto de referência.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/lFjANFVdD1g"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">55%</span></td>
+                <td class="talk-time">~27 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Fatima</span></td>
+                <td><span class="talk-percent">45%</span></td>
+                <td class="talk-time">~22 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
