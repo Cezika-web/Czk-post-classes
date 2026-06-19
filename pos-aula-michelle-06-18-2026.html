@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Michelle — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Revisão da Área do Aluno, Possessivos e Informações Pessoais</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluna:</strong> Michelle &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/18/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula de revisão da área do aluno (132 questões, 100 acertos — ótimo resultado!), seguida de exercícios de listening com informações pessoais e prática de adjetivos possessivos e possessivo de nomes.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com a revisão da área do aluno: 132 questões respondidas, 100 acertas e 32 erros — uma média de 7,5, acima da média para uma primeira semana. O professor apontou que não houve nenhum erro grave, ou seja, qualquer coisa que Michelle escreveu seria compreendida por um nativo.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Os principais pontos corrigidos foram: o uso do pronome "I" sempre maiúsculo (os outros pronomes seguem a regra padrão de capitalização); a distinção entre <strong>meat</strong> (carne em geral) e <strong>beef</strong> (carne de vaca); a confusão entre <strong>smoke</strong> (verbo) e <strong>smoking</strong> (gerúndio); e a regra crítica de que <strong>dois verbos no presente nunca ficam juntos</strong> — o segundo precisa ser infinitivo (<em>to + verbo</em>) ou gerúndio (<em>-ing</em>).
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Também foi reforçada a ordem das palavras no inglês: <strong>adjetivo antes do substantivo</strong> ("a blue car", não "a car blue"), e que verbos como <em>like</em> e <em>need</em> não aceitam "of" depois deles.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              No bloco de listening (lição 4), foram praticadas quatro conversas com informações pessoais — nome, endereço, e-mail e telefone. Michelle aprendeu que o endereço em inglês começa pelo número, que "dot" é ponto (.) e "at" é arroba (@), e que números repetidos em sequência são lidos como "double" (ex: 44 = "double four"). O zero em números de telefone frequentemente é falado como a letra "O" no inglês falado.
+            </p>
+            <p style="margin:0;">
+              O bloco final foi dedicado aos <strong>possessive adjectives</strong> (my, your, his, her, its, our, their) e ao <strong>possessive 's</strong> (apóstrofo + s). A grande dificuldade foi diferenciar "your" de "his/her" — em português, os dois podem ser traduzidos como "seu/sua", mas em inglês precisam combinar com o sujeito da frase. Também foram praticados os títulos <em>Mr.</em>, <em>Mrs.</em>, <em>Miss</em> e <em>Ms.</em>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I don't smoke. — Eu não fumo. (smoke = verbo; não "smoking")</li>
+              <li>I am not smoking. — Eu não estou fumando. (gerúndio correto)</li>
+              <li>Bad habits can make you age faster. — Maus hábitos podem fazer você envelhecer mais rápido.</li>
+              <li>I don't like to age. — Eu não gosto de envelhecer. (to age = infinitivo)</li>
+              <li>I love to eat food. / I love eating food. — Eu amo comer. (duas formas corretas)</li>
+              <li>It's a blue car. — É um carro azul. (adjetivo antes do substantivo)</li>
+              <li>She is a famous actress. — Ela é uma atriz famosa.</li>
+              <li>We need a big house. — Precisamos de uma casa grande. (sem "of")</li>
+              <li>She likes children. — Ela gosta de crianças. (sem "of")</li>
+              <li>We like it. — A gente gosta. (it = objeto, não "her")</li>
+              <li>My father's teacher is Mr. Green. — O professor do meu pai é o Sr. Green.</li>
+              <li>She is my friend's mother. — Ela é a mãe da minha amiga.</li>
+              <li>His name is John. — O nome dele é John.</li>
+              <li>Her email is janeklein36@english.com. — O email dela é janeklein36@english.com.</li>
+              <li>Their last name is Frederique. — O sobrenome deles é Frederique.</li>
+              <li>What is your last name? — Qual é o seu sobrenome?</li>
+              <li>It's 67 Magnolia Street. — É na Magnolia Street, 67. (número antes da rua)</li>
+              <li>janeklein36 at english dot com. — janeklein36 arroba english ponto com.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>His / Her (possessivos)</h3>
+              <p>
+                <em>(pt) his = dele | her = dela — não confundir com "your" (seu/sua, quando falando com alguém). Em inglês, o possessivo precisa combinar com o sujeito.</em><br>
+                <small>His car is blue. / Her email is janeklein36@english.com.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Meat vs Beef</h3>
+              <p>
+                <em>(pt) meat = carne em geral (qualquer tipo) | beef = carne de vaca especificamente | pork = porco | chicken = frango</em><br>
+                <small>I don't eat meat. / This burger is made of beef.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Adjetivos possessivos — tabela completa</h3>
+            <ul>
+              <li><strong>my</strong> – meu/minha | <em>My name is Michelle.</em></li>
+              <li><strong>your</strong> – seu/sua (falando com alguém) | <em>What is your address?</em></li>
+              <li><strong>his</strong> – dele | <em>His phone number is 555-1234.</em></li>
+              <li><strong>her</strong> – dela | <em>Her email is jane@english.com.</em></li>
+              <li><strong>its</strong> – dele/dela (objetos e animais) | <em>The dog wagged its tail.</em></li>
+              <li><strong>our</strong> – nosso/nossa | <em>Our neighbors' names are Glenn and Pat.</em></li>
+              <li><strong>their</strong> – deles/delas | <em>Their last name is Frederique.</em></li>
+            </ul>
+
+            <h3>Possessive 's — quem possui leva o apóstrofo</h3>
+            <ul>
+              <li><strong>Michelle's car</strong> – o carro da Michelle</li>
+              <li><strong>my dad's teacher</strong> – o professor do meu pai</li>
+              <li><strong>my friend's mother</strong> – a mãe da minha amiga</li>
+              <li><strong>the neighbors' names</strong> – os nomes dos vizinhos (palavra já termina em S → só apóstrofo)</li>
+              <li>🔑 Regra: o apóstrofo 's vai em quem POSSUI o item, não em quem é possuído.</li>
+            </ul>
+
+            <h3>Títulos formais</h3>
+            <ul>
+              <li><strong>Mr.</strong> – masculino (Mister) | <em>Mr. Green / Mr. Oliveira</em></li>
+              <li><strong>Mrs.</strong> – feminino casada (Missus) | <em>Mrs. Silva</em></li>
+              <li><strong>Miss</strong> – feminino solteira | <em>Miss Taylor</em></li>
+              <li><strong>Ms.</strong> – feminino, independe de estado civil (Miz) | <em>Ms. Johnson</em></li>
+              <li>🔑 Dica rápida: o único sem S é Mr. → só masculino.</li>
+            </ul>
+
+            <h3>Informações pessoais — convenções em inglês</h3>
+            <ul>
+              <li><strong>Endereço:</strong> começa pelo número → <em>67 Magnolia Street</em> (não "Magnolia Street, 67")</li>
+              <li><strong>dot</strong> – ponto (.) em endereço de e-mail ou site</li>
+              <li><strong>at</strong> – arroba (@) em e-mail | <em>"jane at english dot com"</em></li>
+              <li><strong>double</strong> – dois dígitos iguais em sequência | <em>44 = "double four"</em></li>
+              <li><strong>O (letra)</strong> – zero nos números de telefone | <em>0800 = "oh eight hundred"</em></li>
+            </ul>
+
+            <h3>Carne — vocabulário específico</h3>
+            <ul>
+              <li><strong>meat</strong> – carne em geral</li>
+              <li><strong>beef</strong> – carne de vaca</li>
+              <li><strong>pork</strong> – carne de porco</li>
+              <li><strong>chicken</strong> – frango</li>
+              <li><strong>smoker</strong> – fumante (person who smokes — sufixo -er = quem executa)</li>
+              <li><strong>smoke</strong> – fumar (verbo) | <em>I don't smoke.</em></li>
+              <li><strong>smoking</strong> – fumando (gerúndio) | <em>I am not smoking.</em></li>
+            </ul>
+
+            <h3>Outros termos e expressões</h3>
+            <ul>
+              <li><strong>to age</strong> – envelhecer (infinitivo) | <em>I don't like to age.</em></li>
+              <li><strong>obese</strong> – obeso/a (adjetivo) | <em>I'm not obese.</em></li>
+              <li><strong>obesity</strong> – obesidade (substantivo)</li>
+              <li><strong>teammate</strong> – colega de time (britânico: mate = amigo)</li>
+              <li><strong>neighbor</strong> – vizinho(a)</li>
+              <li><strong>classmate</strong> – colega de classe</li>
+              <li><strong>from</strong> – de (origem) | <em>She is from Frankfurt.</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos levantados na revisão da área do aluno e nos exercícios de aula:</p>
+
+            <p><strong>1. Só o "I" é sempre maiúsculo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Yes, They are"</em> (D maiúsculo depois de vírgula)<br>
+              ✅ <strong>"Yes, they are."</strong><br>
+              Em inglês, o único pronome sempre maiúsculo é <em>I</em>. Os outros (they, we, she, he) só são maiúsculos no início da frase.
+            </p>
+
+            <p><strong>2. Dois verbos no presente juntos — não existe em inglês</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"I love eat food."</em><br>
+              ✅ <strong>"I love to eat food."</strong> (infinitivo) ou <strong>"I love eating food."</strong> (gerúndio)<br>
+              Quando um sujeito já conjugou o primeiro verbo, o segundo precisa ser infinitivo (<em>to + verbo</em>) ou gerúndio (<em>-ing</em>). Ver dois verbos no presente juntos = sinal de erro.
+            </p>
+
+            <p><strong>3. Adjetivo vem ANTES do substantivo</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"a car blue"</em> / <em>"an actress famous"</em><br>
+              ✅ <strong>"a blue car"</strong> / <strong>"a famous actress"</strong><br>
+              Em inglês, o adjetivo sempre vem antes do substantivo que ele descreve — o oposto do português.
+            </p>
+
+            <p><strong>4. Like / Need / Want não aceitam "of"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"She likes of children."</em> / <em>"We need of a big house."</em><br>
+              ✅ <strong>"She likes children."</strong> / <strong>"We need a big house."</strong><br>
+              Em português dizemos "gostar DE" e "precisar DE", mas em inglês esses verbos não precisam de preposição.
+            </p>
+
+            <p><strong>5. "her" vs "it" — para objetos, use "it"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"We like her."</em> (quando falando da cama/objeto)<br>
+              ✅ <strong>"We like it."</strong><br>
+              <em>Her</em> = dela (pronome pessoal feminino para pessoas). Para objetos e coisas, use sempre <em>it</em>.
+            </p>
+
+            <p><strong>6. "your" vs "his/her" — não são intercambiáveis</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              Em português, "seu/sua" serve para tudo. Em inglês:<br>
+              <strong>your</strong> → precisa de "you" como sujeito: <em>"What is your name?"</em><br>
+              <strong>his</strong> → precisa de "he": <em>"His address is 67 Magnolia Street."</em><br>
+              <strong>her</strong> → precisa de "she": <em>"Her email is jane@english.com."</em>
+            </p>
+
+            <p><strong>7. Pronúncia: Mrs. ≠ "Miss"</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              <strong>Mrs.</strong> → pronuncia-se <em>"Missus"</em> (não "Miss-is" ou "Miss")<br>
+              <strong>Ms.</strong> → pronuncia-se <em>"Miz"</em><br>
+              <strong>Miss</strong> → pronuncia-se <em>"Miss"</em><br>
+              Na escrita, a diferença é clara: Mr. (sem S) = masculino; todo o resto é feminino.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/V0DrLsjzs0g"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">60%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Michelle</span></td>
+                <td><span class="talk-percent">40%</span></td>
+                <td class="talk-time">~25 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
