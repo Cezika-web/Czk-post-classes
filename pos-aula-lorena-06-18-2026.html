@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Lorena — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th, .talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>In-Laws, Família Estendida e Nearby vs Close vs Next</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluna:</strong> Lorena &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/18/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula densa e muito produtiva: relações de família por casamento (<em>in-laws</em>), vocabulário completo da árvore genealógica (sobrinha, tio, primo, bisavó) e a diferença crucial entre <em>nearby</em>, <em>close</em> e <em>next</em>.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">
+              A aula começou com revisão rápida do que foi visto na última aula (família imediata vs família estendida, árvore genealógica com Matt, Kim, Luke e Amy). Em seguida, o professor introduziu o conceito central da aula: os <strong>in-laws</strong>.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              <strong>In-law</strong> é o termo em inglês para parentes que vieram por casamento — ou seja, que não são de sangue. A lógica é simples: qualquer relação de parentesco que só existe porque alguém se casou com alguém recebe o sufixo <em>in-law</em>. Exemplos: <em>mother-in-law</em> (sogra), <em>father-in-law</em> (sogro), <em>son-in-law</em> (genro), <em>daughter-in-law</em> (nora), <em>brother-in-law</em> (cunhado), <em>sister-in-law</em> (cunhada). A família praticou esses termos ao longo da árvore genealógica com os personagens Bill, Jury, Kim, Matt, Nina, Tom, Beth e Jake.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              Lorena também aprendeu os termos que faltavam da família estendida: <strong>niece</strong> (sobrinha), <strong>nephew</strong> (sobrinho), <strong>aunt</strong> (tia) e <strong>uncle</strong> (tio). E um termo bonus: <strong>great-grandmother</strong> (bisavó) — o prefixo "great" adiciona uma geração.
+            </p>
+            <p style="margin:0 0 10px 0;">
+              No bloco de listening, foi ouvida uma conversa sobre alguém que é filha única (<em>only child</em>) mas tem muitos primos espalhados pelo mundo. Foram trabalhadas as expressões <strong>"tons of"</strong> e <strong>"a bunch of"</strong> (muitos, informal), <strong>"all over the world"</strong> (pelo mundo todo), <strong>"get together"</strong> (se reunir) e a expressão britânica <strong>"I've got"</strong> (= I have). O professor também apresentou o verbo <strong>get</strong> como "verbo coringa" — ele aparece em dezenas de contextos diferentes.
+            </p>
+            <p style="margin:0;">
+              O grande fechamento da aula foi uma explicação detalhada de <strong>nearby</strong>, <strong>close</strong> e <strong>next</strong> — três palavras que os brasileiros frequentemente confundem ao tentar dizer "perto" ou "próximo". A regra: <em>nearby</em> é estritamente físico/locacional; <em>close</em> é o coringa (distância, relações, tempo) e também significa "fechar"; <em>next</em> é próximo de uma ordem/sequência, não de distância. Lorena praticou 10 frases com <em>close</em> e traduziu todas corretamente.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>Jury is Matt's mother-in-law. — Jury é a sogra do Matt.</li>
+              <li>Bill is Matt's father-in-law. — Bill é o sogro do Matt.</li>
+              <li>Matt is Bill and Jury's son-in-law. — Matt é o genro do Bill e da Jury.</li>
+              <li>Nina is Matt's sister-in-law. — Nina é a cunhada do Matt.</li>
+              <li>Tom is Kim's brother-in-law. — Tom é o cunhado da Kim.</li>
+              <li>Beth is Kim's niece. — Beth é sobrinha da Kim.</li>
+              <li>Jake is Kim's nephew. — Jake é sobrinho da Kim.</li>
+              <li>Kim is Beth and Jake's aunt. — Kim é tia da Beth e do Jake.</li>
+              <li>Matt is Beth and Jake's uncle. — Matt é tio da Beth e do Jake.</li>
+              <li>Beth, Jake, Luke and Amy are cousins. — Beth, Jake, Luke e Amy são primos.</li>
+              <li>She is an only child. — Ela é filha única.</li>
+              <li>I've got tons of cousins. — Eu tenho muitos primos. (expressão britânica)</li>
+              <li>They are all over the world. — Eles estão espalhados pelo mundo todo.</li>
+              <li>It's hard to really get together. — É difícil realmente se reunir.</li>
+              <li>A bunch of us get together at my great-grandmother's place. — Muitos de nós nos reunimos na casa da minha bisavó.</li>
+              <li>Sit close to me. — Sente-se perto de mim.</li>
+              <li>Close your laptop. — Feche o seu computador.</li>
+              <li>The bank closes at 5h. — O banco fecha às cinco.</li>
+              <li>Don't walk too close to the edge. — Não ande muito perto da beirada.</li>
+              <li>They live close to the school. — Eles moram perto da escola.</li>
+              <li>The finish line is close. — O final da linha está chegando.</li>
+              <li>Stay close. Don't get lost. — Fique perto para não se perder.</li>
+              <li>Is there a pharmacy nearby? — Tem uma farmácia por aqui perto?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>In-law</h3>
+              <p>
+                <em>(pt) parente por casamento (não de sangue) — sogro/sogra, genro/nora, cunhado/cunhada</em><br>
+                <small>Bill is Matt's father-in-law. Jury is his mother-in-law.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Close (adj.)</h3>
+              <p>
+                <em>(pt) perto / próximo — o "coringa": serve para distância física, relações íntimas e tempo; também é verbo (fechar)</em><br>
+                <small>We are close friends. / The deadline is close. / Close the door.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">In-Laws — família por casamento</h3>
+            <ul>
+              <li><strong>mother-in-law</strong> – sogra (mãe do cônjuge)</li>
+              <li><strong>father-in-law</strong> – sogro (pai do cônjuge)</li>
+              <li><strong>son-in-law</strong> – genro (marido da filha)</li>
+              <li><strong>daughter-in-law</strong> – nora (esposa do filho)</li>
+              <li><strong>brother-in-law</strong> – cunhado (irmão do cônjuge)</li>
+              <li><strong>sister-in-law</strong> – cunhada (irmã do cônjuge)</li>
+              <li>🔑 Regra: todo parente que só existe na sua vida por causa do casamento leva <em>in-law</em>.</li>
+            </ul>
+
+            <h3>Família estendida — vocabulário completo</h3>
+            <ul>
+              <li><strong>niece</strong> – sobrinha</li>
+              <li><strong>nephew</strong> – sobrinho</li>
+              <li><strong>aunt</strong> – tia</li>
+              <li><strong>uncle</strong> – tio</li>
+              <li><strong>cousin</strong> – primo / prima (mesma palavra para ambos)</li>
+              <li><strong>grandparents</strong> – avós</li>
+              <li><strong>grandmother</strong> – avó</li>
+              <li><strong>grandfather</strong> – avô</li>
+              <li><strong>great-grandmother</strong> – bisavó (prefixo "great" = mais uma geração)</li>
+              <li><strong>great-grandfather</strong> – bisavô</li>
+              <li><strong>only child</strong> – filho(a) único(a)</li>
+            </ul>
+
+            <h3>Nearby vs Close vs Next — os três "próximos"</h3>
+            <ul>
+              <li><strong>nearby</strong> – perto (somente localização física/material) | <em>Is there a hotel nearby?</em></li>
+              <li><strong>close</strong> – perto + coringa: distância física, relação íntima, tempo iminente; também verbo "fechar" | <em>We are close friends. / The deadline is close. / Close the window.</em></li>
+              <li><strong>next</strong> – próximo de uma ordem ou sequência (não de distância) | <em>Who is next? / What is the next step?</em></li>
+            </ul>
+
+            <h3>Expressões do listening</h3>
+            <ul>
+              <li><strong>tons of</strong> – muitos (informal) | <em>I've got tons of cousins.</em></li>
+              <li><strong>a bunch of</strong> – muitos (informal, menos que "tons of") | <em>A bunch of us met at her house.</em></li>
+              <li><strong>all over the world</strong> – pelo mundo todo, em todos os lugares</li>
+              <li><strong>get together</strong> – se reunir, se encontrar | <em>It's hard to get together.</em></li>
+              <li><strong>I've got / I got</strong> – British English: equivalente a "I have" | <em>I've got tons of cousins = I have tons of cousins.</em></li>
+            </ul>
+
+            <h3>O verbo GET — coringa</h3>
+            <ul>
+              <li><strong>I don't get it.</strong> – Eu não entendo. (= I don't understand)</li>
+              <li><strong>Get dressed.</strong> – Se vista. (= Put on your clothes)</li>
+              <li><strong>Get my keys.</strong> – Pega minha chave. (= Fetch/grab)</li>
+              <li><strong>I've got a car.</strong> – Eu tenho um carro. (= I have)</li>
+              <li><em>O contexto sempre vai deixar claro qual sentido usar — não tente memorizar todos de uma vez.</em></li>
+            </ul>
+
+            <h3>Outros termos da aula</h3>
+            <ul>
+              <li><strong>deadline</strong> – prazo final | <em>The deadline is close.</em></li>
+              <li><strong>edge</strong> – beirada, borda | <em>Don't walk too close to the edge.</em></li>
+              <li><strong>finish line</strong> – linha de chegada | <em>The finish line is close.</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 12px 0;color:var(--muted);font-size:0.92rem;">Pontos que merecem atenção reforçada:</p>
+
+            <p><strong>1. "Close friend" ≠ amigo que mora perto</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"A close friend mora perto de mim."</em><br>
+              ✅ <strong>"A close friend é um amigo próximo — a relação é íntima, não a distância."</strong><br>
+              Quando se fala em <em>close friend</em>, o "perto" é sobre a relação, não sobre física. Ele pode morar em outro país e ainda ser seu <em>close friend</em>.
+            </p>
+
+            <p><strong>2. "Nearby" não serve para relações humanas</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"She is my nearby friend."</em><br>
+              ✅ <strong>"She is my close friend."</strong> (relação) | <strong>"She lives nearby."</strong> (localização)<br>
+              <em>Nearby</em> descreve localização física de coisas ou lugares. Para relações entre pessoas, sempre use <em>close</em>.
+            </p>
+
+            <p><strong>3. "Nephew" — pronúncia</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ Pronunciar como "néfio" ou "nefum"<br>
+              ✅ <strong>"Nephew"</strong> → NEF-you (o "ph" faz som de F)<br>
+              <em>Niece</em> (sobrinha) = "niis" | <em>Nephew</em> (sobrinho) = "NEF-you"
+            </p>
+
+            <p><strong>4. "Aunt-in-law" — não existe</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              ❌ <em>"Aunt-in-law"</em> (tentativa de adaptar o in-law para tia)<br>
+              ✅ Não existe essa combinação em inglês. Os únicos in-laws reconhecidos são: mother, father, son, daughter, brother, sister.<br>
+              Para outros parentescos por casamento, usa-se descrição: <em>"my wife's cousin"</em>, <em>"my husband's aunt"</em>.
+            </p>
+
+            <p><strong>5. "I've got" vs "I got" — diferença sutil</strong></p>
+            <p style="color:var(--muted);font-size:0.94rem;margin-top:0;">
+              <em>"I've got"</em> (British English) = I have | <em>"I got"</em> (American English, informal) = I have / I received<br>
+              Ambas são corretas no inglês falado. A forma <em>I've got</em> é muito comum no sotaque britânico e aparece bastante em textos de livro.
+            </p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/ZOJU-MHTBVs"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">65%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Lorena</span></td>
+                <td><span class="talk-percent">35%</span></td>
+                <td class="talk-time">~20 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa:</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia o pós-aula de <strong>2 a 3 vezes na semana</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
