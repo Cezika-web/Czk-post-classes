@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Gabriel Mendes — CZK English</title>
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --card-width: 720px;
+    }
+    html,body{ height:100%; margin:0; padding:0; background:var(--page-bg); font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif; }
+    .wrap{ min-height:100%; display:flex; align-items:flex-start; justify-content:center; padding:48px 20px; }
+    .card{ width:100%; max-width:var(--card-width); background:var(--card-bg); border-radius:18px; padding:28px; box-shadow:0 6px 22px rgba(33,47,60,0.06); border:1px solid rgba(15,33,64,0.03); }
+    header{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px; }
+    .badge{ background:linear-gradient(180deg,#fff,#f2fbff); border:1px solid var(--border); padding:8px 12px; border-radius:999px; color:var(--accent); font-weight:700; font-size:0.85rem; }
+    h1{ margin:0; font-size:1.3rem; color:#0f1724; }
+    .meta{ color:var(--muted); font-size:0.92rem; margin-top:6px; }
+    .actions{ display:flex; gap:10px; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:none; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; cursor:pointer; box-shadow:0 6px 14px rgba(47,134,230,0.12); }
+    main{ margin-top:18px; }
+    section{ margin-top:18px; }
+    .panel{ background:#fbfdff; border-radius:12px; padding:16px; border:1px solid var(--border); }
+    .outline-card{ border-radius:10px; border:1px solid var(--border); padding:16px; background:#fff; }
+    .vocab-grid{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+    .vocab{ flex:1; min-width:220px; border-radius:10px; padding:14px; border:2px solid #dfeefe; background:#fff; }
+    .vocab.green{ border-color:#c9f3dc; background:#f5fff6; }
+    .vocab.yellow{ border-color:#fde68a; background:#fffdf0; }
+    .vocab h3{ margin:0; font-size:1rem; color:#154360; }
+    .vocab p{ margin:8px 0 0 0; color:var(--muted); font-size:0.95rem; }
+    .media-row{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+    .media-btn{ background:#fff; border:1px solid var(--border); padding:12px 16px; border-radius:10px; font-weight:700; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:10px; min-width:200px; justify-content:center; }
+    .homework{ background:#f3fff6; border:1px solid #d7f5df; border-radius:10px; padding:14px; margin-top:10px; }
+    .speaking{ margin-top:18px; padding:16px; border-radius:12px; background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--border); max-width:640px; }
+    .speaking h2{ margin:0 0 10px 0; font-size:1.05rem; color:#0f1724; }
+    .talk-table{ width:100%; border-collapse:collapse; overflow:hidden; background:#fff; border:1px solid #e1e9f5; font-size:0.9rem; }
+    .talk-table th,.talk-table td{ padding:8px 10px; text-align:left; }
+    .talk-table th{ background:#eef4ff; color:#1b3556; font-weight:700; border-bottom:1px solid #dde6fa; }
+    .row-teacher{ background:#e7f2ff; }
+    .row-student{ background:#e8f7ef; }
+    .talk-label{ font-weight:700; }
+    .talk-percent{ font-weight:700; color:#0f1724; }
+    .talk-time{ color:var(--muted); }
+    footer{ margin-top:20px; color:var(--muted); font-size:0.9rem; text-align:center; }
+    @media (max-width:720px){ .card{padding:18px;border-radius:14px;} .vocab-grid,.media-row{flex-direction:column;} }
+    .student-moment{ background:#f5f0ff; border:2px solid #c4b5fd; border-radius:12px; padding:18px; margin-top:10px; }
+    .student-moment .sm-label{ font-size:0.78rem; font-weight:700; color:#7c3aed; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px; }
+    .student-moment .sm-quote{ font-style:italic; color:#4c1d95; font-size:1rem; margin:0 0 10px 0; border-left:3px solid #c4b5fd; padding-left:10px; }
+    .student-moment .sm-fix{ background:#fff; border-radius:8px; padding:10px 12px; font-size:0.93rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Causative with HAVE and GET — Superpowers</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Gabriel Mendes &nbsp;•&nbsp;
+            <strong>Data:</strong> 06/23/2026
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">Hoje você aprendeu a usar o causativo em inglês com os verbos <em>have</em> e <em>get</em> — uma estrutura essencial para falar como nativo quando você manda alguém fazer algo por você. A aula começou com um aquecimento divertido sobre superpoderes!</p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📘 Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 10px 0;">A aula começou com uma discussão sobre superpoderes. César perguntou qual superpoder vocês escolheriam — você escolheu <em>teleportação</em> (sua favorita!), Lucas também topou a ideia, e César preferiria <em>super velocidade</em> (The Flash). Vocês discutiram os poderes do Flash, da Mulher Invisível (Quarteto Fantástico), das Trevas dos Titãs (Beast Boy com shapeshifting), e de Professor X (telepatia). Depois assistiram a um vídeo com o ranking dos 10 melhores superpoderes segundo o ChatGPT: <strong>1º Teleportação, 2º Viagem no tempo, 3º Telepatia, 4º Super força, 5º Invisibilidade, 6º Telecinese, 7º Regeneração, 8º Voo, 9º Super velocidade, 10º Metamorfose</strong>.</p>
+            <p style="margin:0 0 10px 0;">Com o vocabulário de superpoderes explorado, César introduziu o <strong>causativo com HAVE e GET</strong> (página 16 do livro). O causativo acontece quando você faz com que outra pessoa realize algo por você — você não faz, outra pessoa faz. Com <strong>HAVE</strong>, usa-se o verbo na forma base (sem "to"); com <strong>GET</strong>, usa-se o infinitivo com "to". Ex.: <em>"I had someone clean my house"</em> (HAVE + base) vs. <em>"I got someone to clean my house"</em> (GET + to).</p>
+            <p style="margin:0;"><strong>HAVE</strong> = mais formal/autoritário, você é o chefe e manda. <strong>GET</strong> = envolve persuasão, você convence alguém. Praticaram com listening (Exercise D — conversas) e completaram frases (Exercise E), com situações do dia a dia: assistente fazendo ligação, garçom trazendo conta, vizinho indo às compras, etc.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">💬 Frases usadas em aula</h2>
+          <div class="outline-card">
+            <ul style="margin:0;padding-left:18px;line-height:2;">
+              <li><strong>"I will have my assistant call you."</strong> → Vou mandar meu assistente te ligar. <em style="color:var(--muted);font-size:0.88rem;">(HAVE + base verb)</em></li>
+              <li><strong>"We had someone deliver sandwiches at noon."</strong> → A gente mandou alguém entregar sanduíche ao meio-dia.</li>
+              <li><strong>"Have you had anyone confirm the time the meeting starts?"</strong> → Você pediu para alguém confirmar que horas começa a reunião?</li>
+              <li><strong>"We finally got someone to open the door."</strong> → Conseguimos/convencemos alguém a abrir a porta. <em style="color:var(--muted);font-size:0.88rem;">(GET + to)</em></li>
+              <li><strong>"Did you get anyone to feed your kids?"</strong> → Você conseguiu alguém para dar comida para seus filhos?</li>
+              <li><strong>"She's going to get Rosa to pay for dinner."</strong> → Ela vai pedir para a Rosa pagar o jantar.</li>
+              <li><strong>"They got someone to take their picture."</strong> → Eles conseguiram alguém para tirar a foto deles. <em style="color:var(--muted);font-size:0.88rem;">(você acertou esse! ✅)</em></li>
+              <li><strong>"Let's have the server bring us the check right away."</strong> → Vamos pedir para o garçom trazer a conta imediatamente.</li>
+              <li><strong>"We are running late."</strong> → Estamos nos atrasando.</li>
+              <li><strong>"You've got a lot on your plate."</strong> → Você tem muita coisa para fazer.</li>
+              <li><strong>"Right away."</strong> → Imediatamente / Na hora.</li>
+              <li><strong>"No harm done."</strong> → Sem problema / Não tem mal nenhum.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">⭐ Vocabulário-chave</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>Causative (Causativo)</h3>
+              <p><em>(pt) Causativo</em><br><small><strong>HAVE</strong> + person + base verb &nbsp;|&nbsp; <strong>GET</strong> + person + to + verb.<br>Ex.: <em>"I had Max order lunch."</em></small></p>
+            </div>
+            <div class="vocab green">
+              <h3>Telekinesis</h3>
+              <p><em>(pt) Telecinese</em><br><small>Mover objetos com a mente. César destacou: telecinese também te faz voar — dois poderes em um!<br>Ex.: <em>"She used telekinesis to fly."</em></small></p>
+            </div>
+            <div class="vocab yellow">
+              <h3>Shapeshifting</h3>
+              <p><em>(pt) Metamorfose</em><br><small>Mudar de forma — virar animal, líquido, qualquer coisa. Diferente de elasticidade (Mr. Fantastic).<br>Ex.: <em>"Beast Boy uses shapeshifting."</em></small></p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📚 Vocabulário completo da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">🦸 Superpoderes — Top 10</h3>
+            <ul>
+              <li><strong>Teleportation</strong> – Teleportação <em style="color:var(--muted);font-size:0.88rem;">(#1 — sua favorita!)</em></li>
+              <li><strong>Time travel / Time control</strong> – Viagem no tempo <em style="color:var(--muted);font-size:0.88rem;">(#2)</em></li>
+              <li><strong>Telepathy</strong> – Telepatia <em style="color:var(--muted);font-size:0.88rem;">(#3 — como Professor X)</em></li>
+              <li><strong>Super strength</strong> – Super força <em style="color:var(--muted);font-size:0.88rem;">(#4)</em></li>
+              <li><strong>Invisibility</strong> – Invisibilidade <em style="color:var(--muted);font-size:0.88rem;">(#5)</em></li>
+              <li><strong>Telekinesis</strong> – Telecinese <em style="color:var(--muted);font-size:0.88rem;">(#6 — mover com a mente; também faz voar!)</em></li>
+              <li><strong>Healing factor / Regeneration</strong> – Regeneração <em style="color:var(--muted);font-size:0.88rem;">(#7 — Deadpool)</em></li>
+              <li><strong>Flight / Flying</strong> – Voo <em style="color:var(--muted);font-size:0.88rem;">(#8)</em></li>
+              <li><strong>Super speed</strong> – Super velocidade <em style="color:var(--muted);font-size:0.88rem;">(#9 — The Flash)</em></li>
+              <li><strong>Shapeshifting</strong> – Metamorfose <em style="color:var(--muted);font-size:0.88rem;">(#10 — Beast Boy dos Titãs)</em></li>
+            </ul>
+            <h3>⚙️ Causativo</h3>
+            <ul>
+              <li><strong>HAVE + person + BASE VERB</strong> – Mandar / Fazer com que <em style="color:var(--muted);font-size:0.88rem;">Ex.: "I'll have Max order lunch."</em></li>
+              <li><strong>GET + person + TO + VERB</strong> – Conseguir / Convencer <em style="color:var(--muted);font-size:0.88rem;">Ex.: "She got Rosa to pay."</em></li>
+            </ul>
+            <h3>🗣️ Expressões gerais</h3>
+            <ul>
+              <li><strong>right away</strong> – imediatamente</li>
+              <li><strong>running late</strong> – estar se atrasando</li>
+              <li><strong>a lot on your plate</strong> – muita coisa para fazer</li>
+              <li><strong>no harm done</strong> – sem problema</li>
+              <li><strong>waiter / waitress / server</strong> – garçom / garçonete / neutro</li>
+              <li><strong>the check</strong> – a conta (restaurante)</li>
+              <li><strong>pick up</strong> – buscar / pegar</li>
+              <li><strong>be able to</strong> – conseguir / ser capaz de</li>
+              <li><strong>front desk</strong> – recepção (hotel)</li>
+              <li><strong>ASAP</strong> – o mais rápido possível</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- BOX PERSONALIZADA — O QUE GABRIEL DISSE -->
+        <section>
+          <h2 style="margin-bottom:8px;">🎤 Você disse na aula...</h2>
+          <div class="student-moment">
+            <div class="sm-label">✏️ Momento da sua fala</div>
+            <p class="sm-quote">"She's going to have <em>to</em> her husband pick up the kids."</p>
+            <div class="sm-fix">
+              <p style="margin:0 0 8px 0;">Você estava quase certo! O problema foi colocar <strong>"to"</strong> depois de HAVE — com o causativo HAVE, o verbo vem direto, sem "to":</p>
+              <p style="margin:0 0 4px 0;color:#c53030;">❌ "have <u>to</u> her husband pick up"</p>
+              <p style="margin:0 0 8px 0;color:#276749;">✅ <strong>"She's going to have her husband pick up the kids."</strong></p>
+              <p style="margin:0;color:var(--muted);font-size:0.88rem;">💡 Lembre: <strong>HAVE</strong> + person + BASE VERB (sem "to"). O "to" só aparece com <strong>GET</strong>: <em>"get someone <u>to</u> do something."</em></p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🚨 Correções importantes</h2>
+          <div class="outline-card">
+
+            <p style="margin:0 0 10px 0;"><strong>1. Não use "to" com o causativo HAVE</strong></p>
+            <p style="margin:0 0 4px 0;color:#c53030;">❌ "She's going to have <u>to</u> her husband pick up the kids."</p>
+            <p style="margin:0 0 14px 0;color:#276749;">✅ <strong>"She's going to have her husband pick up the kids."</strong> — Com HAVE, verbo direto na forma base, sem "to".</p>
+
+            <p style="margin:0 0 10px 0;"><strong>2. "To" é obrigatório com o causativo GET</strong></p>
+            <p style="margin:0 0 4px 0;color:#c53030;">❌ "She got Rosa <u>pay</u> for dinner."</p>
+            <p style="margin:0 0 14px 0;color:#276749;">✅ <strong>"She got Rosa <u>to pay</u> for dinner."</strong> — Com GET, sempre use "to".</p>
+
+            <p style="margin:0 0 10px 0;"><strong>3. Passado irregular: forget → forgot</strong></p>
+            <p style="margin:0 0 4px 0;color:#c53030;">❌ "I <u>forget</u> my jacket at work."</p>
+            <p style="margin:0 0 14px 0;color:#276749;">✅ <strong>"I <u>forgot</u> my jacket at work."</strong> — Para falar do passado: forget → forgot.</p>
+
+            <p style="margin:0 0 10px 0;"><strong>4. "Help" com ou sem "to"</strong></p>
+            <p style="margin:0 0 4px 0;color:#c53030;">❌ "get her friends <u>to</u> help <u>to</u> her move" <em style="color:var(--muted)">(dois "to" — redundante)</em></p>
+            <p style="margin:0;color:#276749;">✅ <strong>"get her friends to help her move"</strong> — Após "help", o verbo vem sem "to": <em>help + base verb.</em></p>
+
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">🎥 Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a class="media-btn" href="https://youtu.be/uDGgFOoh06g" target="_blank" rel="noopener noreferrer" role="button"
+               style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;">
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>🗣️ Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr><th>Quem falou</th><th>Porcentagem</th><th>Duração aproximada</th></tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">55%</span></td>
+                <td class="talk-time">~29 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Gabriel Mendes</span></td>
+                <td><span class="talk-percent">20%</span></td>
+                <td class="talk-time">~11 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Lucas Mendes (colega de turma)</span></td>
+                <td><span class="talk-percent">25%</span></td>
+                <td class="talk-time">~13 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">📝 Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">📌 <strong>Lição de casa:</strong></p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Leia este pós-aula de <strong>2 a 3 vezes</strong> durante a semana.</li>
+              <li>Traduza as frases abaixo usando HAVE ou GET (causativo):</li>
+            </ul>
+            <ol style="margin:8px 0 0 18px;padding:0;font-size:0.94rem;color:#154360;line-height:1.9;">
+              <li>Eu pedi para meu irmão me ajudar a me mudar. <em style="color:var(--muted);font-size:0.85rem;">(GET)</em></li>
+              <li>A empresa vai mandar alguém consertar o computador. <em style="color:var(--muted);font-size:0.85rem;">(HAVE)</em></li>
+              <li>Você conseguiu alguém para fazer a entrega? <em style="color:var(--muted);font-size:0.85rem;">(GET)</em></li>
+              <li>Vou mandar meu assistente confirmar o horário. <em style="color:var(--muted);font-size:0.85rem;">(HAVE)</em></li>
+              <li>Ela pediu para o garçom trazer a conta imediatamente. <em style="color:var(--muted);font-size:0.85rem;">(HAVE)</em></li>
+            </ol>
+            <p style="margin:12px 0 0 0;font-size:0.9rem;color:var(--muted);">📅 <strong>Próxima aula:</strong> Quinta-feira, 25/06, às 19h.</p>
+          </div>
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me/5511999999999" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar com o César no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+
+    </article>
+  </div>
+</body>
+</html>
